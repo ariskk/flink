@@ -19,12 +19,15 @@
 package org.apache.flink.streaming.api.scala
 
 import org.apache.flink.annotation.{Internal, Public, PublicEvolving}
+import org.apache.flink.api.common.state.ValueStateDescriptor
 import org.apache.flink.api.common.typeinfo.TypeInformation
+import org.apache.flink.api.common.typeutils.TypeSerializer
 import org.apache.flink.api.java.functions.KeySelector
 import org.apache.flink.api.java.typeutils.ResultTypeQueryable
 import org.apache.flink.streaming.api.datastream.{ConnectedStreams => JavaCStream, DataStream => JavaStream}
-import org.apache.flink.streaming.api.functions.co.{CoFlatMapFunction, CoMapFunction, CoProcessFunction}
+import org.apache.flink.streaming.api.functions.co.{CoFlatMapFunction, CoMapFunction, CoProcessFunction, RichCoMapFunction}
 import org.apache.flink.streaming.api.operators.TwoInputStreamOperator
+import org.apache.flink.streaming.api.scala.function.StatefulFunction
 import org.apache.flink.util.Collector
 
 /**
@@ -213,6 +216,44 @@ class ConnectedStreams[IN1, IN2](javaStream: JavaCStream[IN1, IN2]) {
     
     flatMap(flatMapper)
   }
+
+  def coMapWithState[O: TypeInformation, S: TypeInformation](
+    fun1: (IN1, Option[S]) => (O, S),
+    fun2: (IN2, Option[S]) => (O, S)
+  ): DataStream[O] = {
+
+    if (fun1 == null || fun2 == null) {
+      throw new NullPointerException("CoMap functions must not be null.")
+    }
+
+    val cleanFun1 = clean(fun1)
+    val cleanFun2 = clean(fun2)
+
+    val coMapper = new RichCoMapFunction[IN1, IN2, O] {
+
+      lazy val stateTypeInfo: TypeInformation[S] = implicitly[TypeInformation[S]]
+      lazy val serializer: TypeSerializer[S] = stateTypeInfo.createSerializer(getRuntimeContext.getExecutionConfig)
+      lazy val stateDescriptor = new ValueStateDescriptor[S]("state", serializer)
+
+      def map[I](in: I, f: (I, Option[S]) => (O, S)) = {
+        val state = getRuntimeContext.getState(stateDescriptor)
+        val (o, newState) = f(in, Option(state.value))
+        state.update(newState)
+        o
+      }
+
+      override def map1(in: IN1): O = map[IN1](in, cleanFun1)
+
+      override def map2(in: IN2): O = map[IN2](in, cleanFun2)
+    }
+
+    map(coMapper)
+  }
+
+  def coFlatMapWithState[O: TypeInformation, S: TypeInformation](
+    f1: (IN1, Option[S]) => (Traversable[O], S),
+    f2: (IN2, Option[S]) => (Traversable[O], S)
+  ): DataStream[O] = coMapWithState[Traversable[O], S](f1, f2).flatMap(identity(_))
 
   // ------------------------------------------------------
   //  grouping and partitioning
