@@ -45,24 +45,24 @@ class DataStreamTest extends StreamingMultipleProgramsTestBase {
 
     val source1Operator = env.generateSequence(0, 0).name("testSource1")
     val source1 = source1Operator
-    assert("testSource1" == source1Operator.getName)
+    assert("testSource1" == source1Operator.name)
 
     val dataStream1 = source1
       .map(x => 0L)
       .name("testMap")
-    assert("testMap" == dataStream1.getName)
+    assert("testMap" == dataStream1.name)
 
     val dataStream2 = env.generateSequence(0, 0).name("testSource2")
       .keyBy(x=>x)
       .reduce((x, y) => 0)
       .name("testReduce")
-    assert("testReduce" == dataStream2.getName)
+    assert("testReduce" == dataStream2.name)
 
     val connected = dataStream1.connect(dataStream2)
       .flatMap({ (in, out: Collector[(Long, Long)]) => }, { (in, out: Collector[(Long, Long)]) => })
       .name("testCoFlatMap")
 
-    assert("testCoFlatMap" == connected.getName)
+    assert("testCoFlatMap" == connected.name)
 
     val func: (((Long, Long), (Long, Long)) => (Long, Long)) =
       (x: (Long, Long), y: (Long, Long)) => (0L, 0L)
@@ -74,7 +74,7 @@ class DataStreamTest extends StreamingMultipleProgramsTestBase {
 
     windowed.name("testWindowFold")
 
-    assert("testWindowFold" == windowed.getName)
+    assert("testWindowFold" == windowed.name)
 
     windowed.print()
 
@@ -451,9 +451,6 @@ class DataStreamTest extends StreamingMultipleProgramsTestBase {
     assert(mapFunction == getFunctionForDataStream(map))
     assert(getFunctionForDataStream(map.map(x => 0)).isInstanceOf[MapFunction[_, _]])
     
-    val statefulMap2 = src.keyBy(x => x).mapWithState(
-        (in, state: Option[Long]) => (in, None.asInstanceOf[Option[Long]]))
-    
     val flatMapFunction = new FlatMapFunction[Long, Int] {
       override def flatMap(value: Long, out: Collector[Int]): Unit = {}
     }
@@ -464,9 +461,6 @@ class DataStreamTest extends StreamingMultipleProgramsTestBase {
       getFunctionForDataStream(flatMap
         .flatMap((x: Int, out: Collector[Int]) => {}))
         .isInstanceOf[FlatMapFunction[_, _]])
-
-    val statefulfMap2 = src.keyBy(x => x).flatMapWithState(
-        (in, state: Option[Long]) => (List(in), None.asInstanceOf[Option[Long]]))
    
     val filterFunction = new FilterFunction[Int] {
       override def filter(value: Int): Boolean = false
@@ -478,9 +472,6 @@ class DataStreamTest extends StreamingMultipleProgramsTestBase {
       getFunctionForDataStream(map
         .filter((x: Int) => true))
         .isInstanceOf[FilterFunction[_]])
-
-    val statefulFilter2 = src.keyBy( x => x).filterWithState[Long](
-        (in, state: Option[Long]) => (false, None))
    
     try {
       env.getStreamGraph.getStreamEdges(map.getId, unionFilter.getId)
