@@ -671,6 +671,17 @@ class DataStream[T](stream: JavaStream[T]) {
   }
 
   /**
+    * Creates a new DataStream by applying the partial function to the elements on which the function is defined
+    */
+  def collect[R: TypeInformation](pf: PartialFunction[T, R]) = {
+    if (pf == null) {
+      throw new NullPointerException("The PartialFunction must not be null.")
+    }
+    val cleanPF = clean(pf)
+    filter(cleanPF.isDefinedAt _).map(cleanPF)
+  }
+
+  /**
    * Windows this DataStream into tumbling time windows.
    *
    * This is a shortcut for either `.window(TumblingEventTimeWindows.of(size))` or
