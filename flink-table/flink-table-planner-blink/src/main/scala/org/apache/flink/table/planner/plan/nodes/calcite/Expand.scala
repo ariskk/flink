@@ -28,7 +28,7 @@ import org.apache.calcite.util.Litmus
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Relational expression that apply a number of projects to every input row,

@@ -24,7 +24,7 @@ import org.apache.flink.api.common.typeutils.TypeSerializer;
 import org.apache.flink.api.common.typeutils.TypeSerializerConfigSnapshot;
 import org.apache.flink.api.common.typeutils.TypeSerializerSchemaCompatibility;
 
-import scala.collection.TraversableOnce;
+import scala.collection.IterableOnce;
 
 /**
  * A {@link TypeSerializerConfigSnapshot} for the Scala {@link TraversableSerializer}.
@@ -36,7 +36,7 @@ import scala.collection.TraversableOnce;
  * @deprecated This is being replaced with {@link TraversableSerializerSnapshot}.
  */
 @Deprecated
-public class TraversableSerializerConfigSnapshot<T extends TraversableOnce<E>, E>
+public class TraversableSerializerConfigSnapshot<T extends IterableOnce<E>, E>
 		extends CompositeTypeSerializerConfigSnapshot<T> {
 
 	private static final int VERSION = 1;

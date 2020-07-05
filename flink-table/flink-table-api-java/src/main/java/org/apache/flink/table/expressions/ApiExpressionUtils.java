@@ -173,7 +173,7 @@ public final class ApiExpressionUtils {
 			throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 		Class<?> mapClass = Class.forName("scala.collection.Map");
 		if (mapClass.isAssignableFrom(obj.getClass())) {
-			Class<?> seqClass = Class.forName("scala.collection.Seq");
+			Class<?> seqClass = Class.forName("scala.collection.immutable.Seq");
 			Class<?> productClass = Class.forName("scala.Product");
 			Method getElement = productClass.getMethod("productElement", int.class);
 			Method toSeq = mapClass.getMethod("toSeq");
@@ -198,7 +198,7 @@ public final class ApiExpressionUtils {
 
 	private static Optional<Expression> convertScalaSeq(Object obj)
 			throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-		Class<?> seqClass = Class.forName("scala.collection.Seq");
+		Class<?> seqClass = Class.forName("scala.collection.immutable.Seq");
 		if (seqClass.isAssignableFrom(obj.getClass())) {
 			Method getMethod = seqClass.getMethod("apply", Object.class);
 			Method lengthMethod = seqClass.getMethod("length");

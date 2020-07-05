@@ -23,7 +23,7 @@ import org.apache.flink.table.planner.runtime.stream.FsStreamingSinkITCaseBase
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 /**
   * Test checkpoint for file system table factory with testcsv format.

@@ -26,7 +26,7 @@ import org.apache.calcite.plan.hep.{HepMatchOrder, HepPlanner, HepProgramBuilder
 import org.apache.calcite.rel.RelNode
 import org.apache.calcite.tools.RuleSet
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * A FlinkRuleSetProgram that runs with [[HepPlanner]].

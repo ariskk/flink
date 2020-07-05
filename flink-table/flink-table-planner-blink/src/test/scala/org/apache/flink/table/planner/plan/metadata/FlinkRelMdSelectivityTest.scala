@@ -40,7 +40,7 @@ import org.junit.Test
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class FlinkRelMdSelectivityTest extends FlinkRelMdHandlerTestBase {
 

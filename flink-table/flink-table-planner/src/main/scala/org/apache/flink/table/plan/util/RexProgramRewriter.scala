@@ -21,7 +21,7 @@ package org.apache.flink.table.plan.util
 import org.apache.calcite.rel.`type`.RelDataType
 import org.apache.calcite.rex._
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 object RexProgramRewriter {

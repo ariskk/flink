@@ -55,7 +55,7 @@ import org.apache.calcite.rel.core.AggregateCall
 import org.apache.calcite.tools.RelBuilder
 import org.apache.commons.math3.util.ArithmeticUtils
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 abstract class WindowCodeGenerator(
     relBuilder: RelBuilder,

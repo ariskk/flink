@@ -37,7 +37,7 @@ import org.apache.flink.table.plan.schema.TimeIndicatorRelDataType
 
 import java.util.{Collections => JCollections}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 

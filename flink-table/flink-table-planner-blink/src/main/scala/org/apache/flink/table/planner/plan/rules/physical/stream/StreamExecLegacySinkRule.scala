@@ -30,7 +30,7 @@ import org.apache.calcite.plan.RelOptRule
 import org.apache.calcite.rel.RelNode
 import org.apache.calcite.rel.convert.ConverterRule
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class StreamExecLegacySinkRule extends ConverterRule(
     classOf[FlinkLogicalLegacySink],

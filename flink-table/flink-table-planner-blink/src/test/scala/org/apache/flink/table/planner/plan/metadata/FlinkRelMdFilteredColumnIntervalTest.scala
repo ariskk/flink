@@ -26,7 +26,7 @@ import org.apache.calcite.sql.fun.SqlStdOperatorTable.{DIVIDE, EQUALS, GREATER_T
 import org.junit.Assert.{assertEquals, assertNull}
 import org.junit.{Before, Test}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class FlinkRelMdFilteredColumnIntervalTest extends FlinkRelMdHandlerTestBase {
   private var ts: RelNode = _

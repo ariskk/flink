@@ -61,7 +61,7 @@ class JoinITCase extends StreamingWithStateTestBase {
         |    t2.proctime + INTERVAL '5' SECOND
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(Int, Long, String)]
+    val data1 = new mutable.ListBuffer[(Int, Long, String)]
     data1.+=((1, 1L, "Hi1"))
     data1.+=((1, 2L, "Hi2"))
     data1.+=((1, 5L, "Hi3"))
@@ -69,7 +69,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     data1.+=((1, 9L, "Hi6"))
     data1.+=((1, 8L, "Hi8"))
 
-    val data2 = new mutable.MutableList[(Int, Long, String)]
+    val data2 = new mutable.ListBuffer[(Int, Long, String)]
     data2.+=((1, 1L, "HiHi"))
     data2.+=((2, 2L, "HeHe"))
 
@@ -105,7 +105,7 @@ class JoinITCase extends StreamingWithStateTestBase {
        |  t1.b = t2.b
        |""".stripMargin
 
-    val data1 = new mutable.MutableList[(String, Long, String)]
+    val data1 = new mutable.ListBuffer[(String, Long, String)]
     data1.+=(("1", 1L, "Hi1"))
     data1.+=(("1", 2L, "Hi2"))
     data1.+=(("1", 5L, "Hi3"))
@@ -113,7 +113,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     data1.+=(("1", 9L, "Hi6"))
     data1.+=(("1", 8L, "Hi8"))
 
-    val data2 = new mutable.MutableList[(String, Long, String)]
+    val data2 = new mutable.ListBuffer[(String, Long, String)]
     data2.+=(("1", 5L, "HiHi"))
     data2.+=(("2", 2L, "HeHe"))
 
@@ -153,7 +153,7 @@ class JoinITCase extends StreamingWithStateTestBase {
         |    t2.rt + INTERVAL '6' SECOND
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(String, String, Long)]
+    val data1 = new mutable.ListBuffer[(String, String, Long)]
     // for boundary test
     data1.+=(("A", "LEFT0.999", 999L))
     data1.+=(("A", "LEFT1", 1000L))
@@ -165,7 +165,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     // test null key
     data1.+=((null.asInstanceOf[String], "LEFT8", 8000L))
 
-    val data2 = new mutable.MutableList[(String, String, Long)]
+    val data2 = new mutable.ListBuffer[(String, String, Long)]
     data2.+=(("A", "RIGHT6", 6000L))
     data2.+=(("B", "RIGHT7", 7000L))
     // test null key
@@ -211,14 +211,14 @@ class JoinITCase extends StreamingWithStateTestBase {
         |  t2.rt = t1.rt
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(Int, Long, String, Long)]
+    val data1 = new mutable.ListBuffer[(Int, Long, String, Long)]
 
     data1.+=((4, 4000L, "A", 4000L))
     data1.+=((5, 5000L, "A", 5000L))
     data1.+=((6, 6000L, "A", 6000L))
     data1.+=((6, 6000L, "B", 6000L))
 
-    val data2 = new mutable.MutableList[(String, String, Long)]
+    val data2 = new mutable.ListBuffer[(String, String, Long)]
     data2.+=(("A", "R-5", 5000L))
     data2.+=(("B", "R-6", 6000L))
 
@@ -261,7 +261,7 @@ class JoinITCase extends StreamingWithStateTestBase {
         |  t1.b > 2
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(Int, Long, String, Long)]
+    val data1 = new mutable.ListBuffer[(Int, Long, String, Long)]
     data1.+=((1, 4L, "LEFT1", 1000L))
     // for boundary test
     data1.+=((1, 8L, "LEFT1.1", 1001L))
@@ -274,7 +274,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     data1.+=((1, 4L, "LEFT5", 5000L))
     data1.+=((1, 10L, "LEFT6", 6000L))
 
-    val data2 = new mutable.MutableList[(Int, Long, String, Long)]
+    val data2 = new mutable.ListBuffer[(Int, Long, String, Long)]
     // just for watermark
     data2.+=((1, 1L, "RIGHT1", 1000L))
     data2.+=((1, 9L, "RIGHT6", 6000L))
@@ -323,7 +323,7 @@ class JoinITCase extends StreamingWithStateTestBase {
         |  QUARTER(t1.rt) = t2.a
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(Int, Long, String, Long)]
+    val data1 = new mutable.ListBuffer[(Int, Long, String, Long)]
     data1.+=((1, 4L, "LEFT1", 1000L))
     data1.+=((1, 2L, "LEFT2", 2000L))
     data1.+=((1, 7L, "LEFT3", 3000L))
@@ -331,7 +331,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     data1.+=((1, 4L, "LEFT5", 5000L))
     data1.+=((1, 10L, "LEFT6", 6000L))
 
-    val data2 = new mutable.MutableList[(Int, Long, String, Long)]
+    val data2 = new mutable.ListBuffer[(Int, Long, String, Long)]
     data2.+=((1, 1L, "RIGHT1", 1000L))
     data2.+=((1, 9L, "RIGHT6", 6000L))
     data2.+=((2, 8, "RIGHT7", 7000L))
@@ -378,7 +378,7 @@ class JoinITCase extends StreamingWithStateTestBase {
         |GROUP BY TUMBLE(t1.rt, INTERVAL '4' SECOND), t1.key
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(String, String, Long)]
+    val data1 = new mutable.ListBuffer[(String, String, Long)]
     data1.+=(("A", "L-1", 1000L))  // no joining record
     data1.+=(("A", "L-2", 2000L))  // 1 joining record
     data1.+=(("A", "L-3", 3000L))  // 2 joining records
@@ -387,7 +387,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     data1.+=(("A", "L-6", 10000L)) // 2 joining records
     data1.+=(("A", "L-7", 13000L)) // 1 joining record
 
-    val data2 = new mutable.MutableList[(String, String, Long)]
+    val data2 = new mutable.ListBuffer[(String, String, Long)]
     data2.+=(("A", "R-1", 7000L)) // 3 joining records
     data2.+=(("B", "R-4", 7000L)) // 1 joining records
     data2.+=(("A", "R-3", 8000L)) // 3 joining records
@@ -433,7 +433,7 @@ class JoinITCase extends StreamingWithStateTestBase {
         |GROUP BY TUMBLE(t2.rt, INTERVAL '4' SECOND), t2.key
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(String, String, Long)]
+    val data1 = new mutable.ListBuffer[(String, String, Long)]
     data1.+=(("A", "L-1", 1000L))  // no joining record
     data1.+=(("A", "L-2", 2000L))  // 1 joining record
     data1.+=(("A", "L-3", 3000L))  // 2 joining records
@@ -442,7 +442,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     data1.+=(("A", "L-6", 10000L)) // 2 joining records
     data1.+=(("A", "L-7", 13000L)) // 1 joining record
 
-    val data2 = new mutable.MutableList[(String, String, Long)]
+    val data2 = new mutable.ListBuffer[(String, String, Long)]
     data2.+=(("A", "R-1", 7000L)) // 3 joining records
     data2.+=(("B", "R-4", 7000L)) // 1 joining records
     data2.+=(("A", "R-3", 8000L)) // 3 joining records
@@ -486,13 +486,13 @@ class JoinITCase extends StreamingWithStateTestBase {
         |    t2.proctime + INTERVAL '3' SECOND
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(Int, Long, String)]
+    val data1 = new mutable.ListBuffer[(Int, Long, String)]
     data1.+=((1, 1L, "Hi1"))
     data1.+=((1, 2L, "Hi2"))
     data1.+=((1, 5L, "Hi3"))
     data1.+=((2, 7L, "Hi5"))
 
-    val data2 = new mutable.MutableList[(Int, Long, String)]
+    val data2 = new mutable.ListBuffer[(Int, Long, String)]
     data2.+=((1, 1L, "HiHi"))
     data2.+=((2, 2L, "HeHe"))
 
@@ -527,7 +527,7 @@ class JoinITCase extends StreamingWithStateTestBase {
         |  t1.id <> 'L-5'
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(String, String, Long)]
+    val data1 = new mutable.ListBuffer[(String, String, Long)]
     // for boundary test
     data1.+=(("A", "L-1", 1000L))
     data1.+=(("A", "L-2", 2000L))
@@ -539,7 +539,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     data1.+=(("A", "L-12", 12000L))
     data1.+=(("A", "L-20", 20000L))
 
-    val data2 = new mutable.MutableList[(String, String, Long)]
+    val data2 = new mutable.ListBuffer[(String, String, Long)]
     data2.+=(("A", "R-6", 6000L))
     data2.+=(("B", "R-7", 7000L))
     data2.+=(("D", "R-8", 8000L))
@@ -591,13 +591,13 @@ class JoinITCase extends StreamingWithStateTestBase {
         |    t2.rt + INTERVAL '1' SECOND
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(String, String, Long)]
+    val data1 = new mutable.ListBuffer[(String, String, Long)]
     // for boundary test
     data1.+=(("A", "L-1", 1000L))
     data1.+=(("B", "L-4", 4000L))
     data1.+=(("C", "L-7", 7000L))
 
-    val data2 = new mutable.MutableList[(String, String, Long)]
+    val data2 = new mutable.ListBuffer[(String, String, Long)]
     data2.+=(("A", "R-6", 6000L))
     data2.+=(("B", "R-7", 7000L))
     data2.+=(("D", "R-8", 8000L))
@@ -640,13 +640,13 @@ class JoinITCase extends StreamingWithStateTestBase {
         |    t2.proctime + INTERVAL '3' SECOND
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(Int, Long, String)]
+    val data1 = new mutable.ListBuffer[(Int, Long, String)]
     data1.+=((1, 1L, "Hi1"))
     data1.+=((1, 2L, "Hi2"))
     data1.+=((1, 5L, "Hi3"))
     data1.+=((2, 7L, "Hi5"))
 
-    val data2 = new mutable.MutableList[(Int, Long, String)]
+    val data2 = new mutable.ListBuffer[(Int, Long, String)]
     data2.+=((1, 1L, "HiHi"))
     data2.+=((2, 2L, "HeHe"))
 
@@ -681,7 +681,7 @@ class JoinITCase extends StreamingWithStateTestBase {
         |  t2.id <> 'R-5'
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(String, String, Long)]
+    val data1 = new mutable.ListBuffer[(String, String, Long)]
     // for boundary test
     data1.+=(("A", "L-1", 1000L))
     data1.+=(("A", "L-2", 2000L))
@@ -691,7 +691,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     data1.+=(("A", "L-10", 10000L))
     data1.+=(("A", "L-12", 12000L))
 
-    val data2 = new mutable.MutableList[(String, String, Long)]
+    val data2 = new mutable.ListBuffer[(String, String, Long)]
     data2.+=(("A", "R-5", 5000L))
     data2.+=(("A", "R-6", 6000L))
     data2.+=(("B", "R-7", 7000L))
@@ -741,13 +741,13 @@ class JoinITCase extends StreamingWithStateTestBase {
         |    t2.rt + INTERVAL '1' SECOND
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(String, String, Long)]
+    val data1 = new mutable.ListBuffer[(String, String, Long)]
     // for boundary test
     data1.+=(("A", "L-1", 1000L))
     data1.+=(("B", "L-4", 4000L))
     data1.+=(("C", "L-7", 7000L))
 
-    val data2 = new mutable.MutableList[(String, String, Long)]
+    val data2 = new mutable.ListBuffer[(String, String, Long)]
     data2.+=(("A", "R-6", 6000L))
     data2.+=(("B", "R-7", 7000L))
     data2.+=(("D", "R-8", 8000L))
@@ -790,13 +790,13 @@ class JoinITCase extends StreamingWithStateTestBase {
         |    t2.proctime
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(Int, Long, String)]
+    val data1 = new mutable.ListBuffer[(Int, Long, String)]
     data1.+=((1, 1L, "Hi1"))
     data1.+=((1, 2L, "Hi2"))
     data1.+=((1, 5L, "Hi3"))
     data1.+=((2, 7L, "Hi5"))
 
-    val data2 = new mutable.MutableList[(Int, Long, String)]
+    val data2 = new mutable.ListBuffer[(Int, Long, String)]
     data2.+=((1, 1L, "HiHi"))
     data2.+=((2, 2L, "HeHe"))
 
@@ -831,7 +831,7 @@ class JoinITCase extends StreamingWithStateTestBase {
         |  NOT (t1.id = 'L-5' OR t2.id = 'R-5')
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(String, String, Long)]
+    val data1 = new mutable.ListBuffer[(String, String, Long)]
     // for boundary test
     data1.+=(("A", "L-1", 1000L))
     data1.+=(("A", "L-2", 2000L))
@@ -843,7 +843,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     data1.+=(("A", "L-12", 12000L))
     data1.+=(("A", "L-20", 20000L))
 
-    val data2 = new mutable.MutableList[(String, String, Long)]
+    val data2 = new mutable.ListBuffer[(String, String, Long)]
     data2.+=(("A", "R-5", 5000L))
     data2.+=(("A", "R-6", 6000L))
     data2.+=(("B", "R-7", 7000L))
@@ -894,13 +894,13 @@ class JoinITCase extends StreamingWithStateTestBase {
         |    t2.rt + INTERVAL '4' SECOND
         |""".stripMargin
 
-    val data1 = new mutable.MutableList[(String, String, Long)]
+    val data1 = new mutable.ListBuffer[(String, String, Long)]
     // for boundary test
     data1.+=(("A", "L-1", 1000L))
     data1.+=(("B", "L-4", 4000L))
     data1.+=(("C", "L-7", 7000L))
 
-    val data2 = new mutable.MutableList[(String, String, Long)]
+    val data2 = new mutable.ListBuffer[(String, String, Long)]
     data2.+=(("A", "R-6", 6000L))
     data2.+=(("B", "R-7", 7000L))
     data2.+=(("D", "R-8", 8000L))
@@ -936,7 +936,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     val tEnv = StreamTableEnvironment.create(env, settings)
     env.setStateBackend(getStateBackend)
 
-    val data1 = new mutable.MutableList[(Int, Long, String)]
+    val data1 = new mutable.ListBuffer[(Int, Long, String)]
     data1.+=((1, 1L, "Hi1"))
     data1.+=((1, 2L, "Hi2"))
     data1.+=((1, 2L, "Hi2"))
@@ -946,7 +946,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     data1.+=((1, 8L, "Hi8"))
     data1.+=((3, 8L, "Hi9"))
 
-    val data2 = new mutable.MutableList[(Int, Long, String)]
+    val data2 = new mutable.ListBuffer[(Int, Long, String)]
     data2.+=((1, 1L, "HiHi"))
     data2.+=((2, 2L, "HeHe"))
     data2.+=((3, 2L, "HeHe"))
@@ -971,7 +971,7 @@ class JoinITCase extends StreamingWithStateTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,HiHi,Hi2",
       "1,HiHi,Hi2",
       "1,HiHi,Hi3",

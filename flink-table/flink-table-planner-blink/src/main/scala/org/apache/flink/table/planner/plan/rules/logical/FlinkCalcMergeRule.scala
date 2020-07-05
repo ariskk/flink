@@ -26,7 +26,7 @@ import org.apache.calcite.rel.core.{Calc, RelFactories}
 import org.apache.calcite.rex.{RexOver, RexProgramBuilder, RexUtil}
 import org.apache.calcite.tools.RelBuilderFactory
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * This rule is copied from Calcite's [[org.apache.calcite.rel.rules.CalcMergeRule]].

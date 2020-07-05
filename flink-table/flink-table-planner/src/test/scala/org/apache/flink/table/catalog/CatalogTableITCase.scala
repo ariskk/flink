@@ -34,7 +34,7 @@ import org.junit.{Before, Ignore, Rule, Test}
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /** Test cases for catalog table. */
 @RunWith(classOf[Parameterized])

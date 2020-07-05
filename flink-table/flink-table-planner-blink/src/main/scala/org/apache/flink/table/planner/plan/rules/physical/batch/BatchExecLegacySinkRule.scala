@@ -31,7 +31,7 @@ import org.apache.calcite.plan.RelOptRule
 import org.apache.calcite.rel.convert.ConverterRule
 import org.apache.calcite.rel.{RelCollations, RelNode}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class BatchExecLegacySinkRule extends ConverterRule(
     classOf[FlinkLogicalLegacySink],

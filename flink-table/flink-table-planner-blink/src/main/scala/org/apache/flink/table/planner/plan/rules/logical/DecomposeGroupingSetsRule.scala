@@ -32,7 +32,7 @@ import org.apache.calcite.sql.SqlKind
 import org.apache.calcite.sql.fun.SqlStdOperatorTable
 import org.apache.calcite.util.ImmutableBitSet
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * This rule rewrites an aggregation query with grouping sets into

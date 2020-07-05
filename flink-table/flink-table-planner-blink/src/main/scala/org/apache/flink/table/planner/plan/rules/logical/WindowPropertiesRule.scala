@@ -35,7 +35,7 @@ import org.apache.calcite.rel.logical.{LogicalFilter, LogicalProject}
 import org.apache.calcite.rex.{RexCall, RexNode}
 import org.apache.calcite.tools.RelBuilder
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class WindowPropertiesRule extends RelOptRule(
   operand(classOf[LogicalProject],

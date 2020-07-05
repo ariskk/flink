@@ -43,7 +43,7 @@ import org.apache.calcite.tools.RelBuilder
 import _root_.java.sql.Timestamp
 import _root_.java.util.function.{Function => JFunction}
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 import _root_.scala.collection.JavaConverters._
 
 /** Util class for [[TableSource]]. */

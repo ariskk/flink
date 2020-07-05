@@ -25,7 +25,7 @@ import FlinkRelBuilder.NamedWindowProperty
 import org.apache.flink.table.runtime.aggregate.AggregateUtil._
 
 import scala.collection.JavaConverters._
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 trait CommonAggregate {
 

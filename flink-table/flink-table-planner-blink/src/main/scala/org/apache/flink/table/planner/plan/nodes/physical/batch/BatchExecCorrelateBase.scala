@@ -35,7 +35,7 @@ import org.apache.calcite.util.mapping.{Mapping, MappingType, Mappings}
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Base Batch physical RelNode for [[Correlate]] (user defined table function).

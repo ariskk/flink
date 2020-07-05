@@ -43,7 +43,7 @@ class MatchHarnessTest extends HarnessTestBase {
     val tEnv = StreamTableEnvironment.create(
       env, EnvironmentSettings.newInstance().useOldPlanner().build())
 
-    val data = new mutable.MutableList[(Int, String)]
+    val data = new mutable.ListBuffer[(Int, String)]
     val t = env.fromCollection(data).toTable(tEnv, 'id, 'name, 'proctime.proctime)
     tEnv.registerTable("MyTable", t)
 

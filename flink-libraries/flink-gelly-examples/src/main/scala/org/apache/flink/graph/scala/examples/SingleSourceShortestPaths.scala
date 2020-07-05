@@ -26,7 +26,7 @@ import org.apache.flink.graph.scala.utils.Tuple3ToEdgeMap
 import org.apache.flink.graph.spargel.{GatherFunction, MessageIterator, ScatterFunction}
 import org.apache.flink.graph.{Edge, Vertex}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
  * This example shows how to use Gelly's scatter-gather iterations.

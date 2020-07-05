@@ -36,7 +36,7 @@ import org.apache.calcite.rel.metadata.RelMetadataQuery
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Batch physical RelNode to read data from an external source defined by a

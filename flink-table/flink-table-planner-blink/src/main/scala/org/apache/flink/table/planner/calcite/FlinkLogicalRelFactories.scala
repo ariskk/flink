@@ -40,7 +40,7 @@ import org.apache.calcite.util.ImmutableBitSet
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Contains factory interface and default implementation for creating various

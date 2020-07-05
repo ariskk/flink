@@ -32,7 +32,7 @@ import org.apache.calcite.util.mapping.Mappings
 import java.util
 import java.util.function.IntFunction
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Planner rule that pushes a [[Project]] down in a tree past a semi/anti [[Join]]

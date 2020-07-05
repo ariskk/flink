@@ -35,7 +35,7 @@ import org.apache.calcite.sql.SqlKind
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Util for interval join operator.

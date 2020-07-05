@@ -31,6 +31,7 @@ import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.language.postfixOps
 import scala.reflect.macros.Context
+import scala.collection.immutable.Seq
 
 @Internal
 private[flink] trait TypeInformationGen[C <: Context] {

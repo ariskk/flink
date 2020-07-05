@@ -138,8 +138,8 @@ class TestBroadcastProcessFunction(
 
     var map = Map[Long, String]()
 
-    import scala.collection.JavaConversions._
-    for (entry <- ctx.getBroadcastState(localDescriptor).immutableEntries()) {
+    import scala.collection.JavaConverters._
+    ctx.getBroadcastState(localDescriptor).immutableEntries().asScala.foreach { entry =>
       val v = expectedBroadcastState.get(entry.getKey).get
       assertEquals(v, entry.getValue)
       map += (entry.getKey -> entry.getValue)

@@ -35,7 +35,7 @@ import org.apache.calcite.util.mapping.{Mapping, MappingType, Mappings}
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Base batch physical RelNode for [[Calc]].

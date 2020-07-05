@@ -39,7 +39,7 @@ import org.apache.calcite.util.{ImmutableBitSet, ImmutableIntList}
 import java.math.{BigDecimal => JBigDecimal}
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Planner rule that splits aggregations containing distinct aggregates, e.g, count distinct,

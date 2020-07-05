@@ -23,8 +23,8 @@ import scala.collection.mutable.{Buffer, ListBuffer, WrappedArray, BitSet => MBi
 import scala.util.matching.Regex
 import _root_.java.io.Serializable
 
-import com.twitter.chill._
-
+import com.twitter.chill.{JavaIterableWrapperSerializer => _, _}
+import com.twitter.chill
 
 import scala.collection.JavaConverters._
 
@@ -182,12 +182,13 @@ class AllScalaRegistrar extends IKryoRegistrar {
       def read(k: Kryo, in: Input, cls: Class[Symbol]) = Symbol(in.readString)
     })
       .forSubclass[Regex](new RegexSerializer)
-      .forClass[ClassManifest[Any]](new ClassManifestSerializer[Any])
+      .forClass[Manifest[Any]](new ManifestSerializer[Any])
       .forSubclass[Manifest[Any]](new ManifestSerializer[Any])
       .forSubclass[scala.Enumeration#Value](new EnumerationSerializer)
 
     // use the singleton serializer for boxed Unit
-    val boxedUnit = scala.Unit.box(())
+    val boxedUnit = scala.runtime.BoxedUnit.UNIT
+    //val boxedUnit = scala.Unit.box(())
     k.register(boxedUnit.getClass, new SingletonSerializer(boxedUnit))
     FlinkChillPackageRegistrar.all()(k)
   }

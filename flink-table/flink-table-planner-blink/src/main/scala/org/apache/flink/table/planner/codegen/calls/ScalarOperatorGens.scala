@@ -48,7 +48,7 @@ import org.apache.flink.table.planner.utils.JavaScalaConversionUtil.toScala
 import org.apache.flink.table.types.logical.utils.LogicalTypeMerging
 import org.apache.flink.table.types.logical.utils.LogicalTypeMerging.findCommonType
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Utilities to generate SQL scalar operators, e.g. arithmetic operator,

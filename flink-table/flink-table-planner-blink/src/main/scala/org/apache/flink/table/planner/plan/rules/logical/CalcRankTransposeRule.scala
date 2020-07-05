@@ -30,7 +30,7 @@ import org.apache.calcite.rel.core.Calc
 import org.apache.calcite.rex.{RexBuilder, RexInputRef, RexProgram}
 import org.apache.calcite.util.ImmutableBitSet
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Planner rule that transposes [[FlinkLogicalCalc]] past [[FlinkLogicalRank]]

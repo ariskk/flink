@@ -22,7 +22,7 @@ import org.apache.flink.streaming.api.graph.StreamGraph
 
 import java.io.{PrintWriter, StringWriter}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 
 object PlanUtil extends Logging {

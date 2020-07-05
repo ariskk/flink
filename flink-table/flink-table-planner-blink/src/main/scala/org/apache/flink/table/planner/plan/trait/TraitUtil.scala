@@ -22,7 +22,7 @@ import org.apache.calcite.plan.RelTrait
 import org.apache.calcite.rel.{RelCollation, RelCollations, RelFieldCollation}
 import org.apache.calcite.util.mapping.Mappings
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 /**

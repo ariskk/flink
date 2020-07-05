@@ -30,7 +30,7 @@ import org.apache.flink.table.planner.plan.nodes.physical.stream.StreamExecGroup
 import org.apache.flink.table.planner.plan.utils.AggregateUtil.{isRowtimeAttribute, timeFieldIndex}
 import org.apache.flink.table.planner.plan.utils.WindowEmitStrategy
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Rule to convert a [[FlinkLogicalWindowTableAggregate]] into a

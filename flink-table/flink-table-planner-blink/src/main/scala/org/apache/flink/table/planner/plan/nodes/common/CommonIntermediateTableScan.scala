@@ -26,7 +26,7 @@ import org.apache.calcite.rel.RelWriter
 import org.apache.calcite.rel.core.TableScan
 import org.apache.calcite.rel.metadata.RelMetadataQuery
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Base class that wraps [[IntermediateRelTable]].

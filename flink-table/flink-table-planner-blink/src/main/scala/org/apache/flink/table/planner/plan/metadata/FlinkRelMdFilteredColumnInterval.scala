@@ -32,7 +32,7 @@ import org.apache.calcite.rel.metadata._
 import org.apache.calcite.sql.`type`.SqlTypeUtil
 import org.apache.calcite.util.Util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * [[FlinkRelMdFilteredColumnInterval]] supplies a default implementation of

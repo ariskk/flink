@@ -31,7 +31,7 @@ import org.apache.calcite.rex.{RexCall, RexInputRef, RexLiteral, RexProgram}
 
 import java.util.Collections
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Base class for flink [[Calc]].

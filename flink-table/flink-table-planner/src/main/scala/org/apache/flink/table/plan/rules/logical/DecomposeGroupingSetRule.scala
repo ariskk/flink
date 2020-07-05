@@ -27,7 +27,7 @@ import org.apache.calcite.sql.SqlKind
 import org.apache.calcite.tools.RelBuilder
 import org.apache.calcite.util.ImmutableBitSet
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class DecomposeGroupingSetRule
   extends RelOptRule(

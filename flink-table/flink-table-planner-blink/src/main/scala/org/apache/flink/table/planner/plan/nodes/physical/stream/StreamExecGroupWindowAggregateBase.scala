@@ -46,7 +46,7 @@ import org.apache.calcite.tools.RelBuilder
 import java.time.Duration
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Base streaming group window aggregate physical node for either aggregate or table aggregate.

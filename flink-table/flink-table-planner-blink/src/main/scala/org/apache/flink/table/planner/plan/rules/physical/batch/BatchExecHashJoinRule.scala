@@ -37,7 +37,7 @@ import org.apache.calcite.util.ImmutableIntList
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Rule that converts [[FlinkLogicalJoin]] to [[BatchExecHashJoin]]

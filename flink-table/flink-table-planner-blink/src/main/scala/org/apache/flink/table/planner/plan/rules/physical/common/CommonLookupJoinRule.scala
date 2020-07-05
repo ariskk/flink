@@ -34,7 +34,7 @@ import org.apache.calcite.rex.{RexCorrelVariable, RexFieldAccess, RexProgram}
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Base implementation for both

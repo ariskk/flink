@@ -55,7 +55,7 @@ import org.apache.calcite.rex.RexNode
 import java.util
 import java.util.function.{Function => JFunction}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Stream physical RelNode to read data from an external source defined by a [[StreamTableSource]].

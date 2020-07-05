@@ -31,7 +31,7 @@ import org.apache.flink.table.planner.plan.utils.PythonUtil.{containsNonPythonCa
 import org.apache.flink.table.planner.plan.utils.{InputRefVisitor, RexDefaultVisitor}
 
 import scala.collection.JavaConverters._
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 /**

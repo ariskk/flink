@@ -36,7 +36,7 @@ import org.apache.calcite.util.mapping.IntPair
 import java.util
 import java.util.Collections
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Base physical class for flink [[Join]].

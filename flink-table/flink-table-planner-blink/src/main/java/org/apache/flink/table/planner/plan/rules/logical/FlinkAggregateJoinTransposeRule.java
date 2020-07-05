@@ -65,7 +65,7 @@ import java.util.TreeMap;
 
 import scala.Tuple2;
 import scala.collection.JavaConverters;
-import scala.collection.Seq;
+import scala.collection.immutable.Seq;
 
 /**
  * This rule is copied from Calcite's {@link org.apache.calcite.rel.rules.AggregateJoinTransposeRule}.

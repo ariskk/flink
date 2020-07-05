@@ -33,7 +33,7 @@ import org.apache.calcite.sql.SqlExplainLevel
 import org.junit.Assert.assertEquals
 import org.junit.{Before, Test}
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 class FlinkRelOptUtilTest {
 

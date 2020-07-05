@@ -29,7 +29,7 @@ import org.apache.calcite.rel.metadata.RelMetadataQuery
 
 import java.util.{List => JList}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Sub-class of [[Minus]] that is a relational expression which returns the rows of

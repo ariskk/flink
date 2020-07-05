@@ -22,7 +22,7 @@ import org.apache.calcite.rex._
 
 import java.util.{List => JList}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 object RexNodeRewriter {

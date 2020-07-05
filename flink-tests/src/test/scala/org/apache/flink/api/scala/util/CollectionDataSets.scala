@@ -33,7 +33,7 @@ import scala.util.Random
  */
 object CollectionDataSets {
   def get3TupleDataSet(env: ExecutionEnvironment): DataSet[(Int, Long, String)] = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "Hi"))
     data.+=((2, 2L, "Hello"))
     data.+=((3, 2L, "Hello world"))
@@ -59,7 +59,7 @@ object CollectionDataSets {
   }
 
   def getSmall3TupleDataSet(env: ExecutionEnvironment): DataSet[(Int, Long, String)] = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "Hi"))
     data.+=((2, 2L, "Hello"))
     data.+=((3, 2L, "Hello world"))
@@ -67,7 +67,7 @@ object CollectionDataSets {
   }
 
   def get5TupleDataSet(env: ExecutionEnvironment): DataSet[(Int, Long, Int, String, Long)] = {
-    val data = new mutable.MutableList[(Int, Long, Int, String, Long)]
+    val data = new mutable.ListBuffer[(Int, Long, Int, String, Long)]
     data.+=((1, 1L, 0, "Hallo", 1L))
     data.+=((2, 2L, 1, "Hallo Welt", 2L))
     data.+=((2, 3L, 2, "Hallo Welt wie", 1L))
@@ -87,7 +87,7 @@ object CollectionDataSets {
   }
 
   def getSmall5TupleDataSet(env: ExecutionEnvironment): DataSet[(Int, Long, Int, String, Long)] = {
-    val data = new mutable.MutableList[(Int, Long, Int, String, Long)]
+    val data = new mutable.ListBuffer[(Int, Long, Int, String, Long)]
     data.+=((1, 1L, 0, "Hallo", 1L))
     data.+=((2, 2L, 1, "Hallo Welt", 2L))
     data.+=((2, 3L, 2, "Hallo Welt wie", 1L))
@@ -95,7 +95,7 @@ object CollectionDataSets {
   }
 
   def getSmallNestedTupleDataSet(env: ExecutionEnvironment): DataSet[((Int, Int), String)] = {
-    val data = new mutable.MutableList[((Int, Int), String)]
+    val data = new mutable.ListBuffer[((Int, Int), String)]
     data.+=(((1, 1), "one"))
     data.+=(((2, 2), "two"))
     data.+=(((3, 3), "three"))
@@ -103,7 +103,7 @@ object CollectionDataSets {
   }
 
   def getGroupSortedNestedTupleDataSet(env: ExecutionEnvironment): DataSet[((Int, Int), String)] = {
-    val data = new mutable.MutableList[((Int, Int), String)]
+    val data = new mutable.ListBuffer[((Int, Int), String)]
     data.+=(((1, 3), "a"))
     data.+=(((1, 2), "a"))
     data.+=(((2, 1), "a"))
@@ -115,7 +115,7 @@ object CollectionDataSets {
   }
 
   def getStringDataSet(env: ExecutionEnvironment): DataSet[String] = {
-    val data = new mutable.MutableList[String]
+    val data = new mutable.ListBuffer[String]
     data.+=("Hi")
     data.+=("Hello")
     data.+=("Hello world")
@@ -128,7 +128,7 @@ object CollectionDataSets {
   }
 
   def getIntDataSet(env: ExecutionEnvironment): DataSet[Int] = {
-    val data = new mutable.MutableList[Int]
+    val data = new mutable.ListBuffer[Int]
     data.+=(1)
     data.+=(2)
     data.+=(2)
@@ -148,7 +148,7 @@ object CollectionDataSets {
   }
 
   def getCustomTypeDataSet(env: ExecutionEnvironment): DataSet[CustomType] = {
-    val data = new mutable.MutableList[CustomType]
+    val data = new mutable.ListBuffer[CustomType]
     data.+=(new CustomType(1, 0L, "Hi"))
     data.+=(new CustomType(2, 1L, "Hello"))
     data.+=(new CustomType(2, 2L, "Hello world"))
@@ -174,7 +174,7 @@ object CollectionDataSets {
   }
 
   def getSmallCustomTypeDataSet(env: ExecutionEnvironment): DataSet[CustomType] = {
-    val data = new mutable.MutableList[CustomType]
+    val data = new mutable.ListBuffer[CustomType]
     data.+=(new CustomType(1, 0L, "Hi"))
     data.+=(new CustomType(2, 1L, "Hello"))
     data.+=(new CustomType(2, 2L, "Hello world"))
@@ -183,7 +183,7 @@ object CollectionDataSets {
 
   def getSmallTuplebasedPojoMatchingDataSet(env: ExecutionEnvironment):
       DataSet[(Int, String, Int, Int, Long, String, Long)] = {
-    val data = new mutable.MutableList[(Int, String, Int, Int, Long, String, Long)]
+    val data = new mutable.ListBuffer[(Int, String, Int, Int, Long, String, Long)]
     data.+=((1, "First", 10, 100, 1000L, "One", 10000L))
     data.+=((2, "Second", 20, 200, 2000L, "Two", 20000L))
     data.+=((3, "Third", 30, 300, 3000L, "Three", 30000L))
@@ -191,7 +191,7 @@ object CollectionDataSets {
   }
 
   def getSmallPojoDataSet(env: ExecutionEnvironment): DataSet[POJO] = {
-    val data = new mutable.MutableList[POJO]
+    val data = new mutable.ListBuffer[POJO]
     data.+=(new POJO(1, "First", 10, 100, 1000L, "One", 10000L))
     data.+=(new POJO(2, "Second", 20, 200, 2000L, "Two", 20000L))
     data.+=(new POJO(3, "Third", 30, 300, 3000L, "Three", 30000L))
@@ -199,7 +199,7 @@ object CollectionDataSets {
   }
 
   def getDuplicatePojoDataSet(env: ExecutionEnvironment): DataSet[POJO] = {
-    val data = new mutable.MutableList[POJO]
+    val data = new mutable.ListBuffer[POJO]
     data.+=(new POJO(1, "First", 10, 100, 1000L, "One", 10000L))
     data.+=(new POJO(1, "First", 10, 100, 1000L, "One", 10000L))
     data.+=(new POJO(1, "First", 10, 100, 1000L, "One", 10000L))
@@ -212,7 +212,7 @@ object CollectionDataSets {
   }
 
   def getCrazyNestedDataSet(env: ExecutionEnvironment): DataSet[CrazyNested] = {
-    val data = new mutable.MutableList[CrazyNested]
+    val data = new mutable.ListBuffer[CrazyNested]
     data.+=(new CrazyNested("aa"))
     data.+=(new CrazyNested("bb"))
     data.+=(new CrazyNested("bb"))
@@ -225,7 +225,7 @@ object CollectionDataSets {
   def getPojoContainingTupleAndWritable(env: ExecutionEnvironment): DataSet[CollectionDataSets
   .PojoContainingTupleAndWritable] = {
     val data = new
-        mutable.MutableList[PojoContainingTupleAndWritable]
+        mutable.ListBuffer[PojoContainingTupleAndWritable]
     data.+=(new PojoContainingTupleAndWritable(1, 10L, 100L))
     data.+=(new PojoContainingTupleAndWritable(2, 20L, 200L))
     data.+=(new PojoContainingTupleAndWritable(2, 20L, 200L))
@@ -237,7 +237,7 @@ object CollectionDataSets {
 
   def getGroupSortedPojoContainingTupleAndWritable(env: ExecutionEnvironment):
   DataSet[PojoContainingTupleAndWritable] = {
-    val data = new mutable.MutableList[PojoContainingTupleAndWritable]
+    val data = new mutable.ListBuffer[PojoContainingTupleAndWritable]
     data.+=(new CollectionDataSets.PojoContainingTupleAndWritable(1, 10L, 100L))
     data.+=(new CollectionDataSets.PojoContainingTupleAndWritable(2, 20L, 200L))
     data.+=(new CollectionDataSets.PojoContainingTupleAndWritable(2, 20L, 201L))
@@ -248,7 +248,7 @@ object CollectionDataSets {
   }
 
   def getTupleContainingPojos(env: ExecutionEnvironment): DataSet[(Int, CrazyNested, POJO)] = {
-    val data = new mutable.MutableList[(Int, CrazyNested, POJO)]
+    val data = new mutable.ListBuffer[(Int, CrazyNested, POJO)]
     data.+=((
       1,
       new CrazyNested("one", "uno", 1L),
@@ -269,7 +269,7 @@ object CollectionDataSets {
   }
 
   def getMixedPojoDataSet(env: ExecutionEnvironment): DataSet[POJO] = {
-    val data = new mutable.MutableList[POJO]
+    val data = new mutable.ListBuffer[POJO]
     data.+=(new POJO(1, "First", 10, 100, 1000L, "One", 10100L))
     data.+=(new POJO(2, "First_", 10, 105, 1000L, "One", 10200L))
     data.+=(new POJO(3, "First", 11, 102, 3000L, "One", 10200L))
@@ -283,7 +283,7 @@ object CollectionDataSets {
 
   def getSmallTuplebasedDataSetMatchingPojo(env: ExecutionEnvironment):
     DataSet[(Long, Integer, Integer, Long, String, Integer, String)] = {
-    val data = new mutable.MutableList[(Long, Integer, Integer, Long, String, Integer, String)]
+    val data = new mutable.ListBuffer[(Long, Integer, Integer, Long, String, Integer, String)]
     data.+=((10000L, 10, 100, 1000L, "One", 1, "First"))
     data.+=((20000L, 20, 200, 2000L, "Two", 2, "Second"))
     data.+=((30000L, 30, 300, 3000L, "Three", 3, "Third"))
@@ -292,7 +292,7 @@ object CollectionDataSets {
 
   def getPojoWithMultiplePojos(env: ExecutionEnvironment): DataSet[CollectionDataSets
   .PojoWithMultiplePojos] = {
-    val data = new mutable.MutableList[CollectionDataSets
+    val data = new mutable.ListBuffer[CollectionDataSets
     .PojoWithMultiplePojos]
     data.+=(new CollectionDataSets.PojoWithMultiplePojos("a", "aa", "b", "bb", 1))
     data.+=(new CollectionDataSets.PojoWithMultiplePojos("b", "bb", "c", "cc", 2))

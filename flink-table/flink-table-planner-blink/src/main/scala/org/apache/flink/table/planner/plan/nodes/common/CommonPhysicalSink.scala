@@ -40,7 +40,7 @@ import org.apache.flink.table.runtime.operators.sink.SinkOperator
 import org.apache.flink.table.runtime.typeutils.RowDataTypeInfo
 import org.apache.flink.table.types.logical.RowType
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
  * Base physical RelNode to write data to an external sink defined by a [[DynamicTableSink]].

@@ -25,7 +25,7 @@ import org.apache.calcite.sql.validate.SqlMonotonicity
 import org.apache.calcite.util.ImmutableBitSet
 import org.apache.flink.table.planner.plan.nodes.physical.stream.StreamPhysicalRel
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Base class of Strategy to choose different rank process function.

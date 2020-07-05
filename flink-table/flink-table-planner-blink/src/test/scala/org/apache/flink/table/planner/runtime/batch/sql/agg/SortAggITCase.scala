@@ -36,7 +36,7 @@ import java.lang.{Iterable => JIterable}
 
 import scala.annotation.varargs
 import scala.collection.JavaConverters._
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 /**
   * AggregateITCase using SortAgg Operator.

@@ -193,7 +193,7 @@ val env = StreamExecutionEnvironment.getExecutionEnvironment
 val tEnv = StreamTableEnvironment.create(env)
 
 // 提供一个汇率历史记录表静态数据集
-val ratesHistoryData = new mutable.MutableList[(String, Long)]
+val ratesHistoryData = new mutable.ListBuffer[(String, Long)]
 ratesHistoryData.+=(("US Dollar", 102L))
 ratesHistoryData.+=(("Euro", 114L))
 ratesHistoryData.+=(("Yen", 1L))

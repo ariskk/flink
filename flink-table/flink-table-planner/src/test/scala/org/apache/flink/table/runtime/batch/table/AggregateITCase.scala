@@ -281,9 +281,9 @@ class AggregationsITCase(
 
     val myAgg = new NonMergableCount
 
-    val t1 = env.fromCollection(new mutable.MutableList[(Int, String)]).toTable(tEnv, 'a, 'b)
+    val t1 = env.fromCollection(new mutable.ListBuffer[(Int, String)]).toTable(tEnv, 'a, 'b)
       .select('a.sum, 'a.count)
-    val t2 = env.fromCollection(new mutable.MutableList[(Int, String)]).toTable(tEnv, 'a, 'b)
+    val t2 = env.fromCollection(new mutable.ListBuffer[(Int, String)]).toTable(tEnv, 'a, 'b)
       .select('a.sum, myAgg('b), 'a.count)
 
     val expected1 = "null,0"

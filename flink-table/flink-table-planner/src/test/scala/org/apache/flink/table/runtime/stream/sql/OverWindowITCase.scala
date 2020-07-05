@@ -574,7 +574,7 @@ class OverWindowITCase extends StreamingWithStateTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,2,Hello,0,2,1,2,2,2",
       "1,3,Hello world,0,5,2,2,3,2",
       "1,1,Hi,0,6,3,2,3,1",
@@ -683,7 +683,7 @@ class OverWindowITCase extends StreamingWithStateTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "2,2,Hello,2,1,2,2,2",
       "3,5,Hello,7,2,3,5,2",
       "1,3,Hello,10,3,3,5,2",

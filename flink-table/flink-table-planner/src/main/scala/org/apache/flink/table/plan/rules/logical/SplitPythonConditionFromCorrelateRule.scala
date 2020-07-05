@@ -26,7 +26,7 @@ import org.apache.flink.table.plan.nodes.logical.{FlinkLogicalCalc, FlinkLogical
 import org.apache.flink.table.plan.util.PythonUtil.{containsPythonCall, isNonPythonCall}
 import org.apache.flink.table.plan.util.{CorrelateUtil, RexDefaultVisitor}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 /**

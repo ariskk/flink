@@ -39,7 +39,7 @@ import java.lang.{Boolean => JBoolean}
 import java.util
 import java.util.function.{Function => JFunction}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 /**

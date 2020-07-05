@@ -22,7 +22,7 @@ import org.apache.calcite.rex.RexProgram
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 /**

@@ -51,7 +51,7 @@ class GroupAggregateHarnessTest(mode: StateBackendMode) extends HarnessTestBase(
 
   @Test
   def testAggregateWithRetraction(): Unit = {
-    val data = new mutable.MutableList[(String, String, Long)]
+    val data = new mutable.ListBuffer[(String, String, Long)]
     val t = env.fromCollection(data).toTable(tEnv, 'a, 'b, 'c)
     tEnv.createTemporaryView("T", t)
 

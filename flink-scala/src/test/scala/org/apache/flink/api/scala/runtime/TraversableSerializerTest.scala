@@ -73,7 +73,7 @@ class TraversableSerializerTest {
 
   @Test
   def testMutableList(): Unit = {
-    val testData = Array(mutable.MutableList(1,2,3), mutable.MutableList(2,3,2))
+    val testData = Array(mutable.ListBuffer(1,2,3), mutable.ListBuffer(2,3,2))
     runTests(testData)
   }
 

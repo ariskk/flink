@@ -31,7 +31,7 @@ import org.junit.{Before, Test}
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 @RunWith(classOf[Parameterized])
 class ChangelogModeInferenceTest(aggMode: AggMode) extends TableTestBase {

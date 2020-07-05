@@ -38,7 +38,7 @@ import org.apache.calcite.rel.`type`.RelDataType
 import org.apache.calcite.rel.core.TableScan
 import org.apache.calcite.rex.RexNode
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Util for [[TableScan]]s.

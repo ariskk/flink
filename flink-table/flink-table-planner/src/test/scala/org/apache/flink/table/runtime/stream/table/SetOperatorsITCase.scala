@@ -55,7 +55,7 @@ class SetOperatorsITCase extends AbstractTestBase {
     results.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
         "Hi", "Hello", "Hello world", "Hi", "Hello", "Hello world")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
@@ -71,7 +71,7 @@ class SetOperatorsITCase extends AbstractTestBase {
     results.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("Hi", "Hallo")
+    val expected = mutable.ListBuffer("Hi", "Hallo")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 
@@ -84,7 +84,7 @@ class SetOperatorsITCase extends AbstractTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("1,{}", "2,{}", "3,{}", "4,{}")
+    val expected = mutable.ListBuffer("1,{}", "2,{}", "3,{}", "4,{}")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 
@@ -99,7 +99,7 @@ class SetOperatorsITCase extends AbstractTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("1,(1,a)", "2,(2,b)", "3,(3,c)", "4,(4,d)")
+    val expected = mutable.ListBuffer("1,(1,a)", "2,(2,b)", "3,(3,c)", "4,(4,d)")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 

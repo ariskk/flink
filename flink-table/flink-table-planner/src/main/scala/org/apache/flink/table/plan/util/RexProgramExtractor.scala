@@ -36,7 +36,7 @@ import org.slf4j.{Logger, LoggerFactory}
 
 import java.sql.{Date, Time, Timestamp}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.util.Try

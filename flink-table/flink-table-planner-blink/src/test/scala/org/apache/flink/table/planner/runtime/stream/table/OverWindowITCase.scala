@@ -174,7 +174,7 @@ class OverWindowITCase(mode: StateBackendMode) extends StreamingWithStateTestBas
     windowedTable.toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,1,Hello,6,SUM:6,3,4,4,[2, 3],2,3,1,1,2,2",
       "1,2,Hello,6,SUM:6,3,4,4,[2, 3],2,3,1,1,2,2",
       "1,3,Hello world,6,SUM:6,3,4,4,[2, 3],2,3,1,1,2,2",
@@ -225,7 +225,7 @@ class OverWindowITCase(mode: StateBackendMode) extends StreamingWithStateTestBas
     windowedTable.toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,0,0,1",
       "2,1,1,1",
       "2,3,1,2",
@@ -282,7 +282,7 @@ class OverWindowITCase(mode: StateBackendMode) extends StreamingWithStateTestBas
     windowedTable.toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,0,0,1",
       "2,1,1,1",
       "2,3,1,2",
@@ -339,7 +339,7 @@ class OverWindowITCase(mode: StateBackendMode) extends StreamingWithStateTestBas
     windowedTable.toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "Hello,1,1,1,1", "Hello,1,2,2,1", "Hello,1,3,3,1",
       "Hello,2,3,4,2", "Hello,2,3,5,2", "Hello,2,3,6,1",
       "Hello,3,3,7,2", "Hello,4,3,9,3", "Hello,5,3,12,3",
@@ -399,7 +399,7 @@ class OverWindowITCase(mode: StateBackendMode) extends StreamingWithStateTestBas
     windowedTable.toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "Hello,1,1,1,1", "Hello,15,2,2,1", "Hello,16,3,3,1",
       "Hello,2,6,9,2", "Hello,3,6,9,2", "Hello,2,6,9,2",
       "Hello,3,4,9,2",
@@ -438,7 +438,7 @@ class OverWindowITCase(mode: StateBackendMode) extends StreamingWithStateTestBas
     windowedTable.toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "Hello World,20,2,2", "Hello World,7,1,1", "Hello,1,1,1",
       "Hello,2,2,2", "Hello,6,3,3")
 

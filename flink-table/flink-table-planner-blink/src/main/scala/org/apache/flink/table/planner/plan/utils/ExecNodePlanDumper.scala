@@ -32,7 +32,7 @@ import java.util
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.{ArrayList => JArrayList, List => JList}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * An utility class for converting an exec node plan to a string as a tree style.

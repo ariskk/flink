@@ -29,7 +29,7 @@ import org.apache.calcite.rel.metadata._
 import org.apache.calcite.rex.RexInputRef
 import org.apache.calcite.util.mapping.Mappings
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * FlinkRelMdDistribution supplies a default implementation of

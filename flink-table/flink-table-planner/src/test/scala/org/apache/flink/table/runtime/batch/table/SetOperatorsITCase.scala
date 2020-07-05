@@ -161,7 +161,7 @@ class SetOperatorsITCase(
     val tEnv = BatchTableEnvironment.create(env, config)
 
     val ds1 = CollectionDataSets.getSmall3TupleDataSet(env).toTable(tEnv, 'a, 'b, 'c)
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "Hi"))
     data.+=((2, 2L, "Hello"))
     data.+=((2, 2L, "Hello"))
@@ -181,9 +181,9 @@ class SetOperatorsITCase(
     val env: ExecutionEnvironment = ExecutionEnvironment.getExecutionEnvironment
     val tEnv = BatchTableEnvironment.create(env, config)
 
-    val data1 = new mutable.MutableList[Int]
+    val data1 = new mutable.ListBuffer[Int]
     data1 += (1, 1, 1, 2, 2)
-    val data2 = new mutable.MutableList[Int]
+    val data2 = new mutable.ListBuffer[Int]
     data2 += (1, 2, 2, 2, 3)
     val ds1 = env.fromCollection(data1).toTable(tEnv, 'c)
     val ds2 = env.fromCollection(data2).toTable(tEnv, 'c)

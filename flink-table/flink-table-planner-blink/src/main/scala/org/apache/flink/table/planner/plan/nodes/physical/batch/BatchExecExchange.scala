@@ -43,7 +43,7 @@ import java.util
 
 import org.apache.flink.streaming.api.graph.GlobalDataExchangeMode
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * This RelNode represents a change of partitioning of the input elements.

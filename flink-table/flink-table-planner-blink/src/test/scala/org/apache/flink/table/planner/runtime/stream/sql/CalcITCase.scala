@@ -36,7 +36,7 @@ import org.apache.flink.types.Row
 import org.junit.Assert._
 import org.junit._
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 class CalcITCase extends StreamingTestBase {
 

@@ -26,7 +26,7 @@ import org.apache.calcite.rel.logical._
 import org.apache.calcite.rel.{RelNode, RelShuttle, RelShuttleImpl}
 import org.apache.calcite.rex.{RexNode, RexShuttle, RexSubQuery}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class DefaultRelShuttle extends RelShuttle {
 

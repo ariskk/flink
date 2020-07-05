@@ -43,7 +43,7 @@ import org.junit.{After, Assert, Before}
 import java.io.File
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
@@ -90,7 +90,7 @@ class StreamingWithStateTestBase(state: StateBackendMode) extends StreamingTestB
     */
   def failingBinaryRowSource[T: TypeInformation](data: Seq[T]): DataStream[RowData] = {
     val typeInfo = implicitly[TypeInformation[_]].asInstanceOf[CompositeType[_]]
-    val result = new mutable.MutableList[RowData]
+    val result = new mutable.ListBuffer[RowData]
     val reuse = new BinaryRowData(typeInfo.getArity)
     val writer = new BinaryRowWriter(reuse)
     data.foreach {

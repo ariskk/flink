@@ -35,7 +35,7 @@ import org.apache.calcite.rex.RexNode
 import java.time.ZoneId
 import java.util.{ArrayList => JArrayList, List => JList, Map => JMap}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Utility class for partition pruning.

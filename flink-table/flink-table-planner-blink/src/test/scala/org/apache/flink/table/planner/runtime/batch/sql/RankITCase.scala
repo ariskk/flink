@@ -24,7 +24,7 @@ import org.apache.flink.table.planner.runtime.utils.TestData._
 
 import org.junit._
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 class RankITCase extends BatchTestBase {
 

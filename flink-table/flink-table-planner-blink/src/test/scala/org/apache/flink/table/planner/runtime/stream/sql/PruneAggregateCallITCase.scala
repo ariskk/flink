@@ -33,7 +33,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
 import scala.collection.JavaConverters._
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 @RunWith(classOf[Parameterized])
 class PruneAggregateCallITCase(

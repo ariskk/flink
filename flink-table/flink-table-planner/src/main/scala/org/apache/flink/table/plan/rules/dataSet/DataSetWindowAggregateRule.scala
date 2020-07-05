@@ -25,7 +25,7 @@ import org.apache.flink.table.plan.nodes.FlinkConventions
 import org.apache.flink.table.plan.nodes.dataset.DataSetWindowAggregate
 import org.apache.flink.table.plan.nodes.logical.FlinkLogicalWindowAggregate
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class DataSetWindowAggregateRule
   extends ConverterRule(

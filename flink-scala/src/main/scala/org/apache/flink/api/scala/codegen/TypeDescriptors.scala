@@ -22,6 +22,7 @@ import org.apache.flink.annotation.Internal
 import scala.collection.Map
 import scala.language.postfixOps
 import scala.reflect.macros.Context
+import scala.collection.immutable.Seq
 
 // These are only used internally while analyzing Scala types in TypeAnalyzer and TypeInformationGen
 

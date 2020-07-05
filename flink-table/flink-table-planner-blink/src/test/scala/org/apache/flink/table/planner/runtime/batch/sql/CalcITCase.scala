@@ -50,7 +50,7 @@ import java.sql.{Date, Time, Timestamp}
 import java.time.{LocalDate, LocalDateTime, ZoneId}
 import java.util
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 class CalcITCase extends BatchTestBase {
 

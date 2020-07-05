@@ -43,7 +43,7 @@ import org.apache.flink.table.types.logical.{LogicalType, RowType}
 import org.apache.calcite.rel.core.AggregateCall
 import org.apache.calcite.tools.RelBuilder
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 object HashAggCodeGenHelper {
 

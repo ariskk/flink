@@ -68,6 +68,7 @@ under the License.
 		<dependency>
 			<groupId>org.scalatest</groupId>
 			<artifactId>scalatest_${scala.binary.version}</artifactId>
+			<version>3.0.8</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -165,13 +166,13 @@ under the License.
 						<jvmArg>-Xms128m</jvmArg>
 						<jvmArg>-Xmx512m</jvmArg>
 					</jvmArgs>
-					<compilerPlugins combine.children="append">
+					<!-- <compilerPlugins combine.children="append">
 					   <compilerPlugin>
 						   <groupId>org.scalamacros</groupId>
 						   <artifactId>paradise_${scala.version}</artifactId>
 						   <version>${scala.macros.version}</version>
 					   </compilerPlugin>
-				   </compilerPlugins>
+				   </compilerPlugins> -->
 				</configuration>
 			</plugin>
 

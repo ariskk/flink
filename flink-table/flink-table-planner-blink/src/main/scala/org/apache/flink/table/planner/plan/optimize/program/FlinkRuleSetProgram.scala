@@ -25,7 +25,7 @@ import org.apache.calcite.tools.RuleSet
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * A FlinkOptimizeProgram that transforms a relational expression into

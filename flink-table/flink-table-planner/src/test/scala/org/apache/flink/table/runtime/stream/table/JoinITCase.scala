@@ -183,7 +183,7 @@ class JoinITCase extends StreamingWithStateTestBase {
       (8L, 3, "RIGHT:Hello world"),
       (16L, 3, "RIGHT:Hello world"))
 
-    StreamITCase.testResults = mutable.MutableList()
+    StreamITCase.testResults = mutable.ListBuffer()
 
     val stream1 = env
       .fromCollection(data1)

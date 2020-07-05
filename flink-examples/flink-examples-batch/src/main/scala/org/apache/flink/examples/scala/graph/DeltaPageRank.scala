@@ -53,7 +53,7 @@ object DeltaPageRank {
       })
 
     val initialRanks: DataSet[Page] = adjacency.flatMap {
-      (adj, out: Collector[Page]) =>
+      (adj: Adjacency, out: Collector[Page]) =>
         {
           val targets = adj._2
           val rankPerTarget = INITIAL_RANK * DAMPENING_FACTOR / targets.length
@@ -77,7 +77,7 @@ object DeltaPageRank {
       (solutionSet, workset) =>
         {
           val deltas = workset.join(adjacency).where(0).equalTo(0) {
-            (lastDeltas, adj, out: Collector[Page]) =>
+            (lastDeltas: (Long, Double), adj: Adjacency, out: Collector[Page]) =>
               {
                 val targets = adj._2
                 val deltaPerTarget = DAMPENING_FACTOR * lastDeltas._2 / targets.length

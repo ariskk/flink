@@ -29,7 +29,7 @@ import org.apache.calcite.sql.SqlBinaryOperator
 import org.apache.calcite.sql.fun.SqlStdOperatorTable.{AND, EQUALS, IN, NOT_EQUALS, NOT_IN, OR}
 import org.apache.calcite.tools.RelBuilder
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 /**

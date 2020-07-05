@@ -26,7 +26,7 @@ import org.apache.flink.table.expressions.PlannerTrimMode.PlannerTrimMode
 import org.apache.flink.table.functions.sql.ScalarSqlFunctions
 import org.apache.flink.table.validate._
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Returns the length of this `str`.

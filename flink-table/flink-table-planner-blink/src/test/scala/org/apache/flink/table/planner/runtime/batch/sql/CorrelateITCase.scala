@@ -39,8 +39,8 @@ import org.apache.flink.types.Row
 
 import org.junit.{Before, Test}
 
-import scala.collection.JavaConversions._
-import scala.collection.Seq
+import scala.collection.JavaConverters._
+import scala.collection.immutable.Seq
 
 class CorrelateITCase extends BatchTestBase {
 

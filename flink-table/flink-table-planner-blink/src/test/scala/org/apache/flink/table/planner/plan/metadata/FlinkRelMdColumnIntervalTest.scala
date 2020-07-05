@@ -36,7 +36,7 @@ import org.junit.Test
 
 import java.sql.{Date, Time, Timestamp}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class FlinkRelMdColumnIntervalTest extends FlinkRelMdHandlerTestBase {
 

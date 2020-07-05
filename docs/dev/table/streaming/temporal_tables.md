@@ -193,7 +193,7 @@ val env = StreamExecutionEnvironment.getExecutionEnvironment
 val tEnv = StreamTableEnvironment.create(env)
 
 // Provide a static data set of the rates history table.
-val ratesHistoryData = new mutable.MutableList[(String, Long)]
+val ratesHistoryData = new mutable.ListBuffer[(String, Long)]
 ratesHistoryData.+=(("US Dollar", 102L))
 ratesHistoryData.+=(("Euro", 114L))
 ratesHistoryData.+=(("Yen", 1L))

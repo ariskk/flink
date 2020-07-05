@@ -27,7 +27,7 @@ import org.apache.calcite.util.Pair
 import java.io.PrintWriter
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Explain a relational expression as tree style.

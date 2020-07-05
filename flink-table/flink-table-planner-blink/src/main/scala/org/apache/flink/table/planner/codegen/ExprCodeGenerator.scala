@@ -44,7 +44,7 @@ import org.apache.flink.table.data.RowData
 import org.apache.flink.table.data.binary.BinaryRowData
 import org.apache.flink.table.planner.functions.bridging.BridgingSqlFunction
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * This code generator is mainly responsible for generating codes for a given calcite [[RexNode]].

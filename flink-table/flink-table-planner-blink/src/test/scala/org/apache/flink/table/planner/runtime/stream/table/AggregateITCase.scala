@@ -61,7 +61,7 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
     t.toRetractStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList("1,10", "2,21", "3,12")
+    val expected = mutable.ListBuffer("1,10", "2,21", "3,12")
     assertEquals(expected.sorted, sink.getRetractResults.sorted)
   }
 
@@ -76,13 +76,13 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
     t.toRetractStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList("1,3,3", "2,3,4", "3,4,4")
+    val expected = mutable.ListBuffer("1,3,3", "2,3,4", "3,4,4")
     assertEquals(expected.sorted, sink.getRetractResults.sorted)
   }
 
   @Test
   def testDistinctAggregate(): Unit = {
-    val data = new mutable.MutableList[(Int, Int, String)]
+    val data = new mutable.ListBuffer[(Int, Int, String)]
     data.+=((1, 1, "A"))
     data.+=((2, 2, "B"))
     data.+=((2, 2, "B"))
@@ -105,7 +105,7 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
     t.toRetractStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList("A,2,5,1,1,1", "B,3,12,4,2,3", "C,2,9,4,3,4", "D,1,9,9,4,9")
+    val expected = mutable.ListBuffer("A,2,5,1,1,1", "B,3,12,4,2,3", "C,2,9,4,3,4", "D,1,9,9,4,9")
     assertEquals(expected.sorted, sink.getRetractResults.sorted)
   }
 
@@ -119,7 +119,7 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
     t.toRetractStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList("1,4,5", "2,4,7", "3,2,3")
+    val expected = mutable.ListBuffer("1,4,5", "2,4,7", "3,2,3")
     assertEquals(expected.sorted, sink.getRetractResults.sorted)
   }
 
@@ -132,7 +132,7 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
 //    t.toRetractStream[Row].addSink(sink)
 //    env.execute()
 //
-//    val expected = mutable.MutableList("Hi,Hello world,Hi#Hello#Hello world")
+//    val expected = mutable.ListBuffer("Hi,Hello world,Hi#Hello#Hello world")
 //    assertEquals(expected.sorted, sink.getRetractResults.sorted)
 //  }
 
@@ -145,7 +145,7 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
     t.toRetractStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList("1,null", "2,null", "3,null", "4,null", "5,null", "6,null")
+    val expected = mutable.ListBuffer("1,null", "2,null", "3,null", "4,null", "5,null", "6,null")
     assertEquals(expected.sorted, sink.getRetractResults.sorted)
   }
 
@@ -158,7 +158,7 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
     t.toRetractStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList("1,5", "2,7", "3,3")
+    val expected = mutable.ListBuffer("1,5", "2,7", "3,3")
     assertEquals(expected.sorted, sink.getRetractResults.sorted)
   }
 
@@ -231,7 +231,7 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
     t.toRetractStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       s"0,1,1,1", s"7,1,4,2", s"2,1,3,2",
       s"3,2,3,3", s"1,2,3,3", s"14,2,5,1",
       s"12,3,5,1", s"5,3,4,2")
@@ -260,7 +260,7 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
 
   @Test
   def testGroupAggregateWithStateBackend(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))
@@ -293,7 +293,7 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
 
   @Test
   def testRemoveDuplicateRecordsWithUpsertSink(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))
@@ -349,7 +349,7 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
 
   @Test
   def testGroupAggregateWithDataView(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))
@@ -395,7 +395,7 @@ class AggregateITCase(mode: StateBackendMode) extends StreamingWithStateTestBase
     results.addSink(sink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList("1,1", "2,3", "3,6", "4,10", "5,15", "6,21")
+    val expected = mutable.ListBuffer("1,1", "2,3", "3,6", "4,10", "5,15", "6,21")
     assertEquals(expected.sorted, sink.getRetractResults.sorted)
   }
 }

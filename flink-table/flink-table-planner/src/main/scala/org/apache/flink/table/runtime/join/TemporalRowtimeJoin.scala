@@ -37,7 +37,7 @@ import org.apache.flink.table.typeutils.TypeCheckUtils._
 import org.apache.flink.table.util.Logging
 import org.apache.flink.types.Row
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * This operator works by keeping on the state collection of probe and build records to process

@@ -31,7 +31,7 @@ import org.apache.calcite.rex.{RexCall, RexNode, RexProgram}
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Base Flink RelNode which matches along with join a user defined table function.

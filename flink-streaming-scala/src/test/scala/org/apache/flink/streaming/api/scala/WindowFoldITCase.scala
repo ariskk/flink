@@ -45,7 +45,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
   @Test
   def testFoldWindow(): Unit = {
-    WindowFoldITCase.testResults = mutable.MutableList()
+    WindowFoldITCase.testResults = mutable.ListBuffer()
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
@@ -82,7 +82,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
     env.execute("Fold Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(R:aaa,3)",
       "(R:aaa,21)",
       "(R:bbb,12)")
@@ -92,7 +92,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
   @Test
   def testFoldWithWindowFunction(): Unit = {
-    WindowFoldITCase.testResults = mutable.MutableList()
+    WindowFoldITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichWindowFunction.reset()
 
     val foldFunc = new FoldFunction[(String, Int), (String, Int)] {
@@ -139,7 +139,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
     env.execute("Fold Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(R:aaa,3)",
       "(R:aaa,21)",
       "(R:bbb,12)")
@@ -151,7 +151,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
   @Test
   def testFoldWithProcessWindowFunction(): Unit = {
-    WindowFoldITCase.testResults = mutable.MutableList()
+    WindowFoldITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichProcessWindowFunction.reset()
 
     val foldFunc = new FoldFunction[(String, Int), (Int, String)] {
@@ -198,7 +198,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
     env.execute("Fold Process Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(3,R:aaa)",
       "(21,R:aaa)",
       "(12,R:bbb)")
@@ -210,7 +210,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
   @Test
   def testFoldAllWindow(): Unit = {
-    WindowFoldITCase.testResults = mutable.MutableList()
+    WindowFoldITCase.testResults = mutable.ListBuffer()
     
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
@@ -246,7 +246,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
     env.execute("Fold All-Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(R:aaa,3)",
       "(R:bababa,24)")
 
@@ -255,7 +255,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
   @Test
   def testFoldAllWithWindowFunction(): Unit = {
-    WindowFoldITCase.testResults = mutable.MutableList()
+    WindowFoldITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichAllWindowFunction.reset()
     
     val foldFunc = new FoldFunction[(String, Int), (String, Int)] {
@@ -301,7 +301,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
     env.execute("Fold All-Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(R:aaa,3)",
       "(R:bababa,24)")
 
@@ -312,7 +312,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
   @Test
   def testFoldAllWithProcessWindowFunction(): Unit = {
-    WindowFoldITCase.testResults = mutable.MutableList()
+    WindowFoldITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichProcessAllWindowFunction.reset()
 
     val foldFunc = new FoldFunction[(String, Int), (String, Int)] {
@@ -358,7 +358,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
     env.execute("Fold All-Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(R:aaa,3)",
       "(R:bababa,24)")
 
@@ -370,7 +370,7 @@ class WindowFoldITCase extends AbstractTestBase {
 
 
 object WindowFoldITCase {
-  private var testResults: mutable.MutableList[String] = null
+  private var testResults: mutable.ListBuffer[String] = null
 
   private class Tuple2TimestampExtractor extends AssignerWithPunctuatedWatermarks[(String, Int)] {
     

@@ -29,7 +29,7 @@ import org.apache.flink.table.functions.utils.{ScalarSqlFunction, TableSqlFuncti
 import org.apache.flink.table.util.DummyStreamExecutionEnvironment
 
 import scala.collection.mutable
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 trait CommonPythonBase {
   protected def loadClass(className: String): Class[_] = {

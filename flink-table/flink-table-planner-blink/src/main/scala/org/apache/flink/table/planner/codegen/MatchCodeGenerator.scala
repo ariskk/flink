@@ -52,7 +52,7 @@ import org.apache.calcite.util.ImmutableBitSet
 import java.lang.{Long => JLong}
 import java.util
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 import _root_.scala.collection.JavaConverters._
 import _root_.scala.collection.mutable
 

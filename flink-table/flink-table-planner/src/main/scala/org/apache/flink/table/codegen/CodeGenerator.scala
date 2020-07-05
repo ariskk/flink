@@ -45,7 +45,7 @@ import org.apache.flink.table.typeutils.TypeCheckUtils._
 import org.apache.flink.table.utils.EncodingUtils
 import org.joda.time.format.DateTimeFormatter
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 /**

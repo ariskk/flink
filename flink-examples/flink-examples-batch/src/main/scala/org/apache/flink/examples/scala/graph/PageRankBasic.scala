@@ -105,7 +105,7 @@ object PageRankBasic {
         val newRanks = currentRanks
           // distribute ranks to target pages
           .join(adjacencyLists).where("pageId").equalTo("sourceId") {
-            (page, adjacent, out: Collector[Page]) =>
+            (page: Page, adjacent: AdjacencyList, out: Collector[Page]) =>
               val targets = adjacent.targetIds
               val len = targets.length
               adjacent.targetIds foreach { t => out.collect(Page(t, page.rank /len )) }
@@ -119,7 +119,7 @@ object PageRankBasic {
 
         // terminate if no rank update was significant
         val termination = currentRanks.join(newRanks).where("pageId").equalTo("pageId") {
-          (current, next, out: Collector[Int]) =>
+          (current: Page, next: Page, out: Collector[Int]) =>
             // check for significant update
             if (math.abs(current.rank - next.rank) > EPSILON) out.collect(1)
         }

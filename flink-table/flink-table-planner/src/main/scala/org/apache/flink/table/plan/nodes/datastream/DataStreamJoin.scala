@@ -30,7 +30,7 @@ import org.apache.flink.table.plan.schema.RowSchema
 import org.apache.flink.table.planner.StreamPlanner
 import org.apache.flink.table.runtime.types.{CRow, CRowTypeInfo}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * RelNode for a non-windowed stream join.

@@ -21,7 +21,7 @@ package org.apache.flink.table.planner.runtime.stream.sql
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 /**
   * Test csv [[StreamFileSystemITCaseBase]].

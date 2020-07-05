@@ -33,7 +33,7 @@ import org.junit.rules.ExpectedException
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /** Test cases for view related DDLs. */
 @RunWith(classOf[Parameterized])

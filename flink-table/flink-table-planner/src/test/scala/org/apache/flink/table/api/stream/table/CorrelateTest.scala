@@ -29,7 +29,7 @@ import org.apache.calcite.rel.rules.{CalcMergeRule, FilterCalcMergeRule, Project
 import org.apache.calcite.tools.RuleSets
 import org.junit.Test
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class CorrelateTest extends TableTestBase {
 

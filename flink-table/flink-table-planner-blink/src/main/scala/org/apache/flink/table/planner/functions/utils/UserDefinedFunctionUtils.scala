@@ -53,7 +53,7 @@ import java.lang.{Integer => JInt}
 import java.sql.{Date, Time, Timestamp}
 import java.time.{Instant, LocalDateTime}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.language.postfixOps
 
@@ -379,7 +379,7 @@ object UserDefinedFunctionUtils {
                 parameterClassEquals(methodSignature(i), clazz) ||
                     parameterDataTypeEquals(internalTypes(i), dataTypes(i))
               case (clazz, i) if i == signatures.length - 1 =>
-                clazz.getName.equals("scala.collection.Seq")
+                clazz.getName.equals("scala.collection.immutable.Seq")
             }
           }
         }) {

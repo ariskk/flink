@@ -29,7 +29,7 @@ import org.apache.flink.table.planner.runtime.utils.TestData._
 import org.apache.flink.types.Row
 import org.junit.{Before, Test}
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 /**
   * Aggregate IT case base class.

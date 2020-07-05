@@ -28,7 +28,7 @@ import org.apache.flink.types.Row
 import org.junit.Test
 
 import scala.collection.JavaConverters._
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 class UnnestITCase extends BatchTestBase {
 

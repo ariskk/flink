@@ -27,7 +27,7 @@ import org.apache.calcite.sql.SqlKind
 import org.apache.calcite.sql.SqlKind.{EQUALS, GREATER_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN, LESS_THAN_OR_EQUAL}
 import org.apache.calcite.sql.fun.SqlStdOperatorTable
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Helper for FlinkRelMdColumnInterval/FlinkRelMdFilteredColumnInterval.

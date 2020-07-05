@@ -44,7 +44,7 @@ import _root_.java.sql.Timestamp
 import _root_.java.util
 import _root_.java.util.{ArrayList => JArrayList, Collection => JCollection, HashMap => JHashMap, List => JList, Map => JMap}
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 
 /**
  * The physical plans for legacy [[org.apache.flink.table.sources.LookupableTableSource]] and new

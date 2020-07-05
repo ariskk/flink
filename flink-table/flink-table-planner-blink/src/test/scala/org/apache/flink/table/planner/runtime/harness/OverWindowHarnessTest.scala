@@ -53,7 +53,7 @@ class OverWindowHarnessTest(mode: StateBackendMode) extends HarnessTestBase(mode
   @Test
   def testProcTimeBoundedRowsOver(): Unit = {
 
-    val data = new mutable.MutableList[(Long, String, Long)]
+    val data = new mutable.ListBuffer[(Long, String, Long)]
     val t = env.fromCollection(data).toTable(tEnv, 'currtime, 'b, 'c, 'proctime.proctime)
     tEnv.registerTable("T", t)
 
@@ -160,7 +160,7 @@ class OverWindowHarnessTest(mode: StateBackendMode) extends HarnessTestBase(mode
   @Test
   def testProcTimeBoundedRangeOver(): Unit = {
 
-    val data = new mutable.MutableList[(Long, String, Long)]
+    val data = new mutable.ListBuffer[(Long, String, Long)]
     val t = env.fromCollection(data).toTable(tEnv, 'currtime, 'b, 'c, 'proctime.proctime)
     tEnv.registerTable("T", t)
 
@@ -271,7 +271,7 @@ class OverWindowHarnessTest(mode: StateBackendMode) extends HarnessTestBase(mode
   @Test
   def testProcTimeUnboundedOver(): Unit = {
 
-    val data = new mutable.MutableList[(Long, String, Long)]
+    val data = new mutable.ListBuffer[(Long, String, Long)]
     val t = env.fromCollection(data).toTable(tEnv, 'currtime, 'b, 'c, 'proctime.proctime)
     tEnv.registerTable("T", t)
 
@@ -371,7 +371,7 @@ class OverWindowHarnessTest(mode: StateBackendMode) extends HarnessTestBase(mode
   @Test
   def testRowTimeBoundedRangeOver(): Unit = {
 
-    val data = new mutable.MutableList[(Long, String, Long)]
+    val data = new mutable.ListBuffer[(Long, String, Long)]
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
     val t = env.fromCollection(data).toTable(tEnv, 'rowtime.rowtime, 'b, 'c)
     tEnv.registerTable("T", t)
@@ -486,7 +486,7 @@ class OverWindowHarnessTest(mode: StateBackendMode) extends HarnessTestBase(mode
   @Test
   def testRowTimeBoundedRowsOver(): Unit = {
 
-    val data = new mutable.MutableList[(Long, String, Long)]
+    val data = new mutable.ListBuffer[(Long, String, Long)]
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
     val t = env.fromCollection(data).toTable(tEnv, 'rowtime.rowtime, 'b, 'c)
     tEnv.registerTable("T", t)
@@ -634,7 +634,7 @@ class OverWindowHarnessTest(mode: StateBackendMode) extends HarnessTestBase(mode
   @Test
   def testRowTimeUnboundedRangeOver(): Unit = {
 
-    val data = new mutable.MutableList[(Long, String, Long)]
+    val data = new mutable.ListBuffer[(Long, String, Long)]
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
     val t = env.fromCollection(data).toTable(tEnv, 'rowtime.rowtime, 'b, 'c)
     tEnv.registerTable("T", t)
@@ -772,7 +772,7 @@ class OverWindowHarnessTest(mode: StateBackendMode) extends HarnessTestBase(mode
   @Test
   def testRowTimeUnboundedRowsOver(): Unit = {
 
-    val data = new mutable.MutableList[(Long, String, Long)]
+    val data = new mutable.ListBuffer[(Long, String, Long)]
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
     val t = env.fromCollection(data).toTable(tEnv, 'rowtime.rowtime, 'b, 'c)
     tEnv.registerTable("T", t)

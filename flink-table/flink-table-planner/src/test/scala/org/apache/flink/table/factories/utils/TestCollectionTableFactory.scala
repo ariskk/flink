@@ -43,7 +43,7 @@ import java.io.IOException
 import java.util
 import java.util.{ArrayList => JArrayList, LinkedList => JLinkedList, List => JList, Map => JMap}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class TestCollectionTableFactory
   extends StreamTableSourceFactory[Row]

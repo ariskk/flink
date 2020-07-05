@@ -27,7 +27,7 @@ import org.apache.flink.table.api.internal.BatchTableEnvImpl
 import org.apache.flink.table.runtime.MinusCoGroupFunction
 import org.apache.flink.types.Row
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 /**

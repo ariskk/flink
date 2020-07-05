@@ -26,13 +26,13 @@ import scala.collection.mutable
 object StreamTestData {
 
   def getSingletonDataStream(env: StreamExecutionEnvironment): DataStream[(Int, Long, String)] = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 42L, "Hi"))
     env.fromCollection(data)
   }
 
   def getSmall3TupleDataStream(env: StreamExecutionEnvironment): DataStream[(Int, Long, String)] = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "Hi"))
     data.+=((2, 2L, "Hello"))
     data.+=((3, 2L, "Hello world"))
@@ -40,7 +40,7 @@ object StreamTestData {
   }
 
   def get3TupleDataStream(env: StreamExecutionEnvironment): DataStream[(Int, Long, String)] = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "Hi"))
     data.+=((2, 2L, "Hello"))
     data.+=((3, 2L, "Hello world"))
@@ -68,7 +68,7 @@ object StreamTestData {
   def get5TupleDataStream(env: StreamExecutionEnvironment):
       DataStream[(Int, Long, Int, String, Long)] = {
 
-    val data = new mutable.MutableList[(Int, Long, Int, String, Long)]
+    val data = new mutable.ListBuffer[(Int, Long, Int, String, Long)]
     data.+=((1, 1L, 0, "Hallo", 1L))
     data.+=((2, 2L, 1, "Hallo Welt", 2L))
     data.+=((2, 3L, 2, "Hallo Welt wie", 1L))
@@ -89,7 +89,7 @@ object StreamTestData {
 
   def getSmallNestedTupleDataStream(env: StreamExecutionEnvironment):
       DataStream[((Int, Int), String)] = {
-    val data = new mutable.MutableList[((Int, Int), String)]
+    val data = new mutable.ListBuffer[((Int, Int), String)]
     data.+=(((1, 1), "one"))
     data.+=(((2, 2), "two"))
     data.+=(((3, 3), "three"))

@@ -40,7 +40,7 @@ import org.apache.calcite.rex.{RexInputRef, RexNode, RexShuttle, RexUtil}
 import java.util
 import java.util.TimeZone
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 /**

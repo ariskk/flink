@@ -30,7 +30,7 @@ import org.junit.{Before, Test}
 import java.sql.Timestamp
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 @RunWith(classOf[Parameterized])
 class WindowAggregateTest(aggStrategy: AggregatePhaseStrategy) extends TableTestBase {

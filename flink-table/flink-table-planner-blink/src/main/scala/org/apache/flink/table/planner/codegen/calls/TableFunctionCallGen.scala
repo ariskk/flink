@@ -37,7 +37,7 @@ import org.apache.flink.table.types.logical.utils.LogicalTypeChecks.isCompositeT
 
 import org.apache.calcite.rex.RexCall
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
  * Generates a call to user-defined [[TableFunction]].

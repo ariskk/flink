@@ -71,7 +71,7 @@ private[flink] trait TreeGen[C <: Context] { this: MacroContextHolder[C] with Ty
     def mkCall(root: Tree, path: String*)(args: List[Tree]) = Apply(mkSelect(root, path: _*), args)
 
     def mkSeq(items: List[Tree]): Tree =
-      Apply(mkSelect("_root_", "scala", "collection", "Seq", "apply"), items)
+      Apply(mkSelect("_root_", "scala", "collection", "immutable", "Seq", "apply"), items)
 
     def mkList(items: List[Tree]): Tree =
       Apply(mkSelect("_root_", "scala", "collection", "immutable", "List", "apply"), items)
@@ -217,7 +217,7 @@ private[flink] trait TreeGen[C <: Context] { this: MacroContextHolder[C] with Ty
       Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), args)
 
     def mkWhile(cond: Tree)(body: Tree): Tree = {
-      val lblName = c.fresh[TermName]("while")
+      val lblName = c.freshName(TermName("while"))
       val jump = Apply(Ident(lblName), Nil)
       val block = body match {
         case Block(stats, expr) => Block(stats :+ expr, jump)

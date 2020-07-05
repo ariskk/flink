@@ -37,7 +37,7 @@ import org.junit.{Before, Test}
 import java.lang.{Iterable => JIterable, Long => JLong}
 import java.util.{Collections, Optional}
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 import scala.util.Random
 
 class OverWindowITCase extends BatchTestBase {

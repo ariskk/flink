@@ -347,7 +347,7 @@ class LegacyTableSourceITCase extends StreamingTestBase {
 
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,Mike,Smith,12.3",
       "2,Bob,Taylor,45.6",
       "3,Sam,Miller,7.89")

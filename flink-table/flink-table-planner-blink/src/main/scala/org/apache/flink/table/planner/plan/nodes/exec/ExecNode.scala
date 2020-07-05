@@ -31,7 +31,7 @@ import org.apache.calcite.rel.core.Exchange
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * The representation of execution information for a [[FlinkPhysicalRel]].

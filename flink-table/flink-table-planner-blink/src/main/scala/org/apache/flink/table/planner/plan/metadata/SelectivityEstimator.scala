@@ -34,7 +34,7 @@ import org.apache.calcite.sql.fun.SqlStdOperatorTable._
 import org.apache.calcite.sql.{SqlKind, SqlOperator}
 import org.apache.calcite.util.{ImmutableBitSet, TimeString}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Estimates selectivity of rows meeting a filter predicate on a RelNode.

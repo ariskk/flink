@@ -29,7 +29,7 @@ import org.apache.flink.table.planner.calcite.FlinkTypeFactory
 import org.apache.flink.table.types.utils.{LegacyTypeInfoDataTypeConverter, TypeConversions}
 import org.apache.flink.table.typeutils.FieldInfoUtils
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable.ListBuffer
 
 /**

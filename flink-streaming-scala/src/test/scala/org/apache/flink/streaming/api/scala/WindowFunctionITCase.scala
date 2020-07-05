@@ -40,7 +40,7 @@ class WindowFunctionITCase extends TestLogger {
 
   @Test
   def testRichWindowFunction(): Unit = {
-    WindowFunctionITCase.testResults = mutable.MutableList()
+    WindowFunctionITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichWindowFunction.reset()
     
     val env = StreamExecutionEnvironment.getExecutionEnvironment
@@ -78,7 +78,7 @@ class WindowFunctionITCase extends TestLogger {
 
     env.execute("RichWindowFunction Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(a,0)", "(a,1)", "(a,2)", "(a,6)", "(a,7)", "(a,8)",
       "(b,3)", "(b,4)", "(b,5)")
 
@@ -89,7 +89,7 @@ class WindowFunctionITCase extends TestLogger {
 
   @Test
   def testRichProcessWindowFunction(): Unit = {
-    WindowFunctionITCase.testResults = mutable.MutableList()
+    WindowFunctionITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichProcessWindowFunction.reset()
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
@@ -127,7 +127,7 @@ class WindowFunctionITCase extends TestLogger {
 
     env.execute("RichProcessWindowFunction Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(a,0)", "(a,1)", "(a,2)", "(a,6)", "(a,7)", "(a,8)",
       "(b,3)", "(b,4)", "(b,5)")
 
@@ -138,7 +138,7 @@ class WindowFunctionITCase extends TestLogger {
 
   @Test
   def testRichAllWindowFunction(): Unit = {
-    WindowFunctionITCase.testResults = mutable.MutableList()
+    WindowFunctionITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichAllWindowFunction.reset()
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
@@ -175,7 +175,7 @@ class WindowFunctionITCase extends TestLogger {
 
     env.execute("RichAllWindowFunction Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(a,0)", "(a,1)", "(a,2)", "(a,6)", "(a,7)", "(a,8)",
       "(b,3)", "(b,4)", "(b,5)")
 
@@ -186,7 +186,7 @@ class WindowFunctionITCase extends TestLogger {
 
   @Test
   def testRichProcessAllWindowFunction(): Unit = {
-    WindowFunctionITCase.testResults = mutable.MutableList()
+    WindowFunctionITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichProcessAllWindowFunction.reset()
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
@@ -223,7 +223,7 @@ class WindowFunctionITCase extends TestLogger {
 
     env.execute("RichAllWindowFunction Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(a,0)", "(a,1)", "(a,2)", "(a,6)", "(a,7)", "(a,8)",
       "(b,3)", "(b,4)", "(b,5)")
 
@@ -235,7 +235,7 @@ class WindowFunctionITCase extends TestLogger {
 
 object WindowFunctionITCase {
 
-  private var testResults: mutable.MutableList[String] = null
+  private var testResults: mutable.ListBuffer[String] = null
 
   private class Tuple2TimestampExtractor extends AssignerWithPunctuatedWatermarks[(String, Int)] {
 

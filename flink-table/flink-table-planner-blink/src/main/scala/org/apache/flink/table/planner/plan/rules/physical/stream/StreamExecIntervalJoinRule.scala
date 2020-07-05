@@ -31,7 +31,7 @@ import org.apache.calcite.rel.convert.ConverterRule
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Rule that converts non-SEMI/ANTI [[FlinkLogicalJoin]] with window bounds in join condition

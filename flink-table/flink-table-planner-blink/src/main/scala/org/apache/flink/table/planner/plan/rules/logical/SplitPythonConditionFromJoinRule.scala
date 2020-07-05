@@ -25,7 +25,7 @@ import org.apache.calcite.rex.{RexProgram, RexProgramBuilder, RexUtil}
 import org.apache.flink.table.planner.plan.nodes.logical.{FlinkLogicalCalc, FlinkLogicalJoin}
 import org.apache.flink.table.planner.plan.utils.PythonUtil.containsPythonCall
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Rule will splits the [[FlinkLogicalJoin]] which contains Python Functions in join condition

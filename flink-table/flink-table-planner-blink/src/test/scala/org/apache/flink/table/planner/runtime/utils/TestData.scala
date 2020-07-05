@@ -143,7 +143,7 @@ object TestData {
   val nullablesOfNullData5 = Array(true, true, true, true, true)
 
   lazy val smallTupleData3: Seq[(Int, Long, String)] = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "Hi"))
     data.+=((2, 2L, "Hello"))
     data.+=((3, 2L, "Hello world"))
@@ -155,7 +155,7 @@ object TestData {
   val nullablesOfSmallData3 = Array(true, true, true)
 
   lazy val smallTupleData5: Seq[(Int, Long, Int, String, Long)] = {
-    val data = new mutable.MutableList[(Int, Long, Int, String, Long)]
+    val data = new mutable.ListBuffer[(Int, Long, Int, String, Long)]
     data.+=((1, 1L, 0, "Hallo", 1L))
     data.+=((2, 2L, 1, "Hallo Welt", 2L))
     data.+=((2, 3L, 2, "Hallo Welt wie", 1L))
@@ -196,7 +196,7 @@ object TestData {
   )
 
   lazy val tupleData3: Seq[(Int, Long, String)] = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "Hi"))
     data.+=((2, 2L, "Hello"))
     data.+=((3, 2L, "Hello world"))
@@ -263,7 +263,7 @@ object TestData {
   )
 
   lazy val smallNestedTupleData: Seq[((Int, Int), String)] = {
-      val data = new mutable.MutableList[((Int, Int), String)]
+      val data = new mutable.ListBuffer[((Int, Int), String)]
       data.+=(((1, 1), "one"))
       data.+=(((2, 2), "two"))
       data.+=(((3, 3), "three"))
@@ -271,7 +271,7 @@ object TestData {
   }
 
   lazy val tupleData5: Seq[(Int, Long, Int, String, Long)] = {
-    val data = new mutable.MutableList[(Int, Long, Int, String, Long)]
+    val data = new mutable.ListBuffer[(Int, Long, Int, String, Long)]
     data.+=((1, 1L, 0, "Hallo", 1L))
     data.+=((2, 2L, 1, "Hallo Welt", 2L))
     data.+=((2, 3L, 2, "Hallo Welt wie", 1L))
@@ -542,7 +542,7 @@ object TestData {
       LocalDateTime.of(1990, 12, 24, 8, 10, 24, 123000000),
       LocalDateTime.of(2020, 5, 1, 23, 23, 23, 0),
       null)
-    val instants = new mutable.MutableList[Instant]
+    val instants = new mutable.ListBuffer[Instant]
     for (i <- datetimes.indices) {
       if (datetimes(i) == null) {
         instants += null
@@ -570,7 +570,7 @@ object TestData {
       map((null, 3)),
       null)
 
-    val data = new mutable.MutableList[Row]
+    val data = new mutable.ListBuffer[Row]
     for (i <- ints.indices) {
       data += row(
         bools(i), bytes(i), shorts(i), ints(i), longs(i), floats(i), doubles(i),

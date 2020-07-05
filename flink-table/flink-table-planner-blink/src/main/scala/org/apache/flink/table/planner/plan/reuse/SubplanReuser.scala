@@ -31,7 +31,7 @@ import org.apache.calcite.rel.{RelNode, RelVisitor}
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * An utility class for finding out duplicated sub-plans by digest and reusing them.

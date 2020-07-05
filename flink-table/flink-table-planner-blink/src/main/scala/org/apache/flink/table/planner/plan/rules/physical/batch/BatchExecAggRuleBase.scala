@@ -39,7 +39,7 @@ import org.apache.calcite.rel.{RelCollation, RelCollations, RelFieldCollation, R
 import org.apache.calcite.tools.RelBuilder
 import org.apache.calcite.util.Util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 trait BatchExecAggRuleBase {
 

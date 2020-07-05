@@ -32,7 +32,7 @@ import org.apache.calcite.rex.{RexNode, RexUtil}
 import org.apache.calcite.sql.fun.SqlStdOperatorTable
 import org.apache.calcite.util.{BuiltInMethod, ImmutableBitSet, Util}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * FlinkRelMdSelectivity supplies a implementation of

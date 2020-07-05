@@ -32,7 +32,7 @@ import org.apache.calcite.util.ImmutableIntList
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Batch physical RelNode for local sort-based aggregate operator.

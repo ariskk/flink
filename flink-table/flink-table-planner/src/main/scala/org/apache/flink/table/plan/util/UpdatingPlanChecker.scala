@@ -23,7 +23,7 @@ import org.apache.calcite.sql.SqlKind
 import org.apache.flink.table.expressions.ProctimeAttribute
 import org.apache.flink.table.plan.nodes.datastream._
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 import scala.collection.mutable
 
 object UpdatingPlanChecker {

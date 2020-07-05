@@ -34,7 +34,7 @@ import org.apache.calcite.rel.RelNode
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Batch physical RelNode to to write data into an external sink defined by a

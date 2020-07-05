@@ -26,7 +26,7 @@ import org.apache.flink.table.functions.sql.ScalarSqlFunctions
 import org.apache.flink.table.typeutils.TypeCheckUtils
 import org.apache.flink.table.validate._
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 case class Abs(child: PlannerExpression) extends UnaryExpression {
   override private[flink] def resultType: TypeInformation[_] = child.resultType

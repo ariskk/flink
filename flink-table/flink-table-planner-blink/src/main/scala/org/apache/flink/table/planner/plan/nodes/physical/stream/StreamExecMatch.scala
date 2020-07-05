@@ -60,7 +60,7 @@ import org.apache.calcite.tools.RelBuilder
 import _root_.java.lang.{Boolean => JBoolean, Long => JLong}
 import _root_.java.util
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 
 /**
   * Flink RelNode which matches along with LogicalMatch.

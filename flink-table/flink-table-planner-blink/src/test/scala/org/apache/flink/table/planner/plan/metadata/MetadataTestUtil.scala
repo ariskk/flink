@@ -36,7 +36,7 @@ import org.apache.calcite.sql.{SqlCall, SqlNode}
 
 import java.util.Collections
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 object MetadataTestUtil {

@@ -23,7 +23,7 @@ import org.apache.calcite.sql.fun.SqlStdOperatorTable.{EQUALS, LESS_THAN_OR_EQUA
 import org.junit.Assert._
 import org.junit.Test
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class FlinkRelMdColumnOriginNullCountTest extends FlinkRelMdHandlerTestBase {
 

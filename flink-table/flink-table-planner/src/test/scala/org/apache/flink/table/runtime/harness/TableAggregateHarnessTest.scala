@@ -42,7 +42,7 @@ class TableAggregateHarnessTest extends HarnessTestBase {
 
     override def getMaxIdleStateRetentionTime: Long = Time.seconds(2).toMilliseconds
   }
-  val data = new mutable.MutableList[(Int, Int)]
+  val data = new mutable.ListBuffer[(Int, Int)]
 
   @Test
   def testTableAggregate(): Unit = {

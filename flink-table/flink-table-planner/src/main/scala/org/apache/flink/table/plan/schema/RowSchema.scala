@@ -24,7 +24,7 @@ import org.apache.flink.api.java.typeutils.RowTypeInfo
 import org.apache.flink.table.calcite.FlinkTypeFactory
 import org.apache.flink.types.Row
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Schema that describes both a logical and physical row.

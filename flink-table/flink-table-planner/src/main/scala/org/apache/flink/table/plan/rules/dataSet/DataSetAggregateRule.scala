@@ -25,7 +25,7 @@ import org.apache.flink.table.plan.nodes.FlinkConventions
 import org.apache.flink.table.plan.nodes.dataset.{DataSetAggregate, DataSetUnion}
 import org.apache.flink.table.plan.nodes.logical.FlinkLogicalAggregate
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class DataSetAggregateRule
   extends ConverterRule(

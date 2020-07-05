@@ -31,7 +31,7 @@ import org.apache.calcite.util.mapping.Mappings
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Planner rule that removes unreferenced AggregateCall from Aggregate
