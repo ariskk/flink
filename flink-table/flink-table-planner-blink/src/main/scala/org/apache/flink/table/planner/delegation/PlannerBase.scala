@@ -57,7 +57,7 @@ import org.apache.calcite.tools.FrameworkConfig
 import java.util
 import java.util.function.{Function => JFunction, Supplier => JSupplier}
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 
 /**
   * Implementation of [[Planner]] for blink planner. It supports only streaming use cases.

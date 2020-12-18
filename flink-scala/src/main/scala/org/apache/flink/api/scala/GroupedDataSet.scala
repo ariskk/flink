@@ -49,8 +49,8 @@ class GroupedDataSet[T: ClassTag](
 
   // These are for optional secondary sort. They are only used
   // when using a group-at-a-time reduce function.
-  private val groupSortKeyPositions = mutable.MutableList[Either[Int, String]]()
-  private val groupSortOrders = mutable.MutableList[Order]()
+  private val groupSortKeyPositions = mutable.ListBuffer[Either[Int, String]]()
+  private val groupSortOrders = mutable.ListBuffer[Order]()
 
   private var partitioner : Partitioner[_] = _
 

@@ -46,7 +46,7 @@ import org.apache.flink.configuration.MemorySize
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 abstract class BatchExecHashWindowAggregateBase(
     cluster: RelOptCluster,

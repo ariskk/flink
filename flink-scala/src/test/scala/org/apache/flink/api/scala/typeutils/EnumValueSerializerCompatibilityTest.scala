@@ -202,7 +202,8 @@ object EnumValueSerializerCompatibilityTest {
 
     run.compile(List(file.getAbsolutePath))
 
-    reporter.printSummary()
+    // Todo check this
+    reporter.finish()
   }
 }
 

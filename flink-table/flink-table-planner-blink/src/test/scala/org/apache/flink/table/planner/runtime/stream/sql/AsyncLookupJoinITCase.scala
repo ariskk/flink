@@ -34,7 +34,7 @@ import org.junit.{After, Before, Test}
 import java.lang.{Boolean => JBoolean}
 import java.util.{Collection => JCollection}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 @RunWith(classOf[Parameterized])
 class AsyncLookupJoinITCase(legacyTableSource: Boolean, backend: StateBackendMode)

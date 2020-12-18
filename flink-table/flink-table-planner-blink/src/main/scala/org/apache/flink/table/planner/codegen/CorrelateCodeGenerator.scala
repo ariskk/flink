@@ -39,7 +39,7 @@ import org.apache.calcite.rel.`type`.RelDataType
 import org.apache.calcite.rel.core.JoinRelType
 import org.apache.calcite.rex._
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 object CorrelateCodeGenerator {
 

@@ -25,7 +25,7 @@ import org.apache.calcite.sql.SqlAsOperator
 import org.apache.calcite.sql.`type`.SqlTypeName
 import org.apache.flink.table.api.TableException
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 trait FlinkRelNode extends RelNode {
 

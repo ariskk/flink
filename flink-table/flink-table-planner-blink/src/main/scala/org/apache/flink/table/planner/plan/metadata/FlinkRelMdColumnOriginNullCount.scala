@@ -31,7 +31,7 @@ import org.apache.calcite.rex.{RexInputRef, RexLiteral, RexNode}
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * FlinkRelMdColumnOriginNullCount supplies a default implementation of

@@ -34,7 +34,7 @@ import org.apache.calcite.util.{Bug, ImmutableBitSet, Util}
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 class FlinkRelMdUniqueGroups private extends MetadataHandler[UniqueGroups] {

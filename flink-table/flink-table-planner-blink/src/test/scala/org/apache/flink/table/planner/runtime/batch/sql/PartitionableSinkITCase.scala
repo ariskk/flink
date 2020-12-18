@@ -47,9 +47,9 @@ import org.junit.{Before, Rule, Test}
 import java.util
 import java.util.{function, ArrayList => JArrayList, LinkedList => JLinkedList, List => JList, Map => JMap}
 
-import scala.collection.JavaConversions._
 import scala.collection.JavaConverters._
-import scala.collection.Seq
+import scala.collection.JavaConverters._
+import scala.collection.immutable.Seq
 
 /**
  * Test cases for [[org.apache.flink.table.sinks.PartitionableTableSink]].

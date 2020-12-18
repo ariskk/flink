@@ -43,7 +43,7 @@ import org.apache.flink.table.runtime.types.{CRow, CRowTypeInfo}
 import org.apache.flink.table.runtime.utils.StreamingWithStateTestBase
 import org.apache.flink.table.utils.EncodingUtils
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 
 class HarnessTestBase extends StreamingWithStateTestBase {
 

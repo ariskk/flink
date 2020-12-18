@@ -40,7 +40,7 @@ import org.apache.calcite.rel.{RelNode, RelWriter, SingleRel}
 import java.lang.{Boolean => JBoolean}
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Stream physical RelNode which deduplicate on keys and keeps only first row or last row.

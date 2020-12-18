@@ -47,7 +47,7 @@ class AggFunctionHarnessTest extends HarnessTestBase {
     val tEnv = StreamTableEnvironment.create(
       env, EnvironmentSettings.newInstance().useOldPlanner().build())
 
-    val data = new mutable.MutableList[(JInt, String)]
+    val data = new mutable.ListBuffer[(JInt, String)]
     val t = env.fromCollection(data).toTable(tEnv, 'a, 'b)
     tEnv.registerTable("T", t)
     val sqlQuery = tEnv.sqlQuery(
@@ -113,7 +113,7 @@ class AggFunctionHarnessTest extends HarnessTestBase {
     val tEnv = StreamTableEnvironment.create(
       env, EnvironmentSettings.newInstance().useOldPlanner().build())
 
-    val data = new mutable.MutableList[(JInt, JInt, String)]
+    val data = new mutable.ListBuffer[(JInt, JInt, String)]
     val t = env.fromCollection(data).toTable(tEnv, 'a, 'b, 'c)
     tEnv.registerTable("T", t)
     val sqlQuery = tEnv.sqlQuery(

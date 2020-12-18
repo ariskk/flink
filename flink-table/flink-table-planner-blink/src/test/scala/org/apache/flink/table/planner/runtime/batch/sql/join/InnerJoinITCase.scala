@@ -35,7 +35,7 @@ import org.junit.{Before, Test}
 import java.math.{BigDecimal => JBigDecimal}
 import java.util
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 import scala.util.Random
 
 @RunWith(classOf[Parameterized])

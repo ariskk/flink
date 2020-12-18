@@ -30,7 +30,7 @@ import org.junit.{Before, Test}
 
 import java.util
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 @RunWith(classOf[Parameterized])
 class SemiJoinITCase(expectedJoinType: JoinType) extends BatchTestBase {

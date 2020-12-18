@@ -33,7 +33,7 @@ import org.apache.calcite.rel.{RelCollations, RelNode}
 import org.apache.calcite.rex.RexNode
 import org.apache.calcite.util.ImmutableIntList
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 /**

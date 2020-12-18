@@ -31,7 +31,7 @@ import org.apache.calcite.tools.RelBuilder
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Rule to convert complex aggregation functions into simpler ones.

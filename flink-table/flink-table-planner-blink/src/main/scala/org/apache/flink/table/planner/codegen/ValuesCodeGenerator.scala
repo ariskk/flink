@@ -28,7 +28,7 @@ import com.google.common.collect.ImmutableList
 import org.apache.calcite.rel.`type`.RelDataType
 import org.apache.calcite.rex.RexLiteral
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 object ValuesCodeGenerator {
 

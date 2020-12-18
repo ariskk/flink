@@ -25,7 +25,7 @@ import org.apache.flink.core.memory.DataOutputView;
 
 import java.io.IOException;
 
-import scala.collection.TraversableOnce;
+import scala.collection.IterableOnce;
 
 import static org.apache.flink.util.Preconditions.checkArgument;
 import static org.apache.flink.util.Preconditions.checkState;
@@ -38,7 +38,7 @@ import static org.apache.flink.util.Preconditions.checkState;
  * allow calling different base class constructors from subclasses, while we need that
  * for the default empty constructor.
  */
-public class TraversableSerializerSnapshot<T extends TraversableOnce<E>, E>
+public class TraversableSerializerSnapshot<T extends IterableOnce<E>, E>
 		extends CompositeTypeSerializerSnapshot<T, TraversableSerializer<T, E>> {
 
 	private static final int VERSION = 2;

@@ -30,7 +30,7 @@ import org.apache.calcite.rel.convert.ConverterRule
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Sub-class of [[Sink]] that is a relational expression

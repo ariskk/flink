@@ -66,7 +66,7 @@ object TraversableSerializerUpgradeTest {
     val setTypeInfo = implicitly[TypeInformation[Set[Int]]]
     val bitsetTypeInfo = implicitly[TypeInformation[BitSet]]
     val mutableListTypeInfo =
-      implicitly[TypeInformation[mutable.MutableList[Int]]]
+      implicitly[TypeInformation[mutable.ListBuffer[Int]]]
     val seqTupleTypeInfo = implicitly[TypeInformation[Seq[(Int, String)]]]
     val seqPojoTypeInfo = implicitly[TypeInformation[Seq[Pojo]]]
   }
@@ -104,7 +104,7 @@ object TraversableSerializerUpgradeTest {
           classOf[MapSerializerSetup],
           classOf[MapSerializerVerifier]))
       testSpecifications.add(
-        new TestSpecification[mutable.MutableList[Int], mutable.MutableList[Int]](
+        new TestSpecification[mutable.ListBuffer[Int], mutable.ListBuffer[Int]](
           "traversable-serializer-mutable-list",
           migrationVersion,
           classOf[MutableListSerializerSetup],
@@ -217,24 +217,24 @@ object TraversableSerializerUpgradeTest {
   }
 
   final class MutableListSerializerSetup extends
-    TypeSerializerUpgradeTestBase.PreUpgradeSetup[mutable.MutableList[Int]] {
-    override def createPriorSerializer: TypeSerializer[mutable.MutableList[Int]] =
+    TypeSerializerUpgradeTestBase.PreUpgradeSetup[mutable.ListBuffer[Int]] {
+    override def createPriorSerializer: TypeSerializer[mutable.ListBuffer[Int]] =
       new TypeSerializerSupplier(mutableListTypeInfo).get()
 
-    override def createTestData: mutable.MutableList[Int] = mutable.MutableList(1, 2, 3)
+    override def createTestData: mutable.ListBuffer[Int] = mutable.ListBuffer(1, 2, 3)
   }
 
   final class MutableListSerializerVerifier extends
-    TypeSerializerUpgradeTestBase.UpgradeVerifier[mutable.MutableList[Int]] {
-    override def createUpgradedSerializer: TypeSerializer[mutable.MutableList[Int]] =
+    TypeSerializerUpgradeTestBase.UpgradeVerifier[mutable.ListBuffer[Int]] {
+    override def createUpgradedSerializer: TypeSerializer[mutable.ListBuffer[Int]] =
       new TypeSerializerSupplier(mutableListTypeInfo).get()
 
-    override def testDataMatcher: Matcher[mutable.MutableList[Int]] =
-      is(mutable.MutableList(1, 2, 3))
+    override def testDataMatcher: Matcher[mutable.ListBuffer[Int]] =
+      is(mutable.ListBuffer(1, 2, 3))
 
     override def schemaCompatibilityMatcher(version: MigrationVersion):
-    Matcher[TypeSerializerSchemaCompatibility[mutable.MutableList[Int]]] =
-      TypeSerializerMatchers.isCompatibleAsIs[mutable.MutableList[Int]]()
+    Matcher[TypeSerializerSchemaCompatibility[mutable.ListBuffer[Int]]] =
+      TypeSerializerMatchers.isCompatibleAsIs[mutable.ListBuffer[Int]]()
   }
 
   final class SeqSerializerSetup extends TypeSerializerUpgradeTestBase.PreUpgradeSetup[Seq[Int]] {

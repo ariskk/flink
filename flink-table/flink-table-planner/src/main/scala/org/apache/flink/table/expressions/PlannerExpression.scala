@@ -26,7 +26,7 @@ import org.apache.flink.api.common.typeinfo.TypeInformation
 import org.apache.flink.table.plan.TreeNode
 import org.apache.flink.table.validate.{ValidationResult, ValidationSuccess}
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 
 abstract class PlannerExpression extends TreeNode[PlannerExpression] with Expression {
   /**

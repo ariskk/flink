@@ -29,7 +29,7 @@ import org.apache.calcite.rel.RelNode
 import org.apache.calcite.rex.RexUtil
 import org.apache.calcite.tools.RelBuilder
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Planner rule that writes one phase aggregate to two phase aggregate,

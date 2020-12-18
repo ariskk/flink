@@ -29,7 +29,7 @@ import org.apache.calcite.rex.RexInputRef
 import java.util
 import java.util.Comparator
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Planner rule that makes the over window groups which have the same shuffle keys and order keys

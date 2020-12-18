@@ -27,7 +27,7 @@ import org.apache.calcite.rel.{RelCollation, RelCollations, RelFieldCollation}
 import org.apache.calcite.rex.{RexInputRef, RexWindowBound}
 import org.apache.calcite.sql.`type`.SqlTypeName
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 object OverAggregateUtil {
 

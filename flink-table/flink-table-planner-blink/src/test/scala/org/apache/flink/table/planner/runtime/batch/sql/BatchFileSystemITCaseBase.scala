@@ -25,7 +25,7 @@ import org.apache.flink.types.Row
 
 import org.junit.Before
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 /**
   * Batch [[FileSystemITCaseBase]].

@@ -37,7 +37,7 @@ import _root_.java.lang.{Boolean => JBoolean}
 import _root_.java.util
 import _root_.java.util.function.{Function => JFunction}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 /**

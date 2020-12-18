@@ -36,7 +36,7 @@ import org.apache.calcite.tools.RuleSets
 import org.junit.{Before, Test}
 
 import scala.collection.JavaConverters._
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 class AggregateJoinTransposeITCase extends BatchTestBase {
 

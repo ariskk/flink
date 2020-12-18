@@ -42,7 +42,7 @@ import org.apache.calcite.util.Util
 
 import java.math.{BigDecimal => JBigDecimal}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * FlinkRelMdColumnInterval supplies a default implementation of

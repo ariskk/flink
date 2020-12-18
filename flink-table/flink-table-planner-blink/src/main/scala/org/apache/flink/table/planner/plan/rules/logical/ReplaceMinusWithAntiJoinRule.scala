@@ -24,7 +24,7 @@ import org.apache.calcite.plan.RelOptRule.{any, operand}
 import org.apache.calcite.plan.{RelOptRule, RelOptRuleCall}
 import org.apache.calcite.rel.core._
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Planner rule that replaces distinct [[Minus]] (SQL keyword: EXCEPT) with

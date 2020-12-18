@@ -84,7 +84,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import scala.collection.JavaConverters;
-import scala.collection.Seq;
+import scala.collection.immutable.Seq;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.samePropertyValuesAs;

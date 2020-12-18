@@ -27,7 +27,7 @@ import org.apache.calcite.rel.core.{Intersect, RelFactories}
 import org.apache.calcite.sql.`type`.SqlTypeName
 import org.apache.calcite.util.Util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Replaces logical [[Intersect]] operator using a combination of union all, aggregate

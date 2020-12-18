@@ -42,7 +42,7 @@ import org.apache.calcite.util.{ImmutableBitSet, NumberUtil}
 import java.math.BigDecimal
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 /**

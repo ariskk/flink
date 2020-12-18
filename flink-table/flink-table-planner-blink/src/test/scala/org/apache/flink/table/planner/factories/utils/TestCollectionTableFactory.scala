@@ -45,7 +45,7 @@ import java.util.{ArrayList => JArrayList, LinkedList => JLinkedList, List => JL
 import org.apache.flink.table.runtime.types.TypeInfoDataTypeConverter
 import org.apache.flink.table.runtime.types.TypeInfoDataTypeConverter.fromDataTypeToTypeInfo
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class TestCollectionTableFactory extends TableSourceFactory[Row] with TableSinkFactory[Row] {
 

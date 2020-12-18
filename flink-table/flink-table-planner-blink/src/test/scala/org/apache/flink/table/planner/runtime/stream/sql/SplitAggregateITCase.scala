@@ -40,7 +40,7 @@ import java.lang.{Integer => JInt, Long => JLong}
 import java.math.{BigDecimal => JBigDecimal}
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.{Seq, mutable}
 import scala.util.Random
 
@@ -131,7 +131,7 @@ class SplitAggregateITCase(
       "H", null, null, "K",
       "L", "L", "N", "O", "P")
 
-    val data = new mutable.MutableList[Row]
+    val data = new mutable.ListBuffer[Row]
 
     for (i <- ids.indices) {
       val v = integers(i)

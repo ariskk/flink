@@ -195,7 +195,7 @@ class GroupAggregateHarnessTest extends HarnessTestBase {
       EnvironmentSettings.newInstance().useOldPlanner().build(),
       config)
 
-    val data = new mutable.MutableList[(JLong, JInt)]
+    val data = new mutable.ListBuffer[(JLong, JInt)]
     val t = env.fromCollection(data).toTable(tEnv, 'a, 'b)
     tEnv.registerTable("T", t)
     val sqlQuery = tEnv.sqlQuery(
@@ -286,7 +286,7 @@ class GroupAggregateHarnessTest extends HarnessTestBase {
       EnvironmentSettings.newInstance().useOldPlanner().build(),
       config)
 
-    val data = new mutable.MutableList[(JLong, JLong, JLong)]
+    val data = new mutable.ListBuffer[(JLong, JLong, JLong)]
     val t = env.fromCollection(data).toTable(tEnv, 'a, 'b, 'c)
     tEnv.registerTable("T", t)
     tEnv.registerFunction("myCount", new MultiArgCount)

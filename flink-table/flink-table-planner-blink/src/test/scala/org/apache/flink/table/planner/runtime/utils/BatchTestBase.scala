@@ -54,7 +54,7 @@ import _root_.java.lang.{Iterable => JIterable}
 import _root_.java.util.regex.Pattern
 
 import _root_.scala.collection.JavaConverters._
-import _root_.scala.collection.Seq
+import _root_.scala.collection.immutable.Seq
 import _root_.scala.collection.mutable.ArrayBuffer
 import _root_.scala.util.Sorting
 

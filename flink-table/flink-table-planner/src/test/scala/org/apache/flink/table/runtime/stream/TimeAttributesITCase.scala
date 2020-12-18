@@ -602,7 +602,7 @@ class TimeAttributesITCase extends AbstractTestBase {
     val tEnv = StreamTableEnvironment.create(
       env, EnvironmentSettings.newInstance().useOldPlanner().build())
 
-    val data = new mutable.MutableList[(String, Timestamp, Int)]
+    val data = new mutable.ListBuffer[(String, Timestamp, Int)]
     data.+=(("ACME", new Timestamp(1000L), 12))
     data.+=(("ACME", new Timestamp(2000L), 17))
     data.+=(("ACME", new Timestamp(3000L), 13))

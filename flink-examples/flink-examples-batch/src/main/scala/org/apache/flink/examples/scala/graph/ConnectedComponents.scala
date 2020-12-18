@@ -23,6 +23,7 @@ import org.apache.flink.api.scala._
 import org.apache.flink.examples.java.graph.util.ConnectedComponentsData
 import org.apache.flink.util.Collector
 
+import scala.collection.immutable.Seq
 /**
  * An implementation of the connected components algorithm, using a delta iteration.
  *
@@ -99,7 +100,7 @@ object ConnectedComponents {
 
         // update if the component of the candidate is smaller
         val updatedComponents = minNeighbors.join(s).where(0).equalTo(0) {
-          (newVertex, oldVertex, out: Collector[(Long, Long)]) =>
+          (newVertex: (Long, Long), oldVertex: (Long, Long), out: Collector[(Long, Long)]) =>
             if (newVertex._2 < oldVertex._2) out.collect(newVertex)
         }.withForwardedFieldsFirst("*")
 

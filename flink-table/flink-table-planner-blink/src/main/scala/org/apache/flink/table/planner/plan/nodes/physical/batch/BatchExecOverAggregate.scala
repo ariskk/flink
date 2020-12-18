@@ -64,7 +64,7 @@ import org.apache.calcite.util.ImmutableIntList
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable.ArrayBuffer
 
 /**

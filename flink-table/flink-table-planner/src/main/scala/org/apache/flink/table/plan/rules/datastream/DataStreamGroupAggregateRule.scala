@@ -28,7 +28,7 @@ import org.apache.flink.table.plan.nodes.datastream.DataStreamGroupAggregate
 import org.apache.flink.table.plan.nodes.logical.FlinkLogicalAggregate
 import org.apache.flink.table.plan.schema.RowSchema
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Rule to convert a [[LogicalAggregate]] into a [[DataStreamGroupAggregate]].

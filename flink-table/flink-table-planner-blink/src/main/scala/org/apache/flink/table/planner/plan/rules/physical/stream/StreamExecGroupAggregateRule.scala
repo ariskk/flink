@@ -29,7 +29,7 @@ import org.apache.calcite.rel.RelNode
 import org.apache.calcite.rel.convert.ConverterRule
 import org.apache.calcite.rel.core.Aggregate.Group
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Rule to convert a [[FlinkLogicalAggregate]] into a [[StreamExecGroupAggregate]].

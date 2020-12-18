@@ -25,7 +25,7 @@ import org.apache.flink.table.types.logical.RowType
 
 import org.apache.calcite.rex.RexNode
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 object ExpandCodeGenerator {

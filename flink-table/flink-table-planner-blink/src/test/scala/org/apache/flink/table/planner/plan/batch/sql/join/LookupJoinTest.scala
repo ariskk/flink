@@ -34,7 +34,7 @@ import org.junit.{Before, Test}
 import _root_.java.lang.{Boolean => JBoolean}
 import _root_.java.util.{Collection => JCollection}
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 
 /**
  * The physical plans for legacy [[org.apache.flink.table.sources.LookupableTableSource]] and new

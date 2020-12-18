@@ -36,7 +36,7 @@ import org.apache.flink.table.util.MatchUtil
 import org.apache.calcite.util.ImmutableBitSet
 
 import scala.collection.JavaConverters._
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 class DataStreamMatchRule

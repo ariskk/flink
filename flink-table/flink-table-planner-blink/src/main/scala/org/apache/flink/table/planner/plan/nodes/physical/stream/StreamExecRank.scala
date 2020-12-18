@@ -43,7 +43,7 @@ import org.apache.calcite.util.ImmutableBitSet
 import java.lang.{Long => JLong}
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 
 /**

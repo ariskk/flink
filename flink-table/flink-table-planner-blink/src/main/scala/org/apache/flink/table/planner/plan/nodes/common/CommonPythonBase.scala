@@ -29,7 +29,7 @@ import org.apache.flink.table.planner.functions.bridging.BridgingSqlFunction
 import org.apache.flink.table.planner.functions.utils.{ScalarSqlFunction, TableSqlFunction}
 import org.apache.flink.table.planner.utils.DummyStreamExecutionEnvironment
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 trait CommonPythonBase {

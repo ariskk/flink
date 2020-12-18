@@ -71,7 +71,7 @@ class AggregateITCase(
 
   @Test
   def testEmptyInputAggregation(): Unit = {
-    val data = new mutable.MutableList[(Int, Int)]
+    val data = new mutable.ListBuffer[(Int, Int)]
     data .+= ((1, 1))
     data .+= ((2, 2))
     data .+= ((3, 3))
@@ -90,7 +90,7 @@ class AggregateITCase(
 
   @Test
   def testShufflePojo(): Unit = {
-    val data = new mutable.MutableList[(Int, Int)]
+    val data = new mutable.ListBuffer[(Int, Int)]
     data .+= ((1, 1))
     data .+= ((2, 2))
     data .+= ((3, 3))
@@ -114,7 +114,7 @@ class AggregateITCase(
   @Ignore("[FLINK-12215] Fix this when introduce SqlProcessFunction.")
   @Test
   def testEmptyInputAggregationWithoutGroupBy(): Unit = {
-    val data = new mutable.MutableList[(Int, Int)]
+    val data = new mutable.ListBuffer[(Int, Int)]
     data .+= ((1, 1))
     data .+= ((2, 2))
     data .+= ((3, 3))
@@ -137,7 +137,7 @@ class AggregateITCase(
     // of environment to event time, so that emitWatermark() actually does nothing.
     env.setStreamTimeCharacteristic(TimeCharacteristic.ProcessingTime)
 
-    val data = new mutable.MutableList[(Int, Int)]
+    val data = new mutable.ListBuffer[(Int, Int)]
     data .+= ((1, 1))
     data .+= ((2, 2))
     data .+= ((3, 3))
@@ -230,7 +230,7 @@ class AggregateITCase(
       "H", null, null, "K",
       "L", "L", "N", "O", "P")
 
-    val data = new mutable.MutableList[Row]
+    val data = new mutable.ListBuffer[Row]
 
     for (i <- ids.indices) {
       val v = integers(i)
@@ -280,7 +280,7 @@ class AggregateITCase(
   @Test
   def testDistinctWithRetract(): Unit = {
     // this case covers LongArrayValueWithRetractionGenerator and LongValueWithRetractionGenerator
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((1, 1L, "A"))
     data.+=((1, 1L, "A"))
@@ -332,7 +332,7 @@ class AggregateITCase(
   @Test
   def testDistinctAggregateMoreThan64(): Unit = {
     // this case is used to cover DistinctAggCodeGen#LongArrayValueWithoutRetractionGenerator
-    val data = new mutable.MutableList[(Int, Int)]
+    val data = new mutable.ListBuffer[(Int, Int)]
     for (i <- 0 until 100) {
       for (j <- 0 until 100 - i) {
         data.+=((j, i))
@@ -363,7 +363,7 @@ class AggregateITCase(
 
   @Test
   def testDistinctAggWithNullValues(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))
@@ -398,7 +398,7 @@ class AggregateITCase(
 
   @Test
   def testGroupByAgg(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))
@@ -425,7 +425,7 @@ class AggregateITCase(
   }
 
   def testCountWithNullableIfCall(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))
@@ -463,7 +463,7 @@ class AggregateITCase(
 
   @Test
   def testNestedGroupByAgg(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))
@@ -597,7 +597,7 @@ class AggregateITCase(
 
   @Test
   def testListAggWithDistinct(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))
@@ -669,7 +669,7 @@ class AggregateITCase(
 
   @Test
   def testGroupBySingleValue(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))
@@ -727,7 +727,7 @@ class AggregateITCase(
 
   @Test
   def testDecimalSum(): Unit = {
-    val data = new mutable.MutableList[Row]
+    val data = new mutable.ListBuffer[Row]
     data.+=(Row.of(BigDecimal(1).bigDecimal))
     data.+=(Row.of(BigDecimal(2).bigDecimal))
     data.+=(Row.of(BigDecimal(2).bigDecimal))
@@ -863,7 +863,7 @@ class AggregateITCase(
 
   @Test
   def testMinMaxWithBinaryString(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "BC"))
@@ -898,7 +898,7 @@ class AggregateITCase(
 
   @Test
   def testBigDataOfMinMaxWithBinaryString(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     for (i <- 0 until 100) {
       data.+=((i % 10, i, i.toString))
     }
@@ -923,7 +923,7 @@ class AggregateITCase(
 
   @Test
   def testAggWithFilterClause(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String, Boolean)]
+    val data = new mutable.ListBuffer[(Int, Long, String, Boolean)]
     data.+=((1, 5L, "B", true))
     data.+=((1, 4L, "C", false))
     data.+=((1, 2L, "A", true))
@@ -958,7 +958,7 @@ class AggregateITCase(
 
   @Test
   def testMinMaxWithDecimal(): Unit = {
-    val data = new mutable.MutableList[Row]
+    val data = new mutable.ListBuffer[Row]
     data.+=(Row.of(BigDecimal(1).bigDecimal))
     data.+=(Row.of(BigDecimal(2).bigDecimal))
     data.+=(Row.of(BigDecimal(2).bigDecimal))
@@ -1050,7 +1050,7 @@ class AggregateITCase(
          |GROUP BY c
          |""".stripMargin
 
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     for (i <- 0 until 10) {
       data.+=((i, 1L, "Hi"))
     }
@@ -1070,7 +1070,7 @@ class AggregateITCase(
   def testSTDDEV(): Unit = {
     val sqlQuery = "SELECT STDDEV_SAMP(a), STDDEV_POP(a) FROM MyTable GROUP BY c"
 
-    val data = new mutable.MutableList[(Double, Long, String)]
+    val data = new mutable.ListBuffer[(Double, Long, String)]
     for (i <- 0 until 10) {
       data.+=((i, 1L, "Hi"))
     }
@@ -1090,7 +1090,7 @@ class AggregateITCase(
   def testVAR_POP(): Unit = {
     val sqlQuery = "SELECT VAR_POP(a) FROM MyTable GROUP BY c"
 
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((2900, 1L, "Hi"))
     data.+=((2500, 1L, "Hi"))
     data.+=((2600, 1L, "Hi"))
@@ -1195,7 +1195,7 @@ class AggregateITCase(
 
   @Test
   def testPruneUselessAggCall(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data .+= ((1, 1L, "Hi"))
     data .+= ((2, 2L, "Hello"))
     data .+= ((3, 2L, "Hello world"))
@@ -1229,7 +1229,7 @@ class AggregateITCase(
 
   @Test
   def testConstantGroupKeyWithUpsertSink(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))

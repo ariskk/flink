@@ -26,7 +26,7 @@ import org.apache.flink.api.common.typeinfo.{BasicTypeInfo, TypeInformation}
 import org.apache.flink.table.typeutils.TypeCheckUtils.{isArray, isComparable, isNumeric}
 import org.apache.flink.table.validate._
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 abstract class BinaryComparison extends BinaryExpression {
   private[flink] def sqlOperator: SqlOperator

@@ -62,7 +62,7 @@ class CorrelateITCase extends AbstractTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("Jack#22,Jack,22", "Anna#44,Anna,44")
+    val expected = mutable.ListBuffer("Jack#22,Jack,22", "Anna#44,Anna,44")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 
@@ -79,7 +79,7 @@ class CorrelateITCase extends AbstractTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "nosharp,null,null", "Jack#22,Jack,22",
       "John#19,John,19", "Anna#44,Anna,44")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
@@ -120,7 +120,7 @@ class CorrelateITCase extends AbstractTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("Jack#22,Jack,22", "John#19,John,19")
+    val expected = mutable.ListBuffer("Jack#22,Jack,22", "John#19,John,19")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 
@@ -129,7 +129,7 @@ class CorrelateITCase extends AbstractTestBase {
     val tableFunc1 = new RichTableFunc1
     tEnv.registerFunction("RichTableFunc1", tableFunc1)
     UserDefinedFunctionTestUtils.setJobParameters(env, Map("word_separator" -> " "))
-    StreamITCase.testResults = mutable.MutableList()
+    StreamITCase.testResults = mutable.ListBuffer()
 
     val result = StreamTestData.getSmall3TupleDataStream(env)
       .toTable(tEnv, 'a, 'b, 'c)
@@ -140,7 +140,7 @@ class CorrelateITCase extends AbstractTestBase {
     results.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("3,Hello", "3,world")
+    val expected = mutable.ListBuffer("3,Hello", "3,world")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 
@@ -153,7 +153,7 @@ class CorrelateITCase extends AbstractTestBase {
     UserDefinedFunctionTestUtils.setJobParameters(
       env,
       Map("word_separator" -> "#", "string.value" -> "test"))
-    StreamITCase.testResults = mutable.MutableList()
+    StreamITCase.testResults = mutable.ListBuffer()
 
     val result = StreamTestData.getSmall3TupleDataStream(env)
       .toTable(tEnv, 'a, 'b, 'c)
@@ -164,7 +164,7 @@ class CorrelateITCase extends AbstractTestBase {
     results.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,Hi",
       "1,test",
       "2,Hello",
@@ -194,7 +194,7 @@ class CorrelateITCase extends AbstractTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "Anna#44,Anna,OneConf_Anna,TwoConf__key=key1_value=value1_Anna,44,44,44",
       "Anna#44,Anna,OneConf_Anna,TwoConf__key=key2_value=value2_Anna,44,44,44",
       "Jack#22,Jack,OneConf_Jack,TwoConf__key=key1_value=value1_Jack,22,22,22",
@@ -218,7 +218,7 @@ class CorrelateITCase extends AbstractTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "Anna#44,1",
       "Anna#44,2",
       "Anna#44,Anna#44",
@@ -253,7 +253,7 @@ class CorrelateITCase extends AbstractTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,2,3,3",
       "1,2,3,3")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
@@ -323,7 +323,7 @@ class CorrelateITCase extends AbstractTestBase {
     results.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "Jack,4",
       "22,2",
       "John,4",
@@ -337,7 +337,7 @@ class CorrelateITCase extends AbstractTestBase {
       env: StreamExecutionEnvironment)
     : DataStream[(Int, Long, String)] = {
 
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "Jack#22"))
     data.+=((2, 2L, "John#19"))
     data.+=((3, 2L, "Anna#44"))

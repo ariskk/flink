@@ -46,7 +46,7 @@ import org.apache.calcite.rex._
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class StreamExecTemporalJoin(
     cluster: RelOptCluster,

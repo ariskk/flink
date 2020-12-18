@@ -33,7 +33,7 @@ import org.apache.calcite.rex.{RexCall, RexInputRef, RexLiteral, RexNode}
 import org.apache.calcite.sql.fun.SqlStdOperatorTable
 import org.apache.calcite.util.Util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * FlinkRelMdColumnNullCount supplies a default implementation of

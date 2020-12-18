@@ -30,7 +30,7 @@ import org.apache.flink.table.typeutils.TypeCheckUtils.isTimeInterval
 import org.apache.flink.table.typeutils.{TimeIntervalTypeInfo, TypeCheckUtils}
 import org.apache.flink.table.validate.{ValidationFailure, ValidationResult, ValidationSuccess}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 case class Extract(timeIntervalUnit: PlannerExpression, temporal: PlannerExpression)
   extends PlannerExpression {

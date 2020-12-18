@@ -27,7 +27,7 @@ import org.apache.flink.table.planner.runtime.utils.TestData._
 
 import org.junit.{Before, Test}
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 class CorrelateITCase2 extends BatchTestBase {
 

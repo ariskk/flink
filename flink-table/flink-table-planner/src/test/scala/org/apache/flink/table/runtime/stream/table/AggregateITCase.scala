@@ -64,7 +64,7 @@ class AggregateITCase extends StreamingWithStateTestBase {
     results.addSink(new StreamITCase.RetractingSink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList("1,10", "2,21", "3,12")
+    val expected = mutable.ListBuffer("1,10", "2,21", "3,12")
     assertEquals(expected.sorted, StreamITCase.retractedResults.sorted)
   }
 
@@ -79,13 +79,13 @@ class AggregateITCase extends StreamingWithStateTestBase {
     results.addSink(new StreamITCase.RetractingSink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList("1,3,3", "2,3,4", "3,4,4")
+    val expected = mutable.ListBuffer("1,3,3", "2,3,4", "3,4,4")
     assertEquals(expected.sorted, StreamITCase.retractedResults.sorted)
   }
 
   @Test
   def testDistinctAggregate(): Unit = {
-    val data = new mutable.MutableList[(Int, Int, String)]
+    val data = new mutable.ListBuffer[(Int, Int, String)]
     data.+=((1, 1, "A"))
     data.+=((2, 2, "B"))
     data.+=((2, 2, "B"))
@@ -108,7 +108,7 @@ class AggregateITCase extends StreamingWithStateTestBase {
     results.addSink(new StreamITCase.RetractingSink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList("A,2,5,1,1,1", "B,3,12,4,2,3", "C,2,9,4,3,4", "D,1,9,9,4,9")
+    val expected = mutable.ListBuffer("A,2,5,1,1,1", "B,3,12,4,2,3", "C,2,9,4,3,4", "D,1,9,9,4,9")
     assertEquals(expected.sorted, StreamITCase.retractedResults.sorted)
   }
 
@@ -122,7 +122,7 @@ class AggregateITCase extends StreamingWithStateTestBase {
     results.addSink(new StreamITCase.RetractingSink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList("1,4,5", "2,4,7", "3,2,3")
+    val expected = mutable.ListBuffer("1,4,5", "2,4,7", "3,2,3")
     assertEquals(expected.sorted, StreamITCase.retractedResults.sorted)
   }
 
@@ -135,7 +135,7 @@ class AggregateITCase extends StreamingWithStateTestBase {
     results.addSink(new StreamITCase.RetractingSink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList("1,null", "2,null", "3,null", "4,null", "5,null", "6,null")
+    val expected = mutable.ListBuffer("1,null", "2,null", "3,null", "4,null", "5,null", "6,null")
     assertEquals(expected.sorted, StreamITCase.retractedResults.sorted)
   }
 
@@ -148,7 +148,7 @@ class AggregateITCase extends StreamingWithStateTestBase {
     results.addSink(new StreamITCase.RetractingSink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList("1,5", "2,7", "3,3")
+    val expected = mutable.ListBuffer("1,5", "2,7", "3,3")
     assertEquals(expected.sorted, StreamITCase.retractedResults.sorted)
   }
 
@@ -205,7 +205,7 @@ class AggregateITCase extends StreamingWithStateTestBase {
     results.addSink(new RetractingSink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "0,1,1,1", "7,1,4,2", "2,1,3,2",
       "3,2,3,3", "1,2,3,3", "14,2,5,1",
       "12,3,5,1", "5,3,4,2")
@@ -222,7 +222,7 @@ class AggregateITCase extends StreamingWithStateTestBase {
     results.addSink(new RetractingSink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,{1=1}", "2,{2=1, 3=1}", "3,{4=1, 5=1, 6=1}", "4,{7=1, 8=1, 9=1, 10=1}",
       "5,{11=1, 12=1, 13=1, 14=1, 15=1}", "6,{16=1, 17=1, 18=1, 19=1, 20=1, 21=1}")
     assertEquals(expected.sorted, StreamITCase.retractedResults.sorted)
@@ -230,7 +230,7 @@ class AggregateITCase extends StreamingWithStateTestBase {
 
   @Test
   def testGroupAggregateWithStateBackend(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))
@@ -263,7 +263,7 @@ class AggregateITCase extends StreamingWithStateTestBase {
 
   @Test
   def testRemoveDuplicateRecordsWithUpsertSink(): Unit = {
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "A"))
     data.+=((2, 2L, "B"))
     data.+=((3, 2L, "B"))

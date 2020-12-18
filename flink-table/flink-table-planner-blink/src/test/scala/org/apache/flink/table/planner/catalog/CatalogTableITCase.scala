@@ -42,7 +42,7 @@ import java.math.{BigDecimal => JBigDecimal}
 import java.net.URI
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /** Test cases for catalog table. */
 @RunWith(classOf[Parameterized])

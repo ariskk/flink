@@ -39,7 +39,7 @@ class SetOperatorsValidationTest extends TableTestBase {
     val settings = EnvironmentSettings.newInstance().useOldPlanner().build()
     val tEnv = StreamTableEnvironment.create(env, settings)
 
-    StreamITCase.testResults = mutable.MutableList()
+    StreamITCase.testResults = mutable.ListBuffer()
     val ds1 = StreamTestData.getSmall3TupleDataStream(env).toTable(tEnv, 'a, 'b, 'c)
     val ds2 = StreamTestData.get5TupleDataStream(env).toTable(tEnv, 'a, 'b, 'd, 'c, 'e)
 
@@ -58,7 +58,7 @@ class SetOperatorsValidationTest extends TableTestBase {
     val settings = EnvironmentSettings.newInstance().useOldPlanner().build()
     val tEnv = StreamTableEnvironment.create(env, settings)
 
-    StreamITCase.testResults = mutable.MutableList()
+    StreamITCase.testResults = mutable.ListBuffer()
     val ds1 = StreamTestData.getSmall3TupleDataStream(env).toTable(tEnv, 'a, 'b, 'c)
     val ds2 = StreamTestData.get5TupleDataStream(env).toTable(tEnv, 'a, 'b, 'c, 'd, 'e)
       .select('a, 'b, 'c)

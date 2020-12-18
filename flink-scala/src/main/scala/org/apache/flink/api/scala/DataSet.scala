@@ -741,7 +741,7 @@ class DataSet[T: ClassTag](set: JavaDataSet[T]) {
     val accResult: java.util.ArrayList[Array[Byte]] = res.getAccumulatorResult(id)
 
     try {
-      SerializedListAccumulator.deserializeList(accResult, serializer).asScala
+      SerializedListAccumulator.deserializeList(accResult, serializer).asScala.toSeq
     }
     catch {
       case e: ClassNotFoundException => {

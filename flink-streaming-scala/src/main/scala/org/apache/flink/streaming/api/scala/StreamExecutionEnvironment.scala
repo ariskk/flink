@@ -467,7 +467,7 @@ class StreamExecutionEnvironment(javaEnv: JavaEnv) {
     require(data != null, "Data must not be null.")
     val typeInfo = implicitly[TypeInformation[T]]
 
-    val collection = scala.collection.JavaConversions.asJavaCollection(data)
+    val collection = scala.collection.JavaConverters.asJavaCollection(data)
     asScalaStream(javaEnv.fromCollection(collection, typeInfo))
   }
 

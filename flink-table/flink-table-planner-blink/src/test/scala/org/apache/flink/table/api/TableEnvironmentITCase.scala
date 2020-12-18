@@ -679,7 +679,7 @@ class TableEnvironmentITCase(tableEnvName: String, isStreaming: Boolean) extends
   }
 
   def getPersonData: List[(String, Int, Double, String)] = {
-    val data = new mutable.MutableList[(String, Int, Double, String)]
+    val data = new mutable.ListBuffer[(String, Int, Double, String)]
     data.+=(("Mike", 1, 12.3, "Smith"))
     data.+=(("Bob", 2, 45.6, "Taylor"))
     data.+=(("Sam", 3, 7.89, "Miller"))

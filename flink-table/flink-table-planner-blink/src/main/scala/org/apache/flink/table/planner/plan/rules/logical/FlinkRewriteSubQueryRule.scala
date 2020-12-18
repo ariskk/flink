@@ -28,7 +28,7 @@ import org.apache.calcite.sql.`type`.SqlTypeFamily
 import org.apache.calcite.sql.fun.SqlCountAggFunction
 import org.apache.calcite.tools.RelBuilderFactory
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Planner rule that rewrites scalar query in filter like:

@@ -33,7 +33,7 @@ import org.junit.Test
 import java.lang.{Long => JLong}
 import java.math.{BigDecimal => JBigDecimal}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class TableSinkITCase extends StreamingTestBase {
 

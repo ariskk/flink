@@ -47,7 +47,7 @@ import org.apache.calcite.rel.`type`.RelDataType
 import org.apache.calcite.tools.RelBuilder
 import org.apache.commons.math3.util.ArithmeticUtils
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Tumbling window: like [[HashAggCodeGenerator]].

@@ -29,7 +29,7 @@ import org.apache.flink.table.types.logical.RowType
 import org.apache.calcite.plan.RelOptCluster
 import org.apache.calcite.rex._
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 object CalcCodeGenerator {
 

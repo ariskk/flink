@@ -30,7 +30,7 @@ import scala.collection.mutable.ArrayBuffer
 
 object StreamITCase {
 
-  var testResults: mutable.MutableList[String] = mutable.MutableList.empty[String]
+  var testResults: mutable.ListBuffer[String] = mutable.ListBuffer.empty[String]
   var retractedResults: ArrayBuffer[String] = mutable.ArrayBuffer.empty[String]
 
   def clear = {

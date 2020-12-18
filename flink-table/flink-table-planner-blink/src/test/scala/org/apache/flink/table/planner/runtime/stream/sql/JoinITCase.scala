@@ -78,7 +78,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
   /** test non-window inner join **/
   @Test
   def testNonWindowInnerJoin(): Unit = {
-    val data1 = new mutable.MutableList[(Int, Long, String)]
+    val data1 = new mutable.ListBuffer[(Int, Long, String)]
     data1.+=((1, 1L, "Hi1"))
     data1.+=((1, 2L, "Hi2"))
     data1.+=((1, 2L, "Hi2"))
@@ -88,7 +88,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
     data1.+=((1, 8L, "Hi8"))
     data1.+=((3, 8L, "Hi9"))
 
-    val data2 = new mutable.MutableList[(Int, Long, String)]
+    val data2 = new mutable.ListBuffer[(Int, Long, String)]
     data2.+=((1, 1L, "HiHi"))
     data2.+=((2, 2L, "HeHe"))
     data2.+=((3, 2L, "HeHe"))
@@ -115,7 +115,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
     tEnv.sqlQuery(sqlQuery).toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,HiHi,Hi2",
       "1,HiHi,Hi2",
       "1,HiHi,Hi3",
@@ -128,7 +128,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
 
   @Test
   def testIsNullInnerJoinWithNullCond(): Unit = {
-    val data1 = new mutable.MutableList[(Int, Long, String)]
+    val data1 = new mutable.ListBuffer[(Int, Long, String)]
     data1.+=((1, 1L, "Hi1"))
     data1.+=((1, 2L, "Hi2"))
     data1.+=((1, 2L, "Hi2"))
@@ -138,7 +138,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
     data1.+=((1, 8L, "Hi8"))
     data1.+=((3, 8L, "Hi9"))
 
-    val data2 = new mutable.MutableList[(Int, Long, String)]
+    val data2 = new mutable.ListBuffer[(Int, Long, String)]
     data2.+=((1, 1L, "HiHi"))
     data2.+=((2, 2L, "HeHe"))
     data2.+=((3, 2L, "HeHe"))
@@ -168,7 +168,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
     tEnv.sqlQuery(sqlQuery).toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,HiHi,Hi2",
       "1,HiHi,Hi2",
       "1,HiHi,Hi3",
@@ -807,12 +807,12 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
 
   @Test
   def testNullLeftOuterJoin(): Unit = {
-    val data1 = new mutable.MutableList[(Int, Long)]
+    val data1 = new mutable.ListBuffer[(Int, Long)]
     data1.+=((1, 1L))
     data1.+=((3, 8L))
     data1.+=((4, 2L))
 
-    val data2 = new mutable.MutableList[(Int, Long)]
+    val data2 = new mutable.ListBuffer[(Int, Long)]
     data2.+=((1, 1L))
     data2.+=((2, 2L))
     data2.+=((3, 2L))
@@ -839,7 +839,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
     tEnv.sqlQuery(sqlQuery).toRetractStream[Row].addSink(sink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,1,1,1",
       "4,2,null,null",
       "null,8,null,null"
@@ -850,12 +850,12 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
 
   @Test
   def testNullLeftOuterJoinWithNullCond(): Unit = {
-    val data1 = new mutable.MutableList[(Int, Long)]
+    val data1 = new mutable.ListBuffer[(Int, Long)]
     data1.+=((1, 1L))
     data1.+=((3, 8L))
     data1.+=((4, 2L))
 
-    val data2 = new mutable.MutableList[(Int, Long)]
+    val data2 = new mutable.ListBuffer[(Int, Long)]
     data2.+=((1, 1L))
     data2.+=((2, 2L))
     data2.+=((3, 2L))
@@ -882,7 +882,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
     tEnv.sqlQuery(sqlQuery).toRetractStream[Row].addSink(sink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,1,1,1",
       "4,2,null,null",
       "null,8,null,2"
@@ -893,12 +893,12 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
 
   @Test
   def testNullRightOuterJoin(): Unit = {
-    val data1 = new mutable.MutableList[(Int, Long)]
+    val data1 = new mutable.ListBuffer[(Int, Long)]
     data1.+=((1, 1L))
     data1.+=((3, 8L))
     data1.+=((4, 2L))
 
-    val data2 = new mutable.MutableList[(Int, Long)]
+    val data2 = new mutable.ListBuffer[(Int, Long)]
     data2.+=((1, 1L))
     data2.+=((2, 2L))
     data2.+=((3, 2L))
@@ -924,7 +924,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
     tEnv.sqlQuery(sqlQuery).toRetractStream[Row].addSink(sink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,1,1,1",
       "null,null,2,2",
       "null,null,null,2"
@@ -935,12 +935,12 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
 
   @Test
   def testNullRightOuterJoinWithNullCond(): Unit = {
-    val data1 = new mutable.MutableList[(Int, Long)]
+    val data1 = new mutable.ListBuffer[(Int, Long)]
     data1.+=((1, 1L))
     data1.+=((3, 8L))
     data1.+=((4, 2L))
 
-    val data2 = new mutable.MutableList[(Int, Long)]
+    val data2 = new mutable.ListBuffer[(Int, Long)]
     data2.+=((1, 1L))
     data2.+=((2, 2L))
     data2.+=((3, 2L))
@@ -967,7 +967,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
     tEnv.sqlQuery(sqlQuery).toRetractStream[Row].addSink(sink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,1,1,1",
       "null,null,2,2",
       "null,8,null,2"
@@ -978,12 +978,12 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
 
   @Test
   def testNullFullOuterJoin(): Unit = {
-    val data1 = new mutable.MutableList[(Int, Long)]
+    val data1 = new mutable.ListBuffer[(Int, Long)]
     data1.+=((1, 1L))
     data1.+=((3, 8L))
     data1.+=((4, 2L))
 
-    val data2 = new mutable.MutableList[(Int, Long)]
+    val data2 = new mutable.ListBuffer[(Int, Long)]
     data2.+=((1, 1L))
     data2.+=((2, 2L))
     data2.+=((3, 2L))
@@ -1010,7 +1010,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
     tEnv.sqlQuery(sqlQuery).toRetractStream[Row].addSink(sink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,1,1,1",
       "null,null,2,2",
       "4,2,null,null",
@@ -1023,12 +1023,12 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
 
   @Test
   def testNullFullOuterJoinWithNullCond(): Unit = {
-    val data1 = new mutable.MutableList[(Int, Long)]
+    val data1 = new mutable.ListBuffer[(Int, Long)]
     data1.+=((1, 1L))
     data1.+=((3, 8L))
     data1.+=((4, 2L))
 
-    val data2 = new mutable.MutableList[(Int, Long)]
+    val data2 = new mutable.ListBuffer[(Int, Long)]
     data2.+=((1, 1L))
     data2.+=((2, 2L))
     data2.+=((3, 2L))
@@ -1056,7 +1056,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
     tEnv.sqlQuery(sqlQuery).toRetractStream[Row].addSink(sink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,1,1,1",
       "null,null,2,2",
       "4,2,null,null",
@@ -1072,11 +1072,11 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
     // of environment to event time, so that emitWatermark() actually does nothing.
     env.setStreamTimeCharacteristic(TimeCharacteristic.ProcessingTime)
 
-    val data1 = new mutable.MutableList[(Int, Long)]
+    val data1 = new mutable.ListBuffer[(Int, Long)]
     data1 .+= ((1, 1L))
     data1 .+= ((2, 2L))
     data1 .+= ((3, 3L))
-    val data2 = new mutable.MutableList[(Int, Long)]
+    val data2 = new mutable.ListBuffer[(Int, Long)]
     data2 .+= ((1, -1L))
     data2 .+= ((2, -2L))
     data2 .+= ((3, -3L))
@@ -1099,7 +1099,7 @@ class JoinITCase(state: StateBackendMode) extends StreamingWithStateTestBase(sta
   def testBigDataOfJoin(): Unit = {
     env.setParallelism(1)
 
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     for (i <- 0 until 500) {
       data.+=((i % 10, i, i.toString))
     }

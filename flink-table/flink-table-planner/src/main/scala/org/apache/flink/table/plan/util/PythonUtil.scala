@@ -23,7 +23,7 @@ import org.apache.flink.table.functions.UserDefinedFunction
 import org.apache.flink.table.functions.python.{PythonFunction, PythonFunctionKind}
 import org.apache.flink.table.functions.utils.{ScalarSqlFunction, TableSqlFunction}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 object PythonUtil {
 

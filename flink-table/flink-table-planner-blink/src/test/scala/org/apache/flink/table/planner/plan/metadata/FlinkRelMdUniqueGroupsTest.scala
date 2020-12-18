@@ -27,7 +27,7 @@ import org.apache.calcite.util.ImmutableBitSet
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class FlinkRelMdUniqueGroupsTest extends FlinkRelMdHandlerTestBase {
 

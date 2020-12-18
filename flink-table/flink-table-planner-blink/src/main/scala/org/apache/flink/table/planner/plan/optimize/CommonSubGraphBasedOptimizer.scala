@@ -27,7 +27,7 @@ import org.apache.calcite.rel.{RelNode, RelShuttleImpl}
 import java.util
 import java.util.concurrent.atomic.AtomicInteger
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * A [[Optimizer]] that optimizes [[RelNode]] DAG into semantically [[RelNode]] DAG

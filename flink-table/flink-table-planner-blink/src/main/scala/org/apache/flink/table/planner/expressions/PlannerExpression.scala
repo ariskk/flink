@@ -23,7 +23,7 @@ import org.apache.flink.table.planner.validate.{ValidationResult, ValidationSucc
 
 import java.util
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 
 abstract class PlannerExpression extends TreeNode[PlannerExpression] with Expression {
   /**

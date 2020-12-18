@@ -96,7 +96,7 @@ class SortITCase extends StreamingWithStateTestBase {
     result.addSink(new StringRowSelectorSink(0)).setParallelism(1)
     env.execute()
     
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1", "15", "16",
       "1", "2", "2", "3",
       "3",
@@ -154,5 +154,5 @@ object SortITCase {
     }
   }
   
-  var testResults: mutable.MutableList[String] = mutable.MutableList.empty[String]
+  var testResults: mutable.ListBuffer[String] = mutable.ListBuffer.empty[String]
 }

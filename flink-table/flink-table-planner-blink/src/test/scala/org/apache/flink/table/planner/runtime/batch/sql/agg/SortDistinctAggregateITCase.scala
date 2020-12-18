@@ -27,7 +27,7 @@ import org.apache.flink.table.planner.utils.{CountAggFunction, IntSumAggFunction
 
 import org.junit.Test
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 /**
   * DistinctAggregateITCase using SortAgg Operator.

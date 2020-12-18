@@ -32,7 +32,7 @@ import org.apache.flink.table.runtime.types.{CRow, CRowTypeInfo}
 import org.apache.flink.table.types.logical.RowType
 import org.apache.flink.table.types.utils.TypeConversions
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * RelNode for Python ScalarFunctions.

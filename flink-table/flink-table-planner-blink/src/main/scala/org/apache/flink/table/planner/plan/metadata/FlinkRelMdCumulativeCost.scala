@@ -24,7 +24,7 @@ import org.apache.calcite.rel.RelNode
 import org.apache.calcite.rel.metadata._
 import org.apache.calcite.util.BuiltInMethod
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * FlinkRelMdCumulativeCost supplies a implementation of

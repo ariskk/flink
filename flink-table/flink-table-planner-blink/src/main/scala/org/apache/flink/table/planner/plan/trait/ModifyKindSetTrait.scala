@@ -22,7 +22,7 @@ import org.apache.calcite.plan.{RelOptPlanner, RelTrait, RelTraitDef}
 import org.apache.flink.table.connector.ChangelogMode
 import org.apache.flink.types.RowKind
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
  * ModifyKindSetTrait is used to describe what modify operation will be produced by this node.

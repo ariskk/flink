@@ -41,8 +41,8 @@ import java.util
 
 import org.apache.flink.table.api.internal.TableEnvironmentInternal
 
-import scala.collection.JavaConversions._
-import scala.collection.Seq
+import scala.collection.JavaConverters._
+import scala.collection.immutable.Seq
 
 @RunWith(classOf[Parameterized])
 class JoinITCase(expectedJoinType: JoinType) extends BatchTestBase {

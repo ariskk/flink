@@ -49,7 +49,7 @@ class SetOperatorsITCase(mode: StateBackendMode) extends StreamingWithStateTestB
     val sink = new TestingRetractSink
     tEnv.sqlQuery(sqlQuery).toRetractStream[Row].addSink(sink).setParallelism(1)
     env.execute()
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,1,Hi",
       "2,2,Hello",
       "3,2,Hello world")
@@ -58,7 +58,7 @@ class SetOperatorsITCase(mode: StateBackendMode) extends StreamingWithStateTestB
 
   @Test
   def testExcept(): Unit = {
-    val data1 = new mutable.MutableList[(Int, Long, String)]
+    val data1 = new mutable.ListBuffer[(Int, Long, String)]
     data1.+=((1, 1L, "Hi1"))
     data1.+=((1, 2L, "Hi2"))
     data1.+=((1, 2L, "Hi2"))
@@ -68,7 +68,7 @@ class SetOperatorsITCase(mode: StateBackendMode) extends StreamingWithStateTestB
     data1.+=((1, 8L, "Hi8"))
     data1.+=((3, 8L, "Hi9"))
 
-    val data2 = new mutable.MutableList[(Int, Long, String)]
+    val data2 = new mutable.ListBuffer[(Int, Long, String)]
     data2.+=((1, 1L, "Hi1"))
     data2.+=((2, 2L, "Hi2"))
     data2.+=((3, 2L, "Hi3"))
@@ -83,7 +83,7 @@ class SetOperatorsITCase(mode: StateBackendMode) extends StreamingWithStateTestB
     val sink = new TestingRetractSink
     tEnv.sqlQuery(sqlQuery).toRetractStream[Row].addSink(sink).setParallelism(1)
     env.execute()
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "Hi5", "Hi6", "Hi8", "Hi9"
     )
     assertEquals(expected.sorted, sink.getRetractResults.sorted)
@@ -101,7 +101,7 @@ class SetOperatorsITCase(mode: StateBackendMode) extends StreamingWithStateTestB
     val sink = new TestingRetractSink
     tEnv.sqlQuery(sqlQuery).toRetractStream[Row].addSink(sink).setParallelism(1)
     env.execute()
-    val expected = mutable.MutableList("1", "2", "2")
+    val expected = mutable.ListBuffer("1", "2", "2")
     assertEquals(expected.sorted, sink.getRetractResults.sorted)
   }
 
@@ -120,7 +120,7 @@ class SetOperatorsITCase(mode: StateBackendMode) extends StreamingWithStateTestB
     val sink = new TestingRetractSink
     tEnv.sqlQuery(sqlQuery).toRetractStream[Row].addSink(sink).setParallelism(1)
     env.execute()
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "Hi",
       "Hello",
       "Hello",

@@ -22,7 +22,7 @@ import org.apache.flink.table.planner.plan.metadata.FlinkRelMetadataQuery
 import org.apache.flink.table.planner.plan.nodes.calcite.LegacySink
 import org.apache.flink.table.sinks.UpsertStreamTableSink
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 object UpdatingPlanChecker {
 

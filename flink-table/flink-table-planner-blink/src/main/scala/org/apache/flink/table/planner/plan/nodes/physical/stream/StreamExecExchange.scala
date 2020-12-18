@@ -36,7 +36,7 @@ import org.apache.calcite.rel.{RelDistribution, RelNode}
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Stream physical RelNode for [[org.apache.calcite.rel.core.Exchange]].

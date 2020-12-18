@@ -34,7 +34,7 @@ import org.apache.calcite.rel.{RelNode, RelWriter, SingleRel}
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Stream physical RelNode for injecting a mini-batch event in the streaming data. The mini-batch

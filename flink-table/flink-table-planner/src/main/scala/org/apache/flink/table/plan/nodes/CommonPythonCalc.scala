@@ -26,7 +26,7 @@ import org.apache.flink.table.plan.util.PythonUtil.containsPythonCall
 import org.apache.flink.table.runtime.types.CRow
 import org.apache.flink.table.types.logical.RowType
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 

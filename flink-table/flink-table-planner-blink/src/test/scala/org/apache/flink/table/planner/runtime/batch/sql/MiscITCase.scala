@@ -31,7 +31,7 @@ import org.apache.flink.types.Row
 
 import org.junit.{Before, Test}
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 /**
   * Misc tests.

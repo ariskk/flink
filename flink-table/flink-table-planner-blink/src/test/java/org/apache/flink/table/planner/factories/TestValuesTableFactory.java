@@ -75,7 +75,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import scala.collection.Seq;
+import scala.collection.immutable.Seq;
 
 import static org.apache.flink.util.Preconditions.checkArgument;
 

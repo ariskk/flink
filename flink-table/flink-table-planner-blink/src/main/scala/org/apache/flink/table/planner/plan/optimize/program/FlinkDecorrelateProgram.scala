@@ -27,7 +27,7 @@ import org.apache.calcite.rex.{RexCorrelVariable, RexVisitorImpl}
 import org.apache.calcite.sql2rel.RelDecorrelator
 import org.apache.calcite.util.Util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * A FlinkOptimizeProgram that decorrelates a query

@@ -179,7 +179,7 @@ object UserDefinedFunctionUtils {
           case (clazz, i) if i < signatures.length - 1 =>
             parameterTypeApplicable(methodSignature(i), clazz)
           case (clazz, i) if i == signatures.length - 1 =>
-            clazz.getName.equals("scala.collection.Seq")
+            clazz.getName.equals("scala.collection.immutable.Seq")
         }
       }) {
       throw new ValidationException(

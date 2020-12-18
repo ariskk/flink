@@ -31,7 +31,7 @@ import org.apache.calcite.rex.RexProgram
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Batch physical RelNode for temporal table join.

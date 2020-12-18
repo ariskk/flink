@@ -37,7 +37,7 @@ import org.apache.calcite.rel.logical.LogicalTableScan
 import java.util
 import java.util.TimeZone
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Planner rule that tries to push a filter into a [[FilterableTableSource]].

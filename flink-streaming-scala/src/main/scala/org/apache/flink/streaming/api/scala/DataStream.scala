@@ -33,7 +33,17 @@ import org.apache.flink.api.java.typeutils.ResultTypeQueryable
 import org.apache.flink.api.scala.operators.ScalaCsvOutputFormat
 import org.apache.flink.core.fs.{FileSystem, Path}
 import org.apache.flink.streaming.api.collector.selector.OutputSelector
-import org.apache.flink.streaming.api.datastream.{AllWindowedStream => JavaAllWindowedStream, DataStream => JavaStream, KeyedStream => JavaKeyedStream, _}
+import org.apache.flink.streaming.api.datastream.{
+  AllWindowedStream => JavaAllWindowedStream, 
+  DataStream => JavaStream, 
+  KeyedStream => JavaKeyedStream,
+  ConnectedStreams => JavaConnectedStreams,
+  BroadcastConnectedStream => JavaBroadcastConnectedStream,
+  SplitStream => JavaSplitStream,
+  CoGroupedStreams => JavaCoGroupedStreams,
+  JoinedStreams => JavaJoinedStreams,
+  _
+}
 import org.apache.flink.streaming.api.functions.sink.SinkFunction
 import org.apache.flink.streaming.api.functions.timestamps.{AscendingTimestampExtractor, BoundedOutOfOrdernessTimestampExtractor}
 import org.apache.flink.streaming.api.functions.{AssignerWithPeriodicWatermarks, AssignerWithPunctuatedWatermarks, ProcessFunction}

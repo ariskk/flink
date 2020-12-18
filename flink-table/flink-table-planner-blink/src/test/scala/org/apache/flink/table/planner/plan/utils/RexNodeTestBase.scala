@@ -30,7 +30,7 @@ import org.apache.calcite.sql.fun.SqlStdOperatorTable
 import java.math.BigDecimal
 import java.util.{List => JList}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 abstract class RexNodeTestBase {

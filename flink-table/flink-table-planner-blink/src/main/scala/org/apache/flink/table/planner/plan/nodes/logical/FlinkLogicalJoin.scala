@@ -31,7 +31,7 @@ import org.apache.calcite.rex.RexNode
 
 import java.util.Collections
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Sub-class of [[Join]] that is a relational expression

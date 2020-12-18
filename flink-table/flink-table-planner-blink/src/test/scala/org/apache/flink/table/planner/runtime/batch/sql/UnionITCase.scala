@@ -28,7 +28,7 @@ import org.apache.flink.table.types.logical.{BigIntType, IntType, VarCharType}
 
 import org.junit._
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 class UnionITCase extends BatchTestBase {
 

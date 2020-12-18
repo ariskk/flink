@@ -40,7 +40,7 @@ import org.apache.calcite.util.Util
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Util class that rewrite [[SetOp]].

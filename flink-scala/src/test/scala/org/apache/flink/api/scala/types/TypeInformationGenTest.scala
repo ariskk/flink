@@ -28,6 +28,8 @@ import org.apache.flink.api.scala.typeutils.{CaseClassTypeInfo, TraversableSeria
 import org.apache.flink.types.{IntValue, StringValue}
 import org.junit.{Assert, Test}
 
+import scala.collection.immutable.Seq
+
 @SerialVersionUID(-1509730037212683566L)
 case class CustomCaseClass(a: String, b: Int)
 
@@ -584,8 +586,10 @@ class TypeInformationGenTest {
 
     // This checks the condition in checkCollection. If this fails with IllegalArgumentException,
     // then things like "env.fromElements((),(),())" won't work.
-    import scala.collection.JavaConversions._
-    CollectionInputFormat.checkCollection(Seq((),(),()), (new UnitTypeInfo).getTypeClass())
+    import scala.collection.JavaConverters._
+    CollectionInputFormat.checkCollection(
+      Seq((),(),()).asJavaCollection, (new UnitTypeInfo).getTypeClass()
+    )
   }
 
   @Test

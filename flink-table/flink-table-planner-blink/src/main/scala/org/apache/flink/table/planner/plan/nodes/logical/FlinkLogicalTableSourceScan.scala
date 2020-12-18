@@ -37,7 +37,7 @@ import java.util
 import java.util.Collections
 import java.util.function.Supplier
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Sub-class of [[TableScan]] that is a relational operator

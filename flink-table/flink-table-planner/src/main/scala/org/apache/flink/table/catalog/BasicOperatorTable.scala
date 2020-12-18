@@ -31,7 +31,7 @@ import org.apache.calcite.sql.validate.{SqlNameMatcher, SqlNameMatchers}
 import _root_.java.util.{List => JList}
 import java.util
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 
 class BasicOperatorTable extends ReflectiveSqlOperatorTable {
 

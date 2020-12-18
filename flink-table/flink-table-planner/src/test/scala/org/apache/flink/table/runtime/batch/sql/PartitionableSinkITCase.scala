@@ -45,8 +45,8 @@ import org.junit.Assert.assertEquals
 import org.junit.rules.ExpectedException
 import org.junit.{Before, Rule, Test}
 
-import scala.collection.JavaConversions._
-import scala.collection.Seq
+import scala.collection.JavaConverters._
+import scala.collection.immutable.Seq
 
 class PartitionableSinkITCase extends AbstractTestBase {
 

@@ -27,7 +27,7 @@ import org.apache.flink.table.planner.utils.{TableTestBase, TableTestUtil}
 
 import org.junit.{Before, Test}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 abstract class JoinReorderTestBase extends TableTestBase {
 

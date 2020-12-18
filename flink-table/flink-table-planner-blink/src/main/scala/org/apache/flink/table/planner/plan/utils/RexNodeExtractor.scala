@@ -42,7 +42,7 @@ import org.apache.calcite.util.{TimestampString, Util}
 import java.util
 import java.util.{TimeZone, List => JList}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.util.{Failure, Success, Try}

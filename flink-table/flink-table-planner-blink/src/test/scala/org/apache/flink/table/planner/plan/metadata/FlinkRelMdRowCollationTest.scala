@@ -26,7 +26,7 @@ import org.apache.calcite.sql.fun.SqlStdOperatorTable.{LESS_THAN, PLUS}
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class FlinkRelMdRowCollationTest extends FlinkRelMdHandlerTestBase {
 

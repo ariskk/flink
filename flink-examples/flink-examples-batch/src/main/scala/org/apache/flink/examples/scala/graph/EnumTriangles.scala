@@ -136,7 +136,7 @@ object EnumTriangles {
   @ForwardedFields(Array("v1->v1"))
   class TriadBuilder extends GroupReduceFunction[Edge, Triad] {
 
-    val vertices = mutable.MutableList[Integer]()
+    val vertices = mutable.ListBuffer[Integer]()
     
     override def reduce(edges: java.lang.Iterable[Edge], out: Collector[Triad]) = {
       

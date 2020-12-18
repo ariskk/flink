@@ -39,7 +39,7 @@ import org.apache.calcite.util._
 
 import java.lang.{Double => JDouble, Long => JLong}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * FlinkRelMdRowCount supplies a implementation of

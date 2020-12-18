@@ -26,7 +26,7 @@ import org.junit.{Before, Test}
 
 import java.math.{BigDecimal => JBigDecimal}
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 class Limit0RemoveITCase extends BatchTestBase {
 

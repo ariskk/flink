@@ -45,7 +45,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
   @Test
   def testReduceWindow(): Unit = {
-    WindowReduceITCase.testResults = mutable.MutableList()
+    WindowReduceITCase.testResults = mutable.ListBuffer()
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
@@ -82,7 +82,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
     env.execute("Reduce Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(aaa,3)",
       "(aaa,21)",
       "(bbb,12)")
@@ -92,7 +92,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
   @Test
   def testReduceWithWindowFunction(): Unit = {
-    WindowReduceITCase.testResults = mutable.MutableList()
+    WindowReduceITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichWindowFunction.reset()
 
     val reduceFunc = new ReduceFunction[(String, Int)] {
@@ -138,7 +138,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
     env.execute("Reduce Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(aaa,3)",
       "(aaa,21)",
       "(bbb,12)")
@@ -150,7 +150,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
   @Test
   def testReduceWithProcessWindowFunction(): Unit = {
-    WindowReduceITCase.testResults = mutable.MutableList()
+    WindowReduceITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichProcessWindowFunction.reset()
 
     val reduceFunc = new ReduceFunction[(String, Int)] {
@@ -196,7 +196,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
     env.execute("Reduce Process Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(aaa,3)",
       "(aaa,21)",
       "(bbb,12)")
@@ -208,7 +208,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
   @Test
   def testReduceAllWindow(): Unit = {
-    WindowReduceITCase.testResults = mutable.MutableList()
+    WindowReduceITCase.testResults = mutable.ListBuffer()
     
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
@@ -244,7 +244,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
     env.execute("Fold All-Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(aaa,3)",
       "(bababa,24)")
 
@@ -253,7 +253,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
   @Test
   def testReduceAllWithWindowFunction(): Unit = {
-    WindowReduceITCase.testResults = mutable.MutableList()
+    WindowReduceITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichAllWindowFunction.reset()
 
     val reduceFunc = new ReduceFunction[(String, Int)] {
@@ -298,7 +298,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
     env.execute("Fold All-Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(aaa,3)",
       "(bababa,24)")
 
@@ -309,7 +309,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
   @Test
   def testReduceAllWithProcessWindowFunction(): Unit = {
-    WindowReduceITCase.testResults = mutable.MutableList()
+    WindowReduceITCase.testResults = mutable.ListBuffer()
     CheckingIdentityRichProcessAllWindowFunction.reset()
 
     val reduceFunc = new ReduceFunction[(String, Int)] {
@@ -354,7 +354,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
     env.execute("Fold All-Window Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(aaa,3)",
       "(bababa,24)")
 
@@ -366,7 +366,7 @@ class WindowReduceITCase extends AbstractTestBase {
 
 object WindowReduceITCase {
   
-  private var testResults: mutable.MutableList[String] = null
+  private var testResults: mutable.ListBuffer[String] = null
 
   private class Tuple2TimestampExtractor extends AssignerWithPunctuatedWatermarks[(String, Int)] {
 

@@ -397,7 +397,7 @@ class ScalaShellITCase extends TestLogger {
   def testImplicitConversionBetweenJavaAndScala(): Unit = {
     val input =
       """
-        import collection.JavaConversions._
+        import collection.JavaConverters._
         import scala.collection.mutable.ArrayBuffer
         val jul:java.util.List[Int] = ArrayBuffer(1,2,3,4,5)
         val buf: Seq[Int] = jul

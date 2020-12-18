@@ -150,7 +150,7 @@ class FlatMapITCase(mode: TestExecutionMode) extends MultipleProgramsTestBase(mo
       t => MutableTuple3(t._1, t._2, t._3)
     }
     val inputObjFlatMapDs = ds.flatMap {
-      (in, out: Collector[MutableTuple3[Int, Long, String]]) =>
+      (in: MutableTuple3[Int, Long, String], out: Collector[MutableTuple3[Int, Long, String]]) =>
         val numTuples = in._1 % 4
         (0 until numTuples) foreach { i => in._1 = i; out.collect(in) }
     }

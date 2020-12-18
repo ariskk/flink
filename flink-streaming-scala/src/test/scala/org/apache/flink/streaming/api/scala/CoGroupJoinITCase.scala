@@ -37,7 +37,7 @@ class CoGroupJoinITCase extends AbstractTestBase {
 
   @Test
   def testCoGroup(): Unit = {
-    CoGroupJoinITCase.testResults = mutable.MutableList()
+    CoGroupJoinITCase.testResults = mutable.ListBuffer()
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
@@ -93,7 +93,7 @@ class CoGroupJoinITCase extends AbstractTestBase {
 
     env.execute("CoGroup Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "F:(a,0)(a,1)(a,2) S:(a,0)(a,1)",
       "F:(b,3)(b,4)(b,5) S:(b,3)",
       "F:(a,6)(a,7)(a,8) S:",
@@ -104,7 +104,7 @@ class CoGroupJoinITCase extends AbstractTestBase {
 
   @Test
   def testJoin(): Unit = {
-    CoGroupJoinITCase.testResults = mutable.MutableList()
+    CoGroupJoinITCase.testResults = mutable.ListBuffer()
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
@@ -161,7 +161,7 @@ class CoGroupJoinITCase extends AbstractTestBase {
 
     env.execute("Join Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(a,x,0):(a,u,0)",
       "(a,x,0):(a,w,1)",
       "(a,y,1):(a,u,0)",
@@ -184,7 +184,7 @@ class CoGroupJoinITCase extends AbstractTestBase {
 
   @Test
   def testSelfJoin(): Unit = {
-    CoGroupJoinITCase.testResults = mutable.MutableList()
+    CoGroupJoinITCase.testResults = mutable.ListBuffer()
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
@@ -223,7 +223,7 @@ class CoGroupJoinITCase extends AbstractTestBase {
 
     env.execute("Self-Join Test")
 
-    val expectedResult = mutable.MutableList(
+    val expectedResult = mutable.ListBuffer(
       "(a,x,0):(a,x,0)",
       "(a,x,0):(a,y,1)",
       "(a,x,0):(a,z,2)",
@@ -254,7 +254,7 @@ class CoGroupJoinITCase extends AbstractTestBase {
 
 
 object CoGroupJoinITCase {
-  private var testResults: mutable.MutableList[String] = null
+  private var testResults: mutable.ListBuffer[String] = null
 
   private class Tuple2TimestampExtractor extends AssignerWithPunctuatedWatermarks[(String, Int)] {
     

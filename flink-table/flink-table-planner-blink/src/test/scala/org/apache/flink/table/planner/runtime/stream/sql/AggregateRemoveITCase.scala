@@ -180,7 +180,7 @@ class AggregateRemoveITCase(
 
   @Test
   def testAggregateRemove(): Unit = {
-    val data = new mutable.MutableList[(Int, Int)]
+    val data = new mutable.ListBuffer[(Int, Int)]
     data.+=((1, 1))
     data.+=((2, 2))
     data.+=((3, 3))

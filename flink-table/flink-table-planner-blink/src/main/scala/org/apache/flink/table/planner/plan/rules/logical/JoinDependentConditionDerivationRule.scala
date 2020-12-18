@@ -26,7 +26,7 @@ import org.apache.calcite.rel.core.{Join, JoinRelType}
 import org.apache.calcite.rel.logical.LogicalJoin
 import org.apache.calcite.rex.RexNode
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 /**

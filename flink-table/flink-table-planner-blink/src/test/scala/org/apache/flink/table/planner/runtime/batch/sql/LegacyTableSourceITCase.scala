@@ -272,7 +272,7 @@ class LegacyTableSourceITCase extends BatchTestBase {
       LocalDateTime.of(1972, 1, 1, 0, 0, 0, 0),
       null)
 
-    val instants = new mutable.MutableList[Instant]
+    val instants = new mutable.ListBuffer[Instant]
     for (i <- datetimes.indices) {
       if (datetimes(i) == null) {
         instants += null
@@ -282,7 +282,7 @@ class LegacyTableSourceITCase extends BatchTestBase {
       }
     }
 
-    val data = new mutable.MutableList[Row]
+    val data = new mutable.ListBuffer[Row]
 
     for (i <- ints.indices) {
       data += row(

@@ -34,7 +34,7 @@ import org.apache.flink.table.api.{TableSchema, Types}
 import org.apache.flink.table.sources.InputFormatTableSource
 import org.apache.flink.types.Row
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 object PythonTableUtils {
 

@@ -30,7 +30,7 @@ import org.junit._
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 @RunWith(classOf[Parameterized])
 class SemiAntiJoinStreamITCase(state: StateBackendMode)

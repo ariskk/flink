@@ -33,7 +33,7 @@ import org.reflections.util.{ClasspathHelper, ConfigurationBuilder}
 import java.lang.reflect.{Method, Modifier}
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 /**

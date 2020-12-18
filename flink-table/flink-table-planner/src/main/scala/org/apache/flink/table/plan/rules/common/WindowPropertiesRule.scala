@@ -30,7 +30,7 @@ import org.apache.flink.table.expressions._
 import org.apache.flink.table.plan.logical.LogicalWindow
 import org.apache.flink.table.plan.logical.rel.LogicalWindowAggregate
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 abstract class WindowPropertiesBaseRule(rulePredicate: RelOptRuleOperand, ruleName: String)
   extends RelOptRule(rulePredicate, ruleName) {

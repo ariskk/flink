@@ -30,7 +30,7 @@ import org.apache.flink.table.planner.delegation.StreamPlanner
 import org.apache.flink.table.planner.plan.nodes.common.CommonCalc
 import org.apache.flink.table.planner.plan.nodes.exec.{ExecNode, StreamExecNode}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Base stream physical RelNode for [[Calc]].

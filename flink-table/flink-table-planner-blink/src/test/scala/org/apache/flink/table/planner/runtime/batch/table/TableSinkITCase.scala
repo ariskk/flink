@@ -27,7 +27,7 @@ import org.apache.flink.util.ExceptionUtils
 import org.junit.Assert.{assertEquals, assertTrue, fail}
 import org.junit.Test
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class TableSinkITCase extends BatchTestBase {
 

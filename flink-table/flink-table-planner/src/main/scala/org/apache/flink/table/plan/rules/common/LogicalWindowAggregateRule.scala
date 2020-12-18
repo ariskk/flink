@@ -37,7 +37,7 @@ import org.apache.calcite.rel.RelNode
 import org.apache.calcite.tools.RelBuilder
 
 import _root_.java.util.{ArrayList => JArrayList, Collections, List => JList}
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 
 abstract class LogicalWindowAggregateRule(ruleName: String)
   extends RelOptRule(

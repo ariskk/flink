@@ -27,7 +27,7 @@ import org.apache.calcite.rel.core.{Minus, RelFactories}
 import org.apache.calcite.sql.`type`.SqlTypeName.BIGINT
 import org.apache.calcite.util.Util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Replaces logical [[Minus]] operator using a combination of union all, aggregate

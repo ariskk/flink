@@ -38,7 +38,7 @@ import org.apache.calcite.util.Static.RESOURCE
 import java.util
 import java.util.Collections
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /** Implements [[org.apache.calcite.sql.util.SqlVisitor]]
   * interface to do some rewrite work before sql node validation. */

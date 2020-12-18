@@ -40,8 +40,8 @@ import org.junit.{Assert, Before, Rule, Test}
 import java.io.File
 import java.net.URI
 
-import scala.collection.JavaConversions._
-import scala.collection.Seq
+import scala.collection.JavaConverters._
+import scala.collection.immutable.Seq
 
 /**
   * Streaming sink ITCase base, test checkpoint.

@@ -21,7 +21,7 @@ package org.apache.flink.table.planner.plan.metadata
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class FlinkRelMdSizeTest extends FlinkRelMdHandlerTestBase {
 

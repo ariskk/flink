@@ -668,7 +668,7 @@ class OverWindowITCase(mode: StateBackendMode) extends StreamingWithStateTestBas
     tEnv.sqlQuery(sqlQuery).toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       s"1,2,Hello,0,2,1,${2/1},2,2",
       s"1,3,Hello world,0,5,2,${5/2},3,2",
       s"1,1,Hi,0,6,3,${6/3},3,1",
@@ -779,7 +779,7 @@ class OverWindowITCase(mode: StateBackendMode) extends StreamingWithStateTestBas
     tEnv.sqlQuery(sqlQuery).toAppendStream[Row].addSink(sink).setParallelism(1)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       s"2,2,Hello,2,1,${2/1},2,2",
       s"3,5,Hello,7,2,${7/2},5,2",
       s"1,3,Hello,10,3,${10/3},5,2",

@@ -28,7 +28,7 @@ import org.apache.flink.types.Row
 import org.junit.Assert.assertEquals
 import org.junit.{Before, Test}
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 /**
   * Streaming [[FileSystemITCaseBase]].

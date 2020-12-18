@@ -40,7 +40,7 @@ class TableSourceITCase extends AbstractTestBase {
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     val settings = EnvironmentSettings.newInstance().useOldPlanner().build()
     val tEnv = StreamTableEnvironment.create(env, settings)
-    StreamITCase.testResults = mutable.MutableList()
+    StreamITCase.testResults = mutable.ListBuffer()
 
     tEnv.asInstanceOf[TableEnvironmentInternal].registerTableSourceInternal("persons", csvTable)
 
@@ -51,7 +51,7 @@ class TableSourceITCase extends AbstractTestBase {
 
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "1,Mike,Smith,12.3",
       "2,Bob,Taylor,45.6",
       "3,Sam,Miller,7.89")

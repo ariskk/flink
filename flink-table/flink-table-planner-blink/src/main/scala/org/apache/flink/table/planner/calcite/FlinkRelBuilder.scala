@@ -42,7 +42,7 @@ import java.util
 import java.util.List
 import java.util.function.UnaryOperator
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Flink specific [[RelBuilder]] that changes the default type factory to a [[FlinkTypeFactory]].

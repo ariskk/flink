@@ -26,7 +26,7 @@ import org.apache.flink.table.plan.nodes.FlinkConventions
 import org.apache.flink.table.plan.nodes.dataset.DataSetJoin
 import org.apache.flink.table.plan.nodes.logical.FlinkLogicalJoin
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class DataSetJoinRule
   extends ConverterRule(

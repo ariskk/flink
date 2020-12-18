@@ -29,7 +29,7 @@ import org.apache.calcite.sql.fun.SqlStdOperatorTable._
 import org.junit.Assert._
 import org.junit.Test
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class FlinkRelMdDistributionTest extends FlinkRelMdHandlerTestBase {
 

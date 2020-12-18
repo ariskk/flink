@@ -33,7 +33,7 @@ import org.junit.{Assert, Test}
 
 import java.math.{BigDecimal => JBigDecimal}
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 /**
   * Conformance test of SQL type Decimal(p,s).

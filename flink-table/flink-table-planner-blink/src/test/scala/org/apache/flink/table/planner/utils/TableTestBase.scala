@@ -72,7 +72,7 @@ import org.junit.rules.{ExpectedException, TemporaryFolder, TestName}
 import _root_.java.math.{BigDecimal => JBigDecimal}
 import _root_.java.util
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 import _root_.scala.io.Source
 
 /**

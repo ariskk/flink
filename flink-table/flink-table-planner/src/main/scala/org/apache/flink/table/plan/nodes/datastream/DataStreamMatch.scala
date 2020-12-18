@@ -42,7 +42,7 @@ import org.apache.flink.streaming.api.datastream.DataStream
 import org.apache.flink.streaming.api.windowing.time.Time
 
 import scala.collection.JavaConverters._
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import org.apache.flink.table.api._
 import org.apache.flink.table.calcite.FlinkTypeFactory
 import org.apache.flink.table.codegen.MatchCodeGenerator

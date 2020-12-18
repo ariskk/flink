@@ -35,7 +35,7 @@ import org.apache.calcite.util.ImmutableBitSet
 import java.util
 import java.util.Collections
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Sub-class of [[Aggregate]] that is a relational operator which eliminates

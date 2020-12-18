@@ -24,7 +24,7 @@ import org.apache.flink.table.functions.python.{PythonFunction, PythonFunctionKi
 import org.apache.flink.table.planner.functions.bridging.BridgingSqlFunction
 import org.apache.flink.table.planner.functions.utils.{ScalarSqlFunction, TableSqlFunction}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 object PythonUtil {
 

@@ -29,7 +29,7 @@ import org.junit.{Before, Test}
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.Seq
 
 @RunWith(classOf[Parameterized])

@@ -31,7 +31,7 @@ import org.apache.flink.table.sinks.{AppendStreamTableSink, RetractStreamTableSi
 import org.apache.calcite.rel.RelNode
 import org.apache.calcite.util.ImmutableBitSet
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
  * An optimize program to infer ChangelogMode for every physical node.

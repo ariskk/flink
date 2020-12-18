@@ -27,7 +27,7 @@ import org.apache.flink.table.types.utils.TypeConversions.fromLegacyInfoToDataTy
 import _root_.java.math.{BigDecimal => JBigDecimal}
 import _root_.java.util.{List => JList}
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 import _root_.scala.language.implicitConversions
 import _root_.scala.util.parsing.combinator.{JavaTokenParsers, PackratParsers}
 

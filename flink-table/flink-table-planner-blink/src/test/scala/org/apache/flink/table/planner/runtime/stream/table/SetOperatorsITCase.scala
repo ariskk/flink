@@ -48,7 +48,7 @@ class SetOperatorsITCase(mode: StateBackendMode) extends StreamingWithStateTestB
     unionDs.toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
         "Hi", "Hello", "Hello world", "Hi", "Hello", "Hello world")
     assertEquals(expected.sorted, sink.getAppendResults.sorted)
   }
@@ -64,7 +64,7 @@ class SetOperatorsITCase(mode: StateBackendMode) extends StreamingWithStateTestB
     unionDs.toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList("Hi", "Hallo")
+    val expected = mutable.ListBuffer("Hi", "Hallo")
     assertEquals(expected.sorted, sink.getAppendResults.sorted)
   }
 
@@ -77,7 +77,7 @@ class SetOperatorsITCase(mode: StateBackendMode) extends StreamingWithStateTestB
     s1.unionAll(s2).toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList("1,{}", "2,{}", "3,{}", "4,{}")
+    val expected = mutable.ListBuffer("1,{}", "2,{}", "3,{}", "4,{}")
     assertEquals(expected.sorted, sink.getAppendResults.sorted)
   }
 
@@ -92,7 +92,7 @@ class SetOperatorsITCase(mode: StateBackendMode) extends StreamingWithStateTestB
     s1.unionAll(s2.select('b, 'a)).toAppendStream[Row].addSink(sink)
     env.execute()
 
-    val expected = mutable.MutableList("1,1,a", "2,2,b", "3,3,c", "4,4,d")
+    val expected = mutable.ListBuffer("1,1,a", "2,2,b", "3,3,c", "4,4,d")
     assertEquals(expected.sorted, sink.getAppendResults.sorted)
   }
 

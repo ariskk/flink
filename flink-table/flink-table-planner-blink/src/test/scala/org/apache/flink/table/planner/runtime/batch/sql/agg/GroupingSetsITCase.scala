@@ -27,7 +27,7 @@ import org.apache.flink.table.planner.utils.DateTimeTestUtil._
 
 import org.junit.{Before, Test}
 
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 
 class GroupingSetsITCase extends BatchTestBase {
 

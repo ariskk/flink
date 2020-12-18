@@ -54,7 +54,6 @@ import _root_.java.lang.{Iterable => JIterable, Long => JLong}
 import _root_.java.util.function.{Function => JFunction, Supplier => JSupplier}
 import _root_.java.util.{Optional, Collections => JCollections, HashMap => JHashMap, List => JList, Map => JMap}
 
-import _root_.scala.collection.JavaConversions._
 import _root_.scala.collection.JavaConverters._
 import _root_.scala.util.Try
 
@@ -301,7 +300,7 @@ abstract class TableEnvImpl(
 
   protected def parseIdentifier(identifier: String): UnresolvedIdentifier = {
     val parser = planningConfigurationBuilder.createCalciteParser()
-    UnresolvedIdentifier.of(parser.parseIdentifier(identifier).names: _*)
+    UnresolvedIdentifier.of(parser.parseIdentifier(identifier).names.asScala.toList: _*)
   }
 
   override def createTemporaryView(path: String, view: Table): Unit = {
@@ -434,7 +433,8 @@ abstract class TableEnvImpl(
 
   override def from(path: String): Table = {
     val parser = planningConfigurationBuilder.createCalciteParser()
-    val unresolvedIdentifier = UnresolvedIdentifier.of(parser.parseIdentifier(path).names: _*)
+    val unresolvedIdentifier = 
+      UnresolvedIdentifier.of(parser.parseIdentifier(path).names.asScala.toList: _*)
     scanInternal(unresolvedIdentifier) match {
       case Some(table) => createTable(table)
       case None => throw new TableException(s"Table '$unresolvedIdentifier' was not found.")
@@ -493,7 +493,8 @@ abstract class TableEnvImpl(
 
   override def dropTemporaryTable(path: String): Boolean = {
     val parser = planningConfigurationBuilder.createCalciteParser()
-    val unresolvedIdentifier = UnresolvedIdentifier.of(parser.parseIdentifier(path).names: _*)
+    val unresolvedIdentifier = 
+      UnresolvedIdentifier.of(parser.parseIdentifier(path).names.asScala.toList: _*)
     val identifier = catalogManager.qualifyIdentifier(unresolvedIdentifier)
     try {
       catalogManager.dropTemporaryTable(identifier, false)
@@ -505,7 +506,8 @@ abstract class TableEnvImpl(
 
   override def dropTemporaryView(path: String): Boolean = {
     val parser = planningConfigurationBuilder.createCalciteParser()
-    val unresolvedIdentifier = UnresolvedIdentifier.of(parser.parseIdentifier(path).names: _*)
+    val unresolvedIdentifier = 
+      UnresolvedIdentifier.of(parser.parseIdentifier(path).names.asScala.toList: _*)
     val identifier = catalogManager.qualifyIdentifier(unresolvedIdentifier)
     try {
       catalogManager.dropTemporaryView(identifier, false)
@@ -551,7 +553,7 @@ abstract class TableEnvImpl(
   override def createStatementSet = new StatementSetImpl(this)
 
   override def executeInternal(operations: JList[ModifyOperation]): TableResult = {
-    val dataSinks = operations.map {
+    val dataSinks = operations.asScala.map {
       case catalogSinkModifyOperation: CatalogSinkModifyOperation =>
         writeToSinkAndTranslate(
           catalogSinkModifyOperation.getChild,
@@ -563,13 +565,13 @@ abstract class TableEnvImpl(
         throw new TableException("Unsupported operation: " + o)
     }
 
-    val sinkIdentifierNames = extractSinkIdentifierNames(operations)
+    val sinkIdentifierNames = extractSinkIdentifierNames(operations).asJava
     val jobName = "insert-into_" + String.join(",", sinkIdentifierNames)
     try {
       val jobClient = execute(dataSinks, jobName)
       val builder = TableSchema.builder()
       val affectedRowCounts = new Array[JLong](operations.size())
-      operations.indices.foreach { idx =>
+      operations.asScale.indices.foreach { idx =>
         // use sink identifier name as field name
         builder.field(sinkIdentifierNames(idx), DataTypes.BIGINT())
         affectedRowCounts(idx) = -1L
@@ -812,6 +814,7 @@ abstract class TableEnvImpl(
     val fieldToWatermark =
       schema
         .getWatermarkSpecs
+        .asScala
         .map(w => (w.getRowtimeAttribute, w.getWatermarkExpr)).toMap
     val fieldToPrimaryKey = new JHashMap[String, String]()
     if (schema.getPrimaryKey.isPresent) {
@@ -845,7 +848,7 @@ abstract class TableEnvImpl(
       .resultKind(ResultKind.SUCCESS_WITH_CONTENT)
       .tableSchema(
         TableSchema.builder().fields(headers, types).build())
-      .data(rows.map(Row.of(_:_*)).toList)
+      .data(rows.map(Row.of(_:_*)).toList.asJava)
       .build()
   }
 

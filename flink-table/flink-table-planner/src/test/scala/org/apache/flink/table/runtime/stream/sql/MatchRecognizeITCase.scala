@@ -53,7 +53,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
 
   @Test
   def testSimplePattern(): Unit = {
-    val data = new mutable.MutableList[(Int, String)]
+    val data = new mutable.ListBuffer[(Int, String)]
     data.+=((1, "a"))
     data.+=((2, "z"))
     data.+=((3, "b"))
@@ -89,13 +89,13 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("6,7,8")
+    val expected = mutable.ListBuffer("6,7,8")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 
   @Test
   def testSimplePatternWithNulls(): Unit = {
-    val data = new mutable.MutableList[(Int, String, String)]
+    val data = new mutable.ListBuffer[(Int, String, String)]
     data.+=((1, "a", null))
     data.+=((2, "b", null))
     data.+=((3, "c", null))
@@ -132,7 +132,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("1,null,3,null", "6,null,8,null")
+    val expected = mutable.ListBuffer("1,null,3,null", "6,null,8,null")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 
@@ -144,7 +144,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     val tEnv = StreamTableEnvironment.create(env, settings)
     tEnv.getConfig.setMaxGeneratedCodeLength(1)
 
-    val data = new mutable.MutableList[(Int, String, String, String)]
+    val data = new mutable.ListBuffer[(Int, String, String, String)]
     data.+=((1, "a", "key1", "second_key3"))
     data.+=((2, "b", "key1", "second_key3"))
     data.+=((3, "c", "key1", "second_key3"))
@@ -184,7 +184,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList(
+    val expected = mutable.ListBuffer(
       "key1,second_key3,1,key1,2,3,second_key3",
       "key2,second_key4,6,key2,7,8,second_key4")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
@@ -245,7 +245,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("10,11,12")
+    val expected = mutable.ListBuffer("10,11,12")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 
@@ -257,7 +257,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     val settings = EnvironmentSettings.newInstance().useOldPlanner().build
     val tEnv = StreamTableEnvironment.create(env, settings)
 
-    val data = new mutable.MutableList[(String, Long, Int, Int)]
+    val data = new mutable.ListBuffer[(String, Long, Int, Int)]
     //first window
     data.+=(("ACME", Time.seconds(1).toMilliseconds, 1, 1))
     data.+=(("ACME", Time.seconds(2).toMilliseconds, 2, 2))
@@ -319,7 +319,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     val settings = EnvironmentSettings.newInstance().useOldPlanner().build
     val tEnv = StreamTableEnvironment.create(env, settings)
 
-    val data = new mutable.MutableList[(String, Long, Int, Int)]
+    val data = new mutable.ListBuffer[(String, Long, Int, Int)]
     //first window
     data.+=(("ACME", Time.seconds(1).toMilliseconds, 1, 1))
     data.+=(("ACME", Time.seconds(2).toMilliseconds, 2, 2))
@@ -369,7 +369,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
 
   @Test
   def testLogicalOffsets(): Unit = {
-    val data = new mutable.MutableList[(String, Long, Int, Int)]
+    val data = new mutable.ListBuffer[(String, Long, Int, Int)]
     data.+=(("ACME", 1L, 19, 1))
     data.+=(("ACME", 2L, 17, 2))
     data.+=(("ACME", 3L, 13, 3))
@@ -414,7 +414,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
 
   @Test
   def testLogicalOffsetsWithStarVariable(): Unit = {
-    val data = new mutable.MutableList[(Int, String, Long, Int)]
+    val data = new mutable.ListBuffer[(Int, String, Long, Int)]
     data.+=((1, "ACME", 1L, 20))
     data.+=((2, "ACME", 2L, 19))
     data.+=((3, "ACME", 3L, 18))
@@ -470,7 +470,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
 
   @Test
   def testLogicalOffsetOutsideOfRangeInMeasures(): Unit = {
-    val data = new mutable.MutableList[(String, Long, Int, Int)]
+    val data = new mutable.ListBuffer[(String, Long, Int, Int)]
     data.+=(("ACME", 1L, 19, 1))
     data.+=(("ACME", 2L, 17, 2))
     data.+=(("ACME", 3L, 13, 3))
@@ -523,7 +523,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     val tEnv = StreamTableEnvironment.create(env, settings)
     tEnv.getConfig.setMaxGeneratedCodeLength(1)
 
-    val data = new mutable.MutableList[(Int, String, Long, Double, Int)]
+    val data = new mutable.ListBuffer[(Int, String, Long, Double, Int)]
     data.+=((1, "a", 1, 0.8, 1))
     data.+=((2, "z", 2, 0.8, 3))
     data.+=((3, "b", 1, 0.8, 2))
@@ -573,7 +573,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("1,5,0,null,2,3,3.4,8", "9,4,0,null,3,4,3.2,12")
+    val expected = mutable.ListBuffer("1,5,0,null,2,3,3.4,8", "9,4,0,null,3,4,3.2,12")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 
@@ -585,7 +585,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     val tEnv = StreamTableEnvironment.create(env, settings)
     tEnv.getConfig.setMaxGeneratedCodeLength(1)
 
-    val data = new mutable.MutableList[Row]
+    val data = new mutable.ListBuffer[Row]
     data.+=(Row.of(Int.box(1), "a", Int.box(10)))
     data.+=(Row.of(Int.box(2), "z", Int.box(10)))
     data.+=(Row.of(Int.box(3), "b", null))
@@ -629,13 +629,13 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("29,7,5,8,6,8")
+    val expected = mutable.ListBuffer("29,7,5,8,6,8")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 
   @Test
   def testAccessingCurrentTime(): Unit = {
-    val data = new mutable.MutableList[(Int, String)]
+    val data = new mutable.ListBuffer[(Int, String)]
     data.+=((1, "a"))
 
     val t = env.fromCollection(data).toTable(tEnv,'id, 'name, 'proctime.proctime)
@@ -676,7 +676,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     val tEnv = StreamTableEnvironment.create(env, settings)
     tEnv.getConfig.setMaxGeneratedCodeLength(1)
 
-    val data = new mutable.MutableList[(Int, String, Long)]
+    val data = new mutable.ListBuffer[(Int, String, Long)]
     data.+=((1, "a", 1))
     data.+=((2, "a", 1))
     data.+=((3, "a", 1))
@@ -719,7 +719,7 @@ class MatchRecognizeITCase extends StreamingWithStateTestBase {
     result.addSink(new StreamITCase.StringSink[Row])
     env.execute()
 
-    val expected = mutable.MutableList("1,PREF:a,8,5", "7,PREF:a,6,9")
+    val expected = mutable.ListBuffer("1,PREF:a,8,5", "7,PREF:a,6,9")
     assertEquals(expected.sorted, StreamITCase.testResults.sorted)
   }
 }

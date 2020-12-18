@@ -27,7 +27,7 @@ import org.apache.flink.table.planner.plan.rules.physical.stream.StreamExecCorre
 import org.apache.flink.table.planner.plan.utils.PythonUtil.{containsPythonCall, isNonPythonCall}
 import org.apache.flink.table.planner.plan.utils.RexDefaultVisitor
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 /**

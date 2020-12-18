@@ -36,7 +36,7 @@ import org.apache.calcite.rex.{RexCall, RexInputRef, RexLiteral, RexNode}
 import org.apache.calcite.sql.`type`.SqlTypeName
 import org.apache.calcite.util.{BuiltInMethod, ImmutableNullableList, NlsString, Util}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * FlinkRelMdSize supplies a implementation of

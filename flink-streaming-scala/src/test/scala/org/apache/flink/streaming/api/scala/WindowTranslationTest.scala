@@ -1235,7 +1235,7 @@ class WindowTranslationTest {
       .window(TumblingEventTimeWindows.of(Time.seconds(1), Time.milliseconds(100)))
       .fold(
         ("", "", 1),
-        { (acc: (String, String, Int), _) => acc },
+        { (acc: (String, String, Int), _: (String, Int)) => acc },
         { (
             _: String,
             _: TimeWindow,
@@ -1444,7 +1444,7 @@ class WindowTranslationTest {
     val window1 = source
       .keyBy(_._1)
       .window(TumblingEventTimeWindows.of(Time.seconds(1), Time.milliseconds(100)))
-      .apply { (key, window, in, out: Collector[(String, Int)]) =>
+      .apply { (key: String, window: Window, in: Iterable[(String, Int)], out: Collector[(String, Int)]) =>
         in foreach { x => out.collect(x)}
       }
 

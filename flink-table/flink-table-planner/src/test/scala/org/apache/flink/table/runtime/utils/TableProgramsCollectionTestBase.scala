@@ -24,7 +24,7 @@ import org.apache.flink.table.runtime.utils.TableProgramsTestBase.TableConfigMod
 import org.apache.flink.test.util.MultipleProgramsTestBase.TestExecutionMode
 import org.junit.runners.Parameterized
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * This test base provides lightweight integration tests for batch programs. However, it does

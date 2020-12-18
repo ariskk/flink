@@ -30,7 +30,7 @@ import org.apache.calcite.util.ImmutableBitSet
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Sub-class of [[Rank]] that is a relational expression which returns

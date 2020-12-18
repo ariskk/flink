@@ -27,7 +27,7 @@ import org.apache.flink.table.plan.nodes.datastream.DataStreamGroupWindowTableAg
 import org.apache.flink.table.plan.nodes.logical.FlinkLogicalWindowTableAggregate
 import org.apache.flink.table.plan.schema.RowSchema
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class DataStreamGroupWindowTableAggregateRule
   extends ConverterRule(

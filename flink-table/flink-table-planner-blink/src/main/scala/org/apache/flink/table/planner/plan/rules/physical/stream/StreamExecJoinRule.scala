@@ -32,7 +32,7 @@ import org.apache.calcite.rel.RelNode
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Rule that converts [[FlinkLogicalJoin]] without window bounds in join condition

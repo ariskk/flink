@@ -34,7 +34,7 @@ import java.math.BigDecimal
 import java.time.{ZoneId, ZoneOffset}
 import java.util.{List => JList, Map => JMap}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 /**

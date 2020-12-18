@@ -28,7 +28,7 @@ import org.apache.calcite.rel.core.{Aggregate, Join, JoinRelType, Union}
 import org.apache.calcite.rel.metadata._
 import org.apache.calcite.util.{BuiltInMethod, Util}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * FlinkRelMdPercentageOriginalRows supplies a implementation of

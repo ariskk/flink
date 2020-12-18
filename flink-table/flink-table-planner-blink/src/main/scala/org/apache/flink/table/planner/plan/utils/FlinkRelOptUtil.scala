@@ -37,7 +37,7 @@ import java.math.BigDecimal
 import java.sql.{Date, Time, Timestamp}
 import java.util.Calendar
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 

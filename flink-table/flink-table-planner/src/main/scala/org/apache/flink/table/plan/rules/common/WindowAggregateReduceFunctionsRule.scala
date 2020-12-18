@@ -28,7 +28,7 @@ import org.apache.calcite.rex.RexNode
 import org.apache.calcite.tools.RelBuilder
 import org.apache.flink.table.plan.logical.rel.LogicalWindowAggregate
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Rule to convert complex aggregation functions into simpler ones.

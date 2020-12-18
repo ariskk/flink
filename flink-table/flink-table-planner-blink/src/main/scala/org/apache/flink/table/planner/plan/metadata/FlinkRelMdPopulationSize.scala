@@ -32,7 +32,7 @@ import org.apache.calcite.rex.{RexInputRef, RexLiteral}
 import org.apache.calcite.sql.SqlKind
 import org.apache.calcite.util.{BuiltInMethod, ImmutableBitSet, NumberUtil, Util}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * [[FlinkRelMdPopulationSize]] supplies a implementation of

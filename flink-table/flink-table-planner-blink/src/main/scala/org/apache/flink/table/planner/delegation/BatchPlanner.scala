@@ -40,7 +40,7 @@ import org.apache.calcite.sql.SqlExplainLevel
 
 import java.util
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 
 class BatchPlanner(
     executor: Executor,

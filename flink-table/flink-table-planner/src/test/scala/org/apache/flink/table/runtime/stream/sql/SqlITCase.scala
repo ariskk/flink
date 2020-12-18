@@ -275,7 +275,7 @@ class SqlITCase extends StreamingWithStateTestBase {
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     val tEnv = StreamTableEnvironment.create(env, settings)
 
-    val data = new mutable.MutableList[(Int, Long, String)]
+    val data = new mutable.ListBuffer[(Int, Long, String)]
     data.+=((1, 1L, "Hi"))
     data.+=((1, 1L, "Hi World"))
     data.+=((1, 1L, "Test"))
@@ -885,7 +885,7 @@ class SqlITCase extends StreamingWithStateTestBase {
       fieldNames += s"f$i"
     }
 
-    val data = new mutable.MutableList[Row]
+    val data = new mutable.ListBuffer[Row]
     data.+=(row)
     val t = env.fromCollection(data)(new RowTypeInfo(fieldTypes.toArray: _*)).toTable(tEnv)
     tEnv.registerTable("MyTable", t)

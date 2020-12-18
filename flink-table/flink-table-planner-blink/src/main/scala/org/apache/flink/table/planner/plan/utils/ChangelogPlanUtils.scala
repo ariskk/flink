@@ -25,7 +25,7 @@ import org.apache.flink.table.planner.plan.optimize.program.FlinkChangelogModeIn
 import org.apache.flink.types.RowKind
 import org.apache.calcite.rel.RelNode
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable.ArrayBuffer
 
 /**

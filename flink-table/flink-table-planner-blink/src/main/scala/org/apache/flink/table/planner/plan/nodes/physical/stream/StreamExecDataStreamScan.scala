@@ -44,7 +44,7 @@ import org.apache.calcite.rex.RexNode
 
 import java.util
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.JavaConverters._
 
 /**

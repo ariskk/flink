@@ -35,7 +35,7 @@ import org.apache.flink.table.types.utils.TypeConversions.fromDataTypeToLegacyIn
 import org.apache.flink.util.AbstractID
 import _root_.java.util.{UUID, ArrayList => JArrayList}
 
-import _root_.scala.collection.JavaConversions._
+import _root_.scala.collection.JavaConverters._
 import _root_.scala.collection.JavaConverters._
 import scala.reflect.ClassTag
 

@@ -35,7 +35,7 @@ import java.util
 import java.util.function.Supplier
 import java.util.{List => JList}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Sub-class of [[Window]] that is a relational expression

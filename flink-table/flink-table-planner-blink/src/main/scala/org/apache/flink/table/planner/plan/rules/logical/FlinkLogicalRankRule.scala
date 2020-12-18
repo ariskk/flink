@@ -30,7 +30,7 @@ import org.apache.calcite.rex.{RexInputRef, RexProgramBuilder, RexUtil}
 import org.apache.calcite.sql.fun.SqlStdOperatorTable
 import org.apache.calcite.sql.{SqlKind, SqlRankFunction}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Planner rule that matches a [[FlinkLogicalCalc]] on a [[FlinkLogicalOverAggregate]],

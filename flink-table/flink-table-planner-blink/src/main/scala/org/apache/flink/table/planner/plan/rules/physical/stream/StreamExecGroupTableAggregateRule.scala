@@ -26,7 +26,7 @@ import org.apache.flink.table.planner.plan.nodes.FlinkConventions
 import org.apache.flink.table.planner.plan.nodes.logical.FlinkLogicalTableAggregate
 import org.apache.flink.table.planner.plan.nodes.physical.stream.StreamExecGroupTableAggregate
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 class StreamExecGroupTableAggregateRule extends ConverterRule(
     classOf[FlinkLogicalTableAggregate],
