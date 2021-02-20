@@ -20,6 +20,8 @@ package org.apache.flink.streaming.api.scala
 
 import org.apache.flink.annotation.{Internal, Public, PublicEvolving}
 import org.apache.flink.api.common.typeinfo.TypeInformation
+import org.apache.flink.api.common.typeutils.TypeSerializer
+import org.apache.flink.api.common.state.ValueStateDescriptor
 import org.apache.flink.api.java.functions.KeySelector
 import org.apache.flink.streaming.api.datastream.{ConnectedStreams => JavaCStream, DataStream => JavaStream}
 import org.apache.flink.streaming.api.functions.co._
@@ -233,6 +235,86 @@ class ConnectedStreams[IN1, IN2](javaStream: JavaCStream[IN1, IN2]) {
     
     flatMap(flatMapper)
   }
+
+  /**
+   * Applies a stateful CoMap transformation on these connected streams.
+   *
+   * The transformation consists of two separate stateful functions, where
+   * the first one is called for each element of the first connected stream,
+   * and the second one is called for each element of the second connected stream.
+   * They output a result of type R, and an updated state S.
+   *
+   * To use state partitioning, a key must be defined using .keyBy(..) for each
+   * of the two streams, in which case an independent state will be kept per key.
+   *
+   * Note that the user state object needs to be serializable.
+   *
+   * @param fun1 Function called per element of the first input.
+   * @param fun2 Function called per element of the second input.
+   * @param emptyState object to use when state is absent
+   * @return The resulting data stream.
+   */
+  def coMapWithState[R: TypeInformation, S: TypeInformation](
+    fun1: (IN1, S) => (R, S),
+    fun2: (IN2, S) => (R, S),
+    emptyState: S
+  ): DataStream[R] = {
+    if (fun1 == null || fun2 == null) {
+      throw new NullPointerException("Map functions must not be null.")
+    }
+
+    if(emptyState == null) {
+      throw new NullPointerException("emptyState must not be null.")
+    }
+
+    val cleanF1 = clean(fun1)
+    val cleanF2 = clean(fun2)
+
+    map(
+      new RichCoMapFunction[IN1, IN2, R] {
+        lazy val stateTypeInfo: TypeInformation[S] = implicitly[TypeInformation[S]]
+        lazy val serializer: TypeSerializer[S] =
+          stateTypeInfo.createSerializer(getRuntimeContext.getExecutionConfig)
+        lazy val stateDescriptor = new ValueStateDescriptor[S]("state", serializer)
+
+        def map[I](in: I, f: (I, S) => (R, S)): R = {
+          val state = getRuntimeContext.getState(stateDescriptor)
+          val (o, newState) = f(in, Option(state.value).getOrElse(emptyState))
+          state.update(newState)
+          o
+        }
+
+        override def map1(in: IN1): R = map[IN1](in, cleanF1)
+
+        override def map2(in: IN2): R = map[IN2](in, cleanF2)
+      }
+    )
+  }
+
+  /**
+   * Applies a stateful CoFlatMap transformation on these connected streams.
+   *
+   * The transformation consists of two separate stateful functions, where
+   * the first one is called for each element of the first connected stream,
+   * and the second one is called for each element of the second connected stream.
+   * They output a results of type Traversable[R], and update the state S.
+   *
+   * To use state partitioning, a key must be defined using .keyBy(..) for each
+   * of the two streams, in which case an independent state will be kept per key.
+   *
+   * Note that the user state object needs to be serializable.
+   *
+   * @param fun1 Function called per element of the first input.
+   * @param fun2 Function called per element of the second input.
+   * @param emptyState object to use when state is absent.
+   * @return The resulting data stream.
+   */
+  def coFlatMapWithState[R: TypeInformation, S: TypeInformation](
+    fun1: (IN1, S) => (Traversable[R], S),
+    fun2: (IN2, S) => (Traversable[R], S),
+    emptyState: S
+  ): DataStream[R] = coMapWithState(fun1, fun2, emptyState).flatMap(identity(_))
+
 
   // ------------------------------------------------------
   //  grouping and partitioning
